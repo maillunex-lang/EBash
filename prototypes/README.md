@@ -6,7 +6,7 @@ GDD временно приостановлен по просьбе владел
 
 ## Состав
 
-- Godot: `godot/project.godot`, версия 4.6.3.
+- Godot: `godot/project.godot`. Целевая версия — 4.7.2 (D-094); проверки ниже выполнены на 4.6.3.
 - Unity Personal: `unity/`, проект под 2022.3.62f1; требуется редактор с Android Build Support и активацией Personal.
 
 Одинаковый базовый сценарий: условный город из 49 зданий, фиксированная ортографическая камера, перемещение/масштаб, обзор городов, режим компании, сетка 3×3, выбор ячейки, демонстрационная связь, смена продукта, локальный тик и переключение 30/60 FPS.
@@ -15,7 +15,7 @@ GDD временно приостановлен по просьбе владел
 
 ## Сборка
 
-Godot: установить Android export templates 4.6.3, JDK и Android SDK, настроить пути в Editor Settings и debug keystore. Из корня: `godot --headless --path prototypes/godot --export-debug Android /путь/ebash-godot.apk`.
+Godot: установить Godot 4.7.2 и Android export templates 4.7.2, JDK и Android SDK, настроить пути в Editor Settings и debug keystore. Из корня: `godot --headless --path prototypes/godot --export-debug Android /путь/ebash-godot.apk`.
 
 Unity: активировать Personal в Unity Hub, установить редактор с Android Build Support (SDK/NDK/OpenJDK). Открыть `prototypes/unity` или выполнить `Unity -batchmode -quit -projectPath /путь/prototypes/unity -executeMethod BuildPrototype.BuildAndroid -logFile /путь/unity-build.log`. Для выходного APK можно задать переменную `EBASH_APK_PATH`. Ключи подписи не хранить в репозитории.
 

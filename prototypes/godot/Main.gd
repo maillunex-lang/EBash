@@ -7,6 +7,9 @@ var status: Label
 var fps: Label
 var mode := false
 var dragging := false
+var touches: Dictionary = {}
+var pinch_distance := 0.0
+var touch_moved := false
 var last := Vector2.ZERO
 var moved := false
 var buildings: Array[Node3D] = []
@@ -14,7 +17,10 @@ var selected := 0
 var cash := 250000
 var tick := 0
 var linked := -1
-var roles := ["Молоко", "Бутылки", "Крышки", "Розлив", "Розлив", "Коктейль", "Продажа", "Продажа", "Продажа"]
+var roles := [
+ "Молоко", "Бутылки", "Крышки", "Розлив", "Розлив",
+ "Коктейль", "Продажа", "Продажа", "Продажа"
+]
 
 func box(parent: Node3D, pos: Vector3, size: Vector3, color: Color) -> MeshInstance3D:
  var m := MeshInstance3D.new()
@@ -91,6 +97,7 @@ func make_ui() -> void:
  add_child(layer)
  canvas = Control.new()
  canvas.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+ canvas.resized.connect(_layout_panel)
  canvas.mouse_filter = Control.MOUSE_FILTER_IGNORE
  layer.add_child(canvas)
  var top := PanelContainer.new()
@@ -121,13 +128,21 @@ func make_ui() -> void:
  label("  ПРОТОТИП • Локальные демоданные • Перетаскивайте карту / щипок для масштаба",note,18)
  panel = PanelContainer.new()
  panel.set_anchors_and_offsets_preset(Control.PRESET_CENTER)
- panel.offset_left=-360
- panel.offset_right=440
- panel.offset_top=-240
- panel.offset_bottom=270
+ _layout_panel()
  canvas.add_child(panel)
  panel.hide()
  advance_status()
+
+func _layout_panel() -> void:
+ if panel == null or canvas == null:
+  return
+ var usable := canvas.size
+ var width := minf(800.0, maxf(240.0, usable.x - 32.0))
+ var height := minf(510.0, maxf(180.0, usable.y - 112.0))
+ panel.offset_left = -width / 2.0
+ panel.offset_right = width / 2.0
+ panel.offset_top = -height / 2.0
+ panel.offset_bottom = height / 2.0
 
 func clear_panel() -> VBoxContainer:
  for child in panel.get_children():
@@ -144,7 +159,10 @@ func show_republic() -> void:
  label("РЕСПУБЛИКА БАШКОРТОСТАН",v,28)
  label("Навигация по городам • условная обзорная схема",v)
  for name in ["Уфа", "Стерлитамак", "Салават", "Нефтекамск"]:
-  button(name,func(): city.visible=true; panel.hide(); status.text="  "+name+" • демонстрационная сцена",v)
+  button(name, func():
+   city.visible = true
+   panel.hide()
+   status.text = "  " + name + " • демонстрационная сцена", v)
  label("В прототипе города используют одну тестовую сцену.",v,16)
  button("Закрыть",func(): panel.hide();city.visible=true,v)
 
@@ -156,7 +174,9 @@ func toggle_mode() -> void:
   return
  var v := clear_panel()
  label("КОМПАНИЯ / ОБЗОР",v,28)
- label("Баланс: %s ₽\nПредприятий: 1\nМолочный завод • загрузка 72%%\nПоследний демотик: %s" % [cash,tick],v)
+ var overview := "Баланс: %s ₽\nПредприятий: 1\n" % cash
+ overview += "Молочный завод • загрузка 72%%\nПоследний демотик: %s" % tick
+ label(overview, v)
  button("Управлять заводом",show_factory,v)
  button("Назад к карте",toggle_mode,v)
 
@@ -174,8 +194,12 @@ func show_factory() -> void:
   button("%s\n%s" % [i+1,roles[i]],func(): select_cell(index),grid)
  var details := VBoxContainer.new()
  row.add_child(details)
- label("  Выбрана ячейка %s\n  %s\n  Качество: 38 / 100\n  Загрузка: 72%%" % [selected+1,roles[selected]],details)
- button("Сменить продукт",func(): roles[selected]="Коктейль" if roles[selected]!="Коктейль" else "Розлив";show_factory(),details)
+ var cell_info := "  Выбрана ячейка %s\n  %s\n" % [selected + 1, roles[selected]]
+ cell_info += "  Качество: 38 / 100\n  Загрузка: 72%%"
+ label(cell_info, details)
+ button("Сменить продукт", func():
+  roles[selected] = "Коктейль" if roles[selected] != "Коктейль" else "Розлив"
+  show_factory(), details)
  button("Начать связь",func(): linked=selected;status.text="  Выберите ячейку-получатель",details)
  button("Модернизация −5000 ₽",func():
   if cash>=5000:
@@ -203,7 +227,31 @@ func _process(_delta: float) -> void:
  fps.text=" %s FPS " % Engine.get_frames_per_second()
 
 func _unhandled_input(event: InputEvent) -> void:
- if event is InputEventMagnifyGesture:
+ if event is InputEventScreenTouch:
+  if event.pressed:
+   touches[event.index] = event.position
+   if touches.size() == 1:
+    touch_moved = false
+  else:
+   if touches.size() == 1 and not touch_moved and city.visible:
+    show_factory()
+   touches.erase(event.index)
+  pinch_distance = _touch_distance() if touches.size() == 2 else 0.0
+ elif event is InputEventScreenDrag:
+  if not touches.has(event.index):
+   return
+  var previous: Vector2 = touches[event.index]
+  touches[event.index] = event.position
+  if event.position.distance_to(previous) > 2.0:
+   touch_moved = true
+  if touches.size() == 2:
+   var distance := _touch_distance()
+   if pinch_distance > 0.0 and distance > 0.0:
+    camera.size = clampf(camera.size * pinch_distance / distance, 22.0, 110.0)
+   pinch_distance = distance
+  elif touches.size() == 1:
+   _pan_camera(event.position - previous)
+ elif event is InputEventMagnifyGesture:
   camera.size=clampf(camera.size/event.factor,22,110)
  elif event is InputEventMouseButton:
   if event.button_index==MOUSE_BUTTON_WHEEL_UP:
@@ -221,4 +269,13 @@ func _unhandled_input(event: InputEvent) -> void:
   var d: Vector2=event.position-last
   last=event.position
   moved=moved or d.length()>3
-  camera.position += Vector3(-d.x-d.y,0,d.x-d.y)*camera.size/900.0
+  _pan_camera(d)
+
+func _touch_distance() -> float:
+ var ids := touches.keys()
+ if ids.size() != 2:
+  return 0.0
+ return (touches[ids[0]] as Vector2).distance_to(touches[ids[1]])
+
+func _pan_camera(delta: Vector2) -> void:
+ camera.position += Vector3(-delta.x - delta.y, 0, delta.x - delta.y) * camera.size / 900.0

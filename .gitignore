@@ -1,0 +1,10 @@
+# Generated editor data and Android binaries
+**/.godot/
+**/Library/
+**/Temp/
+**/Logs/
+**/obj/
+**/Build/
+*.apk
+*.aab
+*.keystore

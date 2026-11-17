@@ -33,4 +33,6 @@
 
 - `ebash-task` — взять и выполнить задачу из очереди.
 - `ebash-decision` — записать решение владельца в реестр и GDD.
-- `ebash-prototype` — собрать и проверить прототипы.
+- `ebash-godot` — клиентский код на Godot.
+- `ebash-android-build` — сборка APK и проверка на телефоне.
+- `ebash-prototype` — общие правила `prototypes/`, судьба Unity.

@@ -15,7 +15,7 @@
 | `docs/decisions/` | Реестр утверждённых решений (D-NNN) |
 | `docs/gdd/` | Профильные разделы GDD: правила и помеченные предложения |
 | `docs/tasks/` | Очередь и файлы задач (DES-NNN) |
-| `prototypes/` | Сравнительные прототипы Godot/Unity, см. их README |
+| `prototypes/` | Прототипы; выбран Godot (`prototypes/godot`), Unity — только для истории |
 | `.agents/skills/` | Навыки-инструкции для типовых операций (также `.claude/skills`) |
 | `scripts/check_docs.py` | Проверка ссылок, ID решений и графа задач |
 

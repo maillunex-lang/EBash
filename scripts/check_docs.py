@@ -65,6 +65,10 @@ for id, text in tasks.items():
     for section in ('Цель', 'Читать', 'Зависимости', 'Объём', 'Приёмка', 'Проверка', 'Результат'):
         if f'## {section}\n' not in text:
             errors.append(f'{id}: missing section {section}')
+    goal = text.split('## Цель\n', 1)[-1].split('\n## ', 1)[0].strip()
+    scope = text.split('## Объём\n', 1)[-1].split('\n## ', 1)[0]
+    if goal and goal in scope:
+        errors.append(f'{id}: section Объём repeats Цель')
     match = re.search(r'^Статус: (.+)\.$', text, re.M)
     row = next((r for r in index.splitlines() if r.startswith(f'| [{id}]')), '')
     if not match or match[1] not in row:

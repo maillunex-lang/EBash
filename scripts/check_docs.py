@@ -1,10 +1,11 @@
 """Validate this repository's inline Markdown links, decisions and design task graph."""
 from pathlib import Path
+import os
 import re
 import sys
 from urllib.parse import unquote, urlsplit
 
-ROOT = Path(__file__).resolve().parents[1]
+ROOT = Path(os.environ.get('EBASH_DOC_ROOT', Path(__file__).resolve().parents[1])).resolve()
 errors = []
 files = sorted(ROOT.rglob('*.md'))
 files = [p for p in files if '.git' not in p.relative_to(ROOT).parts]
@@ -39,6 +40,8 @@ registry = texts[ROOT / 'docs/decisions/001-foundation.md']
 ids = re.findall(r'^\| (D-\d{3}) \|', registry, re.M)
 if len(ids) != len(set(ids)):
     errors.append('Duplicate decision IDs')
+if ids != [f'D-{i:03d}' for i in range(1, len(ids) + 1)]:
+    errors.append('Decision IDs are not continuous and in ascending order')
 for p, text in texts.items():
     for id in re.findall(r'\bD-\d{3}\b', text):
         if id not in ids:
@@ -80,6 +83,12 @@ for id, text in tasks.items():
     for dep in graph[id]:
         if dep not in tasks:
             errors.append(f'{id}: missing dependency {dep}')
+    if match:
+        resolved = all(re.search(r'^Статус: выполнена\.$', tasks.get(dep, ''), re.M) for dep in graph[id])
+        if match[1] == 'заблокирована' and resolved:
+            errors.append(f'{id}: blocked despite all dependencies completed')
+        if match[1] != 'заблокирована' and not resolved:
+            errors.append(f'{id}: open task has unfinished dependencies')
 
 def walk(id, path):
     if id in path:

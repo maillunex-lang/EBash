@@ -1,0 +1,3504 @@
+{
+  "schema_version": 1,
+  "scope": "DES-004 draft, not production recipe balances",
+  "recipes": [
+    {
+      "id": "R-WHEAT-GRAIN",
+      "version": 1,
+      "family": "grain",
+      "inputs": [
+        {
+          "good_id": "wheat_field",
+          "quantity": null,
+          "unit": null,
+          "input_kind": "site"
+        }
+      ],
+      "outputs": [
+        {
+          "good_id": "wheat_grain",
+          "quantity": null,
+          "unit": null
+        }
+      ],
+      "min_batch": null,
+      "equipment_profile": null,
+      "energy_profile": null,
+      "workforce_profile": null,
+      "quality_profile": null,
+      "source_status": "requires_verification",
+      "status": "draft_not_executable",
+      "schema_warning": "Input kinds are proposed metadata only; site and utility must be migrated to proper contracts before execution."
+    },
+    {
+      "id": "R-WHEAT-FLOUR",
+      "version": 1,
+      "family": "grain",
+      "inputs": [
+        {
+          "good_id": "wheat_grain",
+          "quantity": null,
+          "unit": null,
+          "input_kind": "produced_good"
+        }
+      ],
+      "outputs": [
+        {
+          "good_id": "wheat_flour",
+          "quantity": null,
+          "unit": null
+        }
+      ],
+      "min_batch": null,
+      "equipment_profile": null,
+      "energy_profile": null,
+      "workforce_profile": null,
+      "quality_profile": null,
+      "source_status": "requires_verification",
+      "status": "draft_not_executable",
+      "schema_warning": "Input kinds are proposed metadata only; site and utility must be migrated to proper contracts before execution."
+    },
+    {
+      "id": "R-BREAD-DOUGH",
+      "version": 1,
+      "family": "grain",
+      "inputs": [
+        {
+          "good_id": "wheat_flour",
+          "quantity": null,
+          "unit": null,
+          "input_kind": "produced_good"
+        },
+        {
+          "good_id": "water",
+          "quantity": null,
+          "unit": null,
+          "input_kind": "external_good"
+        },
+        {
+          "good_id": "yeast",
+          "quantity": null,
+          "unit": null,
+          "input_kind": "external_good"
+        }
+      ],
+      "outputs": [
+        {
+          "good_id": "bread_dough",
+          "quantity": null,
+          "unit": null
+        }
+      ],
+      "min_batch": null,
+      "equipment_profile": null,
+      "energy_profile": null,
+      "workforce_profile": null,
+      "quality_profile": null,
+      "source_status": "requires_verification",
+      "status": "draft_not_executable",
+      "schema_warning": "Input kinds are proposed metadata only; site and utility must be migrated to proper contracts before execution."
+    },
+    {
+      "id": "R-BREAD-LOAF",
+      "version": 1,
+      "family": "grain",
+      "inputs": [
+        {
+          "good_id": "bread_dough",
+          "quantity": null,
+          "unit": null,
+          "input_kind": "produced_good"
+        },
+        {
+          "good_id": "energy",
+          "quantity": null,
+          "unit": null,
+          "input_kind": "utility"
+        }
+      ],
+      "outputs": [
+        {
+          "good_id": "bread_loaf",
+          "quantity": null,
+          "unit": null
+        }
+      ],
+      "min_batch": null,
+      "equipment_profile": null,
+      "energy_profile": null,
+      "workforce_profile": null,
+      "quality_profile": null,
+      "source_status": "requires_verification",
+      "status": "draft_not_executable",
+      "schema_warning": "Input kinds are proposed metadata only; site and utility must be migrated to proper contracts before execution."
+    },
+    {
+      "id": "R-BREAD-PACK",
+      "version": 1,
+      "family": "grain",
+      "inputs": [
+        {
+          "good_id": "bread_loaf",
+          "quantity": null,
+          "unit": null,
+          "input_kind": "produced_good"
+        },
+        {
+          "good_id": "paper_pack",
+          "quantity": null,
+          "unit": null,
+          "input_kind": "produced_good"
+        }
+      ],
+      "outputs": [
+        {
+          "good_id": "bread_pack",
+          "quantity": null,
+          "unit": null
+        }
+      ],
+      "min_batch": null,
+      "equipment_profile": null,
+      "energy_profile": null,
+      "workforce_profile": null,
+      "quality_profile": null,
+      "source_status": "requires_verification",
+      "status": "draft_not_executable",
+      "schema_warning": "Input kinds are proposed metadata only; site and utility must be migrated to proper contracts before execution."
+    },
+    {
+      "id": "R-BARLEY-GRAIN",
+      "version": 1,
+      "family": "grain",
+      "inputs": [
+        {
+          "good_id": "barley_field",
+          "quantity": null,
+          "unit": null,
+          "input_kind": "site"
+        }
+      ],
+      "outputs": [
+        {
+          "good_id": "barley_grain",
+          "quantity": null,
+          "unit": null
+        }
+      ],
+      "min_batch": null,
+      "equipment_profile": null,
+      "energy_profile": null,
+      "workforce_profile": null,
+      "quality_profile": null,
+      "source_status": "requires_verification",
+      "status": "draft_not_executable",
+      "schema_warning": "Input kinds are proposed metadata only; site and utility must be migrated to proper contracts before execution."
+    },
+    {
+      "id": "R-BARLEY-FLOUR",
+      "version": 1,
+      "family": "grain",
+      "inputs": [
+        {
+          "good_id": "barley_grain",
+          "quantity": null,
+          "unit": null,
+          "input_kind": "produced_good"
+        }
+      ],
+      "outputs": [
+        {
+          "good_id": "barley_flour",
+          "quantity": null,
+          "unit": null
+        }
+      ],
+      "min_batch": null,
+      "equipment_profile": null,
+      "energy_profile": null,
+      "workforce_profile": null,
+      "quality_profile": null,
+      "source_status": "requires_verification",
+      "status": "draft_not_executable",
+      "schema_warning": "Input kinds are proposed metadata only; site and utility must be migrated to proper contracts before execution."
+    },
+    {
+      "id": "R-RAW-MILK",
+      "version": 1,
+      "family": "dairy",
+      "inputs": [
+        {
+          "good_id": "dairy_farm",
+          "quantity": null,
+          "unit": null,
+          "input_kind": "site"
+        }
+      ],
+      "outputs": [
+        {
+          "good_id": "raw_milk",
+          "quantity": null,
+          "unit": null
+        }
+      ],
+      "min_batch": null,
+      "equipment_profile": null,
+      "energy_profile": null,
+      "workforce_profile": null,
+      "quality_profile": null,
+      "source_status": "requires_verification",
+      "status": "draft_not_executable",
+      "schema_warning": "Input kinds are proposed metadata only; site and utility must be migrated to proper contracts before execution."
+    },
+    {
+      "id": "R-PASTEURIZED-MILK",
+      "version": 1,
+      "family": "dairy",
+      "inputs": [
+        {
+          "good_id": "raw_milk",
+          "quantity": null,
+          "unit": null,
+          "input_kind": "produced_good"
+        },
+        {
+          "good_id": "energy",
+          "quantity": null,
+          "unit": null,
+          "input_kind": "utility"
+        }
+      ],
+      "outputs": [
+        {
+          "good_id": "pasteurized_milk",
+          "quantity": null,
+          "unit": null
+        }
+      ],
+      "min_batch": null,
+      "equipment_profile": null,
+      "energy_profile": null,
+      "workforce_profile": null,
+      "quality_profile": null,
+      "source_status": "requires_verification",
+      "status": "draft_not_executable",
+      "schema_warning": "Input kinds are proposed metadata only; site and utility must be migrated to proper contracts before execution."
+    },
+    {
+      "id": "R-MILK-BOTTLE",
+      "version": 1,
+      "family": "dairy",
+      "inputs": [
+        {
+          "good_id": "pasteurized_milk",
+          "quantity": null,
+          "unit": null,
+          "input_kind": "produced_good"
+        },
+        {
+          "good_id": "glass_bottle",
+          "quantity": null,
+          "unit": null,
+          "input_kind": "produced_good"
+        },
+        {
+          "good_id": "bottle_cap",
+          "quantity": null,
+          "unit": null,
+          "input_kind": "produced_good"
+        }
+      ],
+      "outputs": [
+        {
+          "good_id": "milk_bottle",
+          "quantity": null,
+          "unit": null
+        }
+      ],
+      "min_batch": null,
+      "equipment_profile": null,
+      "energy_profile": null,
+      "workforce_profile": null,
+      "quality_profile": null,
+      "source_status": "requires_verification",
+      "status": "draft_not_executable",
+      "schema_warning": "Input kinds are proposed metadata only; site and utility must be migrated to proper contracts before execution."
+    },
+    {
+      "id": "R-CREAM",
+      "version": 1,
+      "family": "dairy",
+      "inputs": [
+        {
+          "good_id": "raw_milk",
+          "quantity": null,
+          "unit": null,
+          "input_kind": "produced_good"
+        }
+      ],
+      "outputs": [
+        {
+          "good_id": "cream",
+          "quantity": null,
+          "unit": null
+        }
+      ],
+      "min_batch": null,
+      "equipment_profile": null,
+      "energy_profile": null,
+      "workforce_profile": null,
+      "quality_profile": null,
+      "source_status": "requires_verification",
+      "status": "draft_not_executable",
+      "schema_warning": "Input kinds are proposed metadata only; site and utility must be migrated to proper contracts before execution."
+    },
+    {
+      "id": "R-BUTTER",
+      "version": 1,
+      "family": "dairy",
+      "inputs": [
+        {
+          "good_id": "cream",
+          "quantity": null,
+          "unit": null,
+          "input_kind": "produced_good"
+        },
+        {
+          "good_id": "energy",
+          "quantity": null,
+          "unit": null,
+          "input_kind": "utility"
+        }
+      ],
+      "outputs": [
+        {
+          "good_id": "butter",
+          "quantity": null,
+          "unit": null
+        }
+      ],
+      "min_batch": null,
+      "equipment_profile": null,
+      "energy_profile": null,
+      "workforce_profile": null,
+      "quality_profile": null,
+      "source_status": "requires_verification",
+      "status": "draft_not_executable",
+      "schema_warning": "Input kinds are proposed metadata only; site and utility must be migrated to proper contracts before execution."
+    },
+    {
+      "id": "R-COCOA-DRINK",
+      "version": 1,
+      "family": "dairy",
+      "inputs": [
+        {
+          "good_id": "pasteurized_milk",
+          "quantity": null,
+          "unit": null,
+          "input_kind": "produced_good"
+        },
+        {
+          "good_id": "cocoa_powder",
+          "quantity": null,
+          "unit": null,
+          "input_kind": "external_good"
+        }
+      ],
+      "outputs": [
+        {
+          "good_id": "cocoa_drink",
+          "quantity": null,
+          "unit": null
+        }
+      ],
+      "min_batch": null,
+      "equipment_profile": null,
+      "energy_profile": null,
+      "workforce_profile": null,
+      "quality_profile": null,
+      "source_status": "requires_verification",
+      "status": "draft_not_executable",
+      "schema_warning": "Input kinds are proposed metadata only; site and utility must be migrated to proper contracts before execution."
+    },
+    {
+      "id": "R-COCOA-DRINK-BOTTLE",
+      "version": 1,
+      "family": "dairy",
+      "inputs": [
+        {
+          "good_id": "cocoa_drink",
+          "quantity": null,
+          "unit": null,
+          "input_kind": "produced_good"
+        },
+        {
+          "good_id": "glass_bottle",
+          "quantity": null,
+          "unit": null,
+          "input_kind": "produced_good"
+        },
+        {
+          "good_id": "bottle_cap",
+          "quantity": null,
+          "unit": null,
+          "input_kind": "produced_good"
+        }
+      ],
+      "outputs": [
+        {
+          "good_id": "cocoa_drink_bottle",
+          "quantity": null,
+          "unit": null
+        }
+      ],
+      "min_batch": null,
+      "equipment_profile": null,
+      "energy_profile": null,
+      "workforce_profile": null,
+      "quality_profile": null,
+      "source_status": "requires_verification",
+      "status": "draft_not_executable",
+      "schema_warning": "Input kinds are proposed metadata only; site and utility must be migrated to proper contracts before execution."
+    },
+    {
+      "id": "R-QUARTZ-SAND",
+      "version": 1,
+      "family": "glass",
+      "inputs": [
+        {
+          "good_id": "sand_deposit",
+          "quantity": null,
+          "unit": null,
+          "input_kind": "site"
+        }
+      ],
+      "outputs": [
+        {
+          "good_id": "quartz_sand",
+          "quantity": null,
+          "unit": null
+        }
+      ],
+      "min_batch": null,
+      "equipment_profile": null,
+      "energy_profile": null,
+      "workforce_profile": null,
+      "quality_profile": null,
+      "source_status": "requires_verification",
+      "status": "draft_not_executable",
+      "schema_warning": "Input kinds are proposed metadata only; site and utility must be migrated to proper contracts before execution."
+    },
+    {
+      "id": "R-LIMESTONE",
+      "version": 1,
+      "family": "glass",
+      "inputs": [
+        {
+          "good_id": "limestone_deposit",
+          "quantity": null,
+          "unit": null,
+          "input_kind": "site"
+        }
+      ],
+      "outputs": [
+        {
+          "good_id": "limestone",
+          "quantity": null,
+          "unit": null
+        }
+      ],
+      "min_batch": null,
+      "equipment_profile": null,
+      "energy_profile": null,
+      "workforce_profile": null,
+      "quality_profile": null,
+      "source_status": "requires_verification",
+      "status": "draft_not_executable",
+      "schema_warning": "Input kinds are proposed metadata only; site and utility must be migrated to proper contracts before execution."
+    },
+    {
+      "id": "R-SODA-ASH",
+      "version": 1,
+      "family": "glass",
+      "inputs": [
+        {
+          "good_id": "soda_ash_supply",
+          "quantity": null,
+          "unit": null,
+          "input_kind": "external_good"
+        }
+      ],
+      "outputs": [
+        {
+          "good_id": "soda_ash",
+          "quantity": null,
+          "unit": null
+        }
+      ],
+      "min_batch": null,
+      "equipment_profile": null,
+      "energy_profile": null,
+      "workforce_profile": null,
+      "quality_profile": null,
+      "source_status": "requires_verification",
+      "status": "draft_not_executable",
+      "schema_warning": "Input kinds are proposed metadata only; site and utility must be migrated to proper contracts before execution."
+    },
+    {
+      "id": "R-GLASS-MELT",
+      "version": 1,
+      "family": "glass",
+      "inputs": [
+        {
+          "good_id": "quartz_sand",
+          "quantity": null,
+          "unit": null,
+          "input_kind": "produced_good"
+        },
+        {
+          "good_id": "limestone",
+          "quantity": null,
+          "unit": null,
+          "input_kind": "produced_good"
+        },
+        {
+          "good_id": "soda_ash",
+          "quantity": null,
+          "unit": null,
+          "input_kind": "produced_good"
+        },
+        {
+          "good_id": "energy",
+          "quantity": null,
+          "unit": null,
+          "input_kind": "utility"
+        }
+      ],
+      "outputs": [
+        {
+          "good_id": "glass_melt",
+          "quantity": null,
+          "unit": null
+        }
+      ],
+      "min_batch": null,
+      "equipment_profile": null,
+      "energy_profile": null,
+      "workforce_profile": null,
+      "quality_profile": null,
+      "source_status": "requires_verification",
+      "status": "draft_not_executable",
+      "schema_warning": "Input kinds are proposed metadata only; site and utility must be migrated to proper contracts before execution."
+    },
+    {
+      "id": "R-GLASS-BOTTLE",
+      "version": 1,
+      "family": "glass",
+      "inputs": [
+        {
+          "good_id": "glass_melt",
+          "quantity": null,
+          "unit": null,
+          "input_kind": "produced_good"
+        }
+      ],
+      "outputs": [
+        {
+          "good_id": "glass_bottle",
+          "quantity": null,
+          "unit": null
+        }
+      ],
+      "min_batch": null,
+      "equipment_profile": null,
+      "energy_profile": null,
+      "workforce_profile": null,
+      "quality_profile": null,
+      "source_status": "requires_verification",
+      "status": "draft_not_executable",
+      "schema_warning": "Input kinds are proposed metadata only; site and utility must be migrated to proper contracts before execution."
+    },
+    {
+      "id": "R-GLASS-JAR",
+      "version": 1,
+      "family": "glass",
+      "inputs": [
+        {
+          "good_id": "glass_melt",
+          "quantity": null,
+          "unit": null,
+          "input_kind": "produced_good"
+        }
+      ],
+      "outputs": [
+        {
+          "good_id": "glass_jar",
+          "quantity": null,
+          "unit": null
+        }
+      ],
+      "min_batch": null,
+      "equipment_profile": null,
+      "energy_profile": null,
+      "workforce_profile": null,
+      "quality_profile": null,
+      "source_status": "requires_verification",
+      "status": "draft_not_executable",
+      "schema_warning": "Input kinds are proposed metadata only; site and utility must be migrated to proper contracts before execution."
+    },
+    {
+      "id": "R-LOGS",
+      "version": 1,
+      "family": "wood",
+      "inputs": [
+        {
+          "good_id": "forest",
+          "quantity": null,
+          "unit": null,
+          "input_kind": "site"
+        }
+      ],
+      "outputs": [
+        {
+          "good_id": "logs",
+          "quantity": null,
+          "unit": null
+        }
+      ],
+      "min_batch": null,
+      "equipment_profile": null,
+      "energy_profile": null,
+      "workforce_profile": null,
+      "quality_profile": null,
+      "source_status": "requires_verification",
+      "status": "draft_not_executable",
+      "schema_warning": "Input kinds are proposed metadata only; site and utility must be migrated to proper contracts before execution."
+    },
+    {
+      "id": "R-SAWN-TIMBER",
+      "version": 1,
+      "family": "wood",
+      "inputs": [
+        {
+          "good_id": "logs",
+          "quantity": null,
+          "unit": null,
+          "input_kind": "produced_good"
+        },
+        {
+          "good_id": "energy",
+          "quantity": null,
+          "unit": null,
+          "input_kind": "utility"
+        }
+      ],
+      "outputs": [
+        {
+          "good_id": "sawn_timber",
+          "quantity": null,
+          "unit": null
+        }
+      ],
+      "min_batch": null,
+      "equipment_profile": null,
+      "energy_profile": null,
+      "workforce_profile": null,
+      "quality_profile": null,
+      "source_status": "requires_verification",
+      "status": "draft_not_executable",
+      "schema_warning": "Input kinds are proposed metadata only; site and utility must be migrated to proper contracts before execution."
+    },
+    {
+      "id": "R-WOOD-PULP",
+      "version": 1,
+      "family": "wood",
+      "inputs": [
+        {
+          "good_id": "logs",
+          "quantity": null,
+          "unit": null,
+          "input_kind": "produced_good"
+        },
+        {
+          "good_id": "water",
+          "quantity": null,
+          "unit": null,
+          "input_kind": "external_good"
+        },
+        {
+          "good_id": "energy",
+          "quantity": null,
+          "unit": null,
+          "input_kind": "utility"
+        }
+      ],
+      "outputs": [
+        {
+          "good_id": "wood_pulp",
+          "quantity": null,
+          "unit": null
+        }
+      ],
+      "min_batch": null,
+      "equipment_profile": null,
+      "energy_profile": null,
+      "workforce_profile": null,
+      "quality_profile": null,
+      "source_status": "requires_verification",
+      "status": "draft_not_executable",
+      "schema_warning": "Input kinds are proposed metadata only; site and utility must be migrated to proper contracts before execution."
+    },
+    {
+      "id": "R-PAPER",
+      "version": 1,
+      "family": "wood",
+      "inputs": [
+        {
+          "good_id": "wood_pulp",
+          "quantity": null,
+          "unit": null,
+          "input_kind": "produced_good"
+        }
+      ],
+      "outputs": [
+        {
+          "good_id": "paper",
+          "quantity": null,
+          "unit": null
+        }
+      ],
+      "min_batch": null,
+      "equipment_profile": null,
+      "energy_profile": null,
+      "workforce_profile": null,
+      "quality_profile": null,
+      "source_status": "requires_verification",
+      "status": "draft_not_executable",
+      "schema_warning": "Input kinds are proposed metadata only; site and utility must be migrated to proper contracts before execution."
+    },
+    {
+      "id": "R-PAPER-PACK",
+      "version": 1,
+      "family": "wood",
+      "inputs": [
+        {
+          "good_id": "paper",
+          "quantity": null,
+          "unit": null,
+          "input_kind": "produced_good"
+        }
+      ],
+      "outputs": [
+        {
+          "good_id": "paper_pack",
+          "quantity": null,
+          "unit": null
+        }
+      ],
+      "min_batch": null,
+      "equipment_profile": null,
+      "energy_profile": null,
+      "workforce_profile": null,
+      "quality_profile": null,
+      "source_status": "requires_verification",
+      "status": "draft_not_executable",
+      "schema_warning": "Input kinds are proposed metadata only; site and utility must be migrated to proper contracts before execution."
+    },
+    {
+      "id": "R-CARDBOARD",
+      "version": 1,
+      "family": "wood",
+      "inputs": [
+        {
+          "good_id": "wood_pulp",
+          "quantity": null,
+          "unit": null,
+          "input_kind": "produced_good"
+        }
+      ],
+      "outputs": [
+        {
+          "good_id": "cardboard",
+          "quantity": null,
+          "unit": null
+        }
+      ],
+      "min_batch": null,
+      "equipment_profile": null,
+      "energy_profile": null,
+      "workforce_profile": null,
+      "quality_profile": null,
+      "source_status": "requires_verification",
+      "status": "draft_not_executable",
+      "schema_warning": "Input kinds are proposed metadata only; site and utility must be migrated to proper contracts before execution."
+    },
+    {
+      "id": "R-CRUDE-OIL",
+      "version": 1,
+      "family": "oil",
+      "inputs": [
+        {
+          "good_id": "oil_deposit",
+          "quantity": null,
+          "unit": null,
+          "input_kind": "site"
+        }
+      ],
+      "outputs": [
+        {
+          "good_id": "crude_oil",
+          "quantity": null,
+          "unit": null
+        }
+      ],
+      "min_batch": null,
+      "equipment_profile": null,
+      "energy_profile": null,
+      "workforce_profile": null,
+      "quality_profile": null,
+      "source_status": "requires_verification",
+      "status": "draft_not_executable",
+      "schema_warning": "Input kinds are proposed metadata only; site and utility must be migrated to proper contracts before execution."
+    },
+    {
+      "id": "R-REFINED-FUEL",
+      "version": 1,
+      "family": "oil",
+      "inputs": [
+        {
+          "good_id": "crude_oil",
+          "quantity": null,
+          "unit": null,
+          "input_kind": "produced_good"
+        },
+        {
+          "good_id": "energy",
+          "quantity": null,
+          "unit": null,
+          "input_kind": "utility"
+        }
+      ],
+      "outputs": [
+        {
+          "good_id": "refined_fuel",
+          "quantity": null,
+          "unit": null
+        }
+      ],
+      "min_batch": null,
+      "equipment_profile": null,
+      "energy_profile": null,
+      "workforce_profile": null,
+      "quality_profile": null,
+      "source_status": "requires_verification",
+      "status": "draft_not_executable",
+      "schema_warning": "Input kinds are proposed metadata only; site and utility must be migrated to proper contracts before execution."
+    },
+    {
+      "id": "R-BITUMEN",
+      "version": 1,
+      "family": "oil",
+      "inputs": [
+        {
+          "good_id": "crude_oil",
+          "quantity": null,
+          "unit": null,
+          "input_kind": "produced_good"
+        },
+        {
+          "good_id": "energy",
+          "quantity": null,
+          "unit": null,
+          "input_kind": "utility"
+        }
+      ],
+      "outputs": [
+        {
+          "good_id": "bitumen",
+          "quantity": null,
+          "unit": null
+        }
+      ],
+      "min_batch": null,
+      "equipment_profile": null,
+      "energy_profile": null,
+      "workforce_profile": null,
+      "quality_profile": null,
+      "source_status": "requires_verification",
+      "status": "draft_not_executable",
+      "schema_warning": "Input kinds are proposed metadata only; site and utility must be migrated to proper contracts before execution."
+    },
+    {
+      "id": "R-PLASTIC-RESIN",
+      "version": 1,
+      "family": "oil",
+      "inputs": [
+        {
+          "good_id": "crude_oil",
+          "quantity": null,
+          "unit": null,
+          "input_kind": "produced_good"
+        },
+        {
+          "good_id": "energy",
+          "quantity": null,
+          "unit": null,
+          "input_kind": "utility"
+        }
+      ],
+      "outputs": [
+        {
+          "good_id": "plastic_resin",
+          "quantity": null,
+          "unit": null
+        }
+      ],
+      "min_batch": null,
+      "equipment_profile": null,
+      "energy_profile": null,
+      "workforce_profile": null,
+      "quality_profile": null,
+      "source_status": "requires_verification",
+      "status": "draft_not_executable",
+      "schema_warning": "Input kinds are proposed metadata only; site and utility must be migrated to proper contracts before execution."
+    },
+    {
+      "id": "R-PLASTIC-BOTTLE",
+      "version": 1,
+      "family": "oil",
+      "inputs": [
+        {
+          "good_id": "plastic_resin",
+          "quantity": null,
+          "unit": null,
+          "input_kind": "produced_good"
+        },
+        {
+          "good_id": "energy",
+          "quantity": null,
+          "unit": null,
+          "input_kind": "utility"
+        }
+      ],
+      "outputs": [
+        {
+          "good_id": "plastic_bottle",
+          "quantity": null,
+          "unit": null
+        }
+      ],
+      "min_batch": null,
+      "equipment_profile": null,
+      "energy_profile": null,
+      "workforce_profile": null,
+      "quality_profile": null,
+      "source_status": "requires_verification",
+      "status": "draft_not_executable",
+      "schema_warning": "Input kinds are proposed metadata only; site and utility must be migrated to proper contracts before execution."
+    },
+    {
+      "id": "R-PLASTIC-CAP",
+      "version": 1,
+      "family": "oil",
+      "inputs": [
+        {
+          "good_id": "plastic_resin",
+          "quantity": null,
+          "unit": null,
+          "input_kind": "produced_good"
+        }
+      ],
+      "outputs": [
+        {
+          "good_id": "bottle_cap",
+          "quantity": null,
+          "unit": null
+        }
+      ],
+      "min_batch": null,
+      "equipment_profile": null,
+      "energy_profile": null,
+      "workforce_profile": null,
+      "quality_profile": null,
+      "source_status": "requires_verification",
+      "status": "draft_not_executable",
+      "schema_warning": "Input kinds are proposed metadata only; site and utility must be migrated to proper contracts before execution."
+    },
+    {
+      "id": "R-POTATO",
+      "version": 1,
+      "family": "vegetables",
+      "inputs": [
+        {
+          "good_id": "potato_field",
+          "quantity": null,
+          "unit": null,
+          "input_kind": "site"
+        }
+      ],
+      "outputs": [
+        {
+          "good_id": "potato",
+          "quantity": null,
+          "unit": null
+        }
+      ],
+      "min_batch": null,
+      "equipment_profile": null,
+      "energy_profile": null,
+      "workforce_profile": null,
+      "quality_profile": null,
+      "source_status": "requires_verification",
+      "status": "draft_not_executable",
+      "schema_warning": "Input kinds are proposed metadata only; site and utility must be migrated to proper contracts before execution."
+    },
+    {
+      "id": "R-WASHED-POTATO",
+      "version": 1,
+      "family": "vegetables",
+      "inputs": [
+        {
+          "good_id": "potato",
+          "quantity": null,
+          "unit": null,
+          "input_kind": "produced_good"
+        },
+        {
+          "good_id": "water",
+          "quantity": null,
+          "unit": null,
+          "input_kind": "external_good"
+        }
+      ],
+      "outputs": [
+        {
+          "good_id": "washed_potato",
+          "quantity": null,
+          "unit": null
+        }
+      ],
+      "min_batch": null,
+      "equipment_profile": null,
+      "energy_profile": null,
+      "workforce_profile": null,
+      "quality_profile": null,
+      "source_status": "requires_verification",
+      "status": "draft_not_executable",
+      "schema_warning": "Input kinds are proposed metadata only; site and utility must be migrated to proper contracts before execution."
+    },
+    {
+      "id": "R-POTATO-PACK",
+      "version": 1,
+      "family": "vegetables",
+      "inputs": [
+        {
+          "good_id": "washed_potato",
+          "quantity": null,
+          "unit": null,
+          "input_kind": "produced_good"
+        },
+        {
+          "good_id": "paper_pack",
+          "quantity": null,
+          "unit": null,
+          "input_kind": "produced_good"
+        }
+      ],
+      "outputs": [
+        {
+          "good_id": "potato_pack",
+          "quantity": null,
+          "unit": null
+        }
+      ],
+      "min_batch": null,
+      "equipment_profile": null,
+      "energy_profile": null,
+      "workforce_profile": null,
+      "quality_profile": null,
+      "source_status": "requires_verification",
+      "status": "draft_not_executable",
+      "schema_warning": "Input kinds are proposed metadata only; site and utility must be migrated to proper contracts before execution."
+    },
+    {
+      "id": "R-SUNFLOWER-SEED",
+      "version": 1,
+      "family": "vegetables",
+      "inputs": [
+        {
+          "good_id": "sunflower_field",
+          "quantity": null,
+          "unit": null,
+          "input_kind": "site"
+        }
+      ],
+      "outputs": [
+        {
+          "good_id": "sunflower_seed",
+          "quantity": null,
+          "unit": null
+        }
+      ],
+      "min_batch": null,
+      "equipment_profile": null,
+      "energy_profile": null,
+      "workforce_profile": null,
+      "quality_profile": null,
+      "source_status": "requires_verification",
+      "status": "draft_not_executable",
+      "schema_warning": "Input kinds are proposed metadata only; site and utility must be migrated to proper contracts before execution."
+    },
+    {
+      "id": "R-SUNFLOWER-OIL",
+      "version": 1,
+      "family": "vegetables",
+      "inputs": [
+        {
+          "good_id": "sunflower_seed",
+          "quantity": null,
+          "unit": null,
+          "input_kind": "produced_good"
+        },
+        {
+          "good_id": "energy",
+          "quantity": null,
+          "unit": null,
+          "input_kind": "utility"
+        }
+      ],
+      "outputs": [
+        {
+          "good_id": "sunflower_oil",
+          "quantity": null,
+          "unit": null
+        }
+      ],
+      "min_batch": null,
+      "equipment_profile": null,
+      "energy_profile": null,
+      "workforce_profile": null,
+      "quality_profile": null,
+      "source_status": "requires_verification",
+      "status": "draft_not_executable",
+      "schema_warning": "Input kinds are proposed metadata only; site and utility must be migrated to proper contracts before execution."
+    },
+    {
+      "id": "R-SUNFLOWER-OIL-BOTTLE",
+      "version": 1,
+      "family": "vegetables",
+      "inputs": [
+        {
+          "good_id": "sunflower_oil",
+          "quantity": null,
+          "unit": null,
+          "input_kind": "produced_good"
+        },
+        {
+          "good_id": "plastic_bottle",
+          "quantity": null,
+          "unit": null,
+          "input_kind": "produced_good"
+        },
+        {
+          "good_id": "bottle_cap",
+          "quantity": null,
+          "unit": null,
+          "input_kind": "produced_good"
+        }
+      ],
+      "outputs": [
+        {
+          "good_id": "sunflower_oil_bottle",
+          "quantity": null,
+          "unit": null
+        }
+      ],
+      "min_batch": null,
+      "equipment_profile": null,
+      "energy_profile": null,
+      "workforce_profile": null,
+      "quality_profile": null,
+      "source_status": "requires_verification",
+      "status": "draft_not_executable",
+      "schema_warning": "Input kinds are proposed metadata only; site and utility must be migrated to proper contracts before execution."
+    },
+    {
+      "id": "R-CLAY",
+      "version": 1,
+      "family": "construction",
+      "inputs": [
+        {
+          "good_id": "clay_deposit",
+          "quantity": null,
+          "unit": null,
+          "input_kind": "site"
+        }
+      ],
+      "outputs": [
+        {
+          "good_id": "clay",
+          "quantity": null,
+          "unit": null
+        }
+      ],
+      "min_batch": null,
+      "equipment_profile": null,
+      "energy_profile": null,
+      "workforce_profile": null,
+      "quality_profile": null,
+      "source_status": "requires_verification",
+      "status": "draft_not_executable",
+      "schema_warning": "Input kinds are proposed metadata only; site and utility must be migrated to proper contracts before execution."
+    },
+    {
+      "id": "R-BRICK",
+      "version": 1,
+      "family": "construction",
+      "inputs": [
+        {
+          "good_id": "clay",
+          "quantity": null,
+          "unit": null,
+          "input_kind": "produced_good"
+        },
+        {
+          "good_id": "energy",
+          "quantity": null,
+          "unit": null,
+          "input_kind": "utility"
+        }
+      ],
+      "outputs": [
+        {
+          "good_id": "brick",
+          "quantity": null,
+          "unit": null
+        }
+      ],
+      "min_batch": null,
+      "equipment_profile": null,
+      "energy_profile": null,
+      "workforce_profile": null,
+      "quality_profile": null,
+      "source_status": "requires_verification",
+      "status": "draft_not_executable",
+      "schema_warning": "Input kinds are proposed metadata only; site and utility must be migrated to proper contracts before execution."
+    },
+    {
+      "id": "R-GRAVEL",
+      "version": 1,
+      "family": "construction",
+      "inputs": [
+        {
+          "good_id": "stone_deposit",
+          "quantity": null,
+          "unit": null,
+          "input_kind": "site"
+        }
+      ],
+      "outputs": [
+        {
+          "good_id": "gravel",
+          "quantity": null,
+          "unit": null
+        }
+      ],
+      "min_batch": null,
+      "equipment_profile": null,
+      "energy_profile": null,
+      "workforce_profile": null,
+      "quality_profile": null,
+      "source_status": "requires_verification",
+      "status": "draft_not_executable",
+      "schema_warning": "Input kinds are proposed metadata only; site and utility must be migrated to proper contracts before execution."
+    },
+    {
+      "id": "R-CONCRETE",
+      "version": 1,
+      "family": "construction",
+      "inputs": [
+        {
+          "good_id": "gravel",
+          "quantity": null,
+          "unit": null,
+          "input_kind": "produced_good"
+        },
+        {
+          "good_id": "limestone",
+          "quantity": null,
+          "unit": null,
+          "input_kind": "produced_good"
+        },
+        {
+          "good_id": "water",
+          "quantity": null,
+          "unit": null,
+          "input_kind": "external_good"
+        }
+      ],
+      "outputs": [
+        {
+          "good_id": "concrete",
+          "quantity": null,
+          "unit": null
+        }
+      ],
+      "min_batch": null,
+      "equipment_profile": null,
+      "energy_profile": null,
+      "workforce_profile": null,
+      "quality_profile": null,
+      "source_status": "requires_verification",
+      "status": "draft_not_executable",
+      "schema_warning": "Input kinds are proposed metadata only; site and utility must be migrated to proper contracts before execution."
+    },
+    {
+      "id": "R-REBAR",
+      "version": 1,
+      "family": "construction",
+      "inputs": [
+        {
+          "good_id": "steel_supply",
+          "quantity": null,
+          "unit": null,
+          "input_kind": "external_good"
+        }
+      ],
+      "outputs": [
+        {
+          "good_id": "rebar",
+          "quantity": null,
+          "unit": null
+        }
+      ],
+      "min_batch": null,
+      "equipment_profile": null,
+      "energy_profile": null,
+      "workforce_profile": null,
+      "quality_profile": null,
+      "source_status": "requires_verification",
+      "status": "draft_not_executable",
+      "schema_warning": "Input kinds are proposed metadata only; site and utility must be migrated to proper contracts before execution."
+    },
+    {
+      "id": "R-REINFORCED-CONCRETE",
+      "version": 1,
+      "family": "construction",
+      "inputs": [
+        {
+          "good_id": "concrete",
+          "quantity": null,
+          "unit": null,
+          "input_kind": "produced_good"
+        },
+        {
+          "good_id": "rebar",
+          "quantity": null,
+          "unit": null,
+          "input_kind": "produced_good"
+        }
+      ],
+      "outputs": [
+        {
+          "good_id": "reinforced_concrete",
+          "quantity": null,
+          "unit": null
+        }
+      ],
+      "min_batch": null,
+      "equipment_profile": null,
+      "energy_profile": null,
+      "workforce_profile": null,
+      "quality_profile": null,
+      "source_status": "requires_verification",
+      "status": "draft_not_executable",
+      "schema_warning": "Input kinds are proposed metadata only; site and utility must be migrated to proper contracts before execution."
+    },
+    {
+      "id": "R-RYE-GRAIN",
+      "version": 1,
+      "family": "grain",
+      "inputs": [
+        {
+          "good_id": "rye_field",
+          "quantity": null,
+          "unit": null,
+          "input_kind": "site"
+        }
+      ],
+      "outputs": [
+        {
+          "good_id": "rye_grain",
+          "quantity": null,
+          "unit": null
+        }
+      ],
+      "min_batch": null,
+      "equipment_profile": null,
+      "energy_profile": null,
+      "workforce_profile": null,
+      "quality_profile": null,
+      "source_status": "requires_verification",
+      "status": "draft_not_executable",
+      "schema_warning": "Proposed only: inputs, unit balances, safety and technical feasibility not verified."
+    },
+    {
+      "id": "R-RYE-FLOUR",
+      "version": 1,
+      "family": "grain",
+      "inputs": [
+        {
+          "good_id": "rye_grain",
+          "quantity": null,
+          "unit": null,
+          "input_kind": "produced_good"
+        }
+      ],
+      "outputs": [
+        {
+          "good_id": "rye_flour",
+          "quantity": null,
+          "unit": null
+        }
+      ],
+      "min_batch": null,
+      "equipment_profile": null,
+      "energy_profile": null,
+      "workforce_profile": null,
+      "quality_profile": null,
+      "source_status": "requires_verification",
+      "status": "draft_not_executable",
+      "schema_warning": "Proposed only: inputs, unit balances, safety and technical feasibility not verified."
+    },
+    {
+      "id": "R-RYE-DOUGH",
+      "version": 1,
+      "family": "grain",
+      "inputs": [
+        {
+          "good_id": "rye_flour",
+          "quantity": null,
+          "unit": null,
+          "input_kind": "produced_good"
+        },
+        {
+          "good_id": "water",
+          "quantity": null,
+          "unit": null,
+          "input_kind": "external_good"
+        },
+        {
+          "good_id": "yeast",
+          "quantity": null,
+          "unit": null,
+          "input_kind": "external_good"
+        }
+      ],
+      "outputs": [
+        {
+          "good_id": "rye_dough",
+          "quantity": null,
+          "unit": null
+        }
+      ],
+      "min_batch": null,
+      "equipment_profile": null,
+      "energy_profile": null,
+      "workforce_profile": null,
+      "quality_profile": null,
+      "source_status": "requires_verification",
+      "status": "draft_not_executable",
+      "schema_warning": "Proposed only: inputs, unit balances, safety and technical feasibility not verified."
+    },
+    {
+      "id": "R-RYE-BREAD",
+      "version": 1,
+      "family": "grain",
+      "inputs": [
+        {
+          "good_id": "rye_dough",
+          "quantity": null,
+          "unit": null,
+          "input_kind": "produced_good"
+        },
+        {
+          "good_id": "energy",
+          "quantity": null,
+          "unit": null,
+          "input_kind": "utility"
+        }
+      ],
+      "outputs": [
+        {
+          "good_id": "rye_bread",
+          "quantity": null,
+          "unit": null
+        }
+      ],
+      "min_batch": null,
+      "equipment_profile": null,
+      "energy_profile": null,
+      "workforce_profile": null,
+      "quality_profile": null,
+      "source_status": "requires_verification",
+      "status": "draft_not_executable",
+      "schema_warning": "Proposed only: inputs, unit balances, safety and technical feasibility not verified."
+    },
+    {
+      "id": "R-OAT-GRAIN",
+      "version": 1,
+      "family": "grain",
+      "inputs": [
+        {
+          "good_id": "oat_field",
+          "quantity": null,
+          "unit": null,
+          "input_kind": "site"
+        }
+      ],
+      "outputs": [
+        {
+          "good_id": "oat_grain",
+          "quantity": null,
+          "unit": null
+        }
+      ],
+      "min_batch": null,
+      "equipment_profile": null,
+      "energy_profile": null,
+      "workforce_profile": null,
+      "quality_profile": null,
+      "source_status": "requires_verification",
+      "status": "draft_not_executable",
+      "schema_warning": "Proposed only: inputs, unit balances, safety and technical feasibility not verified."
+    },
+    {
+      "id": "R-OAT-FLAKES",
+      "version": 1,
+      "family": "grain",
+      "inputs": [
+        {
+          "good_id": "oat_grain",
+          "quantity": null,
+          "unit": null,
+          "input_kind": "produced_good"
+        },
+        {
+          "good_id": "energy",
+          "quantity": null,
+          "unit": null,
+          "input_kind": "utility"
+        }
+      ],
+      "outputs": [
+        {
+          "good_id": "oat_flakes",
+          "quantity": null,
+          "unit": null
+        }
+      ],
+      "min_batch": null,
+      "equipment_profile": null,
+      "energy_profile": null,
+      "workforce_profile": null,
+      "quality_profile": null,
+      "source_status": "requires_verification",
+      "status": "draft_not_executable",
+      "schema_warning": "Proposed only: inputs, unit balances, safety and technical feasibility not verified."
+    },
+    {
+      "id": "R-WHEAT-BRAN",
+      "version": 1,
+      "family": "grain",
+      "inputs": [
+        {
+          "good_id": "wheat_grain",
+          "quantity": null,
+          "unit": null,
+          "input_kind": "produced_good"
+        }
+      ],
+      "outputs": [
+        {
+          "good_id": "wheat_bran",
+          "quantity": null,
+          "unit": null
+        }
+      ],
+      "min_batch": null,
+      "equipment_profile": null,
+      "energy_profile": null,
+      "workforce_profile": null,
+      "quality_profile": null,
+      "source_status": "requires_verification",
+      "status": "draft_not_executable",
+      "schema_warning": "Proposed only: inputs, unit balances, safety and technical feasibility not verified."
+    },
+    {
+      "id": "R-ANIMAL-FEED",
+      "version": 1,
+      "family": "grain",
+      "inputs": [
+        {
+          "good_id": "wheat_bran",
+          "quantity": null,
+          "unit": null,
+          "input_kind": "produced_good"
+        },
+        {
+          "good_id": "barley_grain",
+          "quantity": null,
+          "unit": null,
+          "input_kind": "produced_good"
+        }
+      ],
+      "outputs": [
+        {
+          "good_id": "animal_feed",
+          "quantity": null,
+          "unit": null
+        }
+      ],
+      "min_batch": null,
+      "equipment_profile": null,
+      "energy_profile": null,
+      "workforce_profile": null,
+      "quality_profile": null,
+      "source_status": "requires_verification",
+      "status": "draft_not_executable",
+      "schema_warning": "Proposed only: inputs, unit balances, safety and technical feasibility not verified."
+    },
+    {
+      "id": "R-PASTA-DOUGH",
+      "version": 1,
+      "family": "grain",
+      "inputs": [
+        {
+          "good_id": "wheat_flour",
+          "quantity": null,
+          "unit": null,
+          "input_kind": "produced_good"
+        },
+        {
+          "good_id": "water",
+          "quantity": null,
+          "unit": null,
+          "input_kind": "external_good"
+        }
+      ],
+      "outputs": [
+        {
+          "good_id": "pasta_dough",
+          "quantity": null,
+          "unit": null
+        }
+      ],
+      "min_batch": null,
+      "equipment_profile": null,
+      "energy_profile": null,
+      "workforce_profile": null,
+      "quality_profile": null,
+      "source_status": "requires_verification",
+      "status": "draft_not_executable",
+      "schema_warning": "Proposed only: inputs, unit balances, safety and technical feasibility not verified."
+    },
+    {
+      "id": "R-DRY-PASTA",
+      "version": 1,
+      "family": "grain",
+      "inputs": [
+        {
+          "good_id": "pasta_dough",
+          "quantity": null,
+          "unit": null,
+          "input_kind": "produced_good"
+        },
+        {
+          "good_id": "energy",
+          "quantity": null,
+          "unit": null,
+          "input_kind": "utility"
+        }
+      ],
+      "outputs": [
+        {
+          "good_id": "dry_pasta",
+          "quantity": null,
+          "unit": null
+        }
+      ],
+      "min_batch": null,
+      "equipment_profile": null,
+      "energy_profile": null,
+      "workforce_profile": null,
+      "quality_profile": null,
+      "source_status": "requires_verification",
+      "status": "draft_not_executable",
+      "schema_warning": "Proposed only: inputs, unit balances, safety and technical feasibility not verified."
+    },
+    {
+      "id": "R-SKIMMED-MILK",
+      "version": 1,
+      "family": "dairy",
+      "inputs": [
+        {
+          "good_id": "raw_milk",
+          "quantity": null,
+          "unit": null,
+          "input_kind": "produced_good"
+        }
+      ],
+      "outputs": [
+        {
+          "good_id": "skimmed_milk",
+          "quantity": null,
+          "unit": null
+        }
+      ],
+      "min_batch": null,
+      "equipment_profile": null,
+      "energy_profile": null,
+      "workforce_profile": null,
+      "quality_profile": null,
+      "source_status": "requires_verification",
+      "status": "draft_not_executable",
+      "schema_warning": "Proposed only: inputs, unit balances, safety and technical feasibility not verified."
+    },
+    {
+      "id": "R-MILK-POWDER",
+      "version": 1,
+      "family": "dairy",
+      "inputs": [
+        {
+          "good_id": "pasteurized_milk",
+          "quantity": null,
+          "unit": null,
+          "input_kind": "produced_good"
+        },
+        {
+          "good_id": "energy",
+          "quantity": null,
+          "unit": null,
+          "input_kind": "utility"
+        }
+      ],
+      "outputs": [
+        {
+          "good_id": "milk_powder",
+          "quantity": null,
+          "unit": null
+        }
+      ],
+      "min_batch": null,
+      "equipment_profile": null,
+      "energy_profile": null,
+      "workforce_profile": null,
+      "quality_profile": null,
+      "source_status": "requires_verification",
+      "status": "draft_not_executable",
+      "schema_warning": "Proposed only: inputs, unit balances, safety and technical feasibility not verified."
+    },
+    {
+      "id": "R-YOGURT-BASE",
+      "version": 1,
+      "family": "dairy",
+      "inputs": [
+        {
+          "good_id": "pasteurized_milk",
+          "quantity": null,
+          "unit": null,
+          "input_kind": "produced_good"
+        },
+        {
+          "good_id": "starter_culture",
+          "quantity": null,
+          "unit": null,
+          "input_kind": "external_good"
+        }
+      ],
+      "outputs": [
+        {
+          "good_id": "yogurt_base",
+          "quantity": null,
+          "unit": null
+        }
+      ],
+      "min_batch": null,
+      "equipment_profile": null,
+      "energy_profile": null,
+      "workforce_profile": null,
+      "quality_profile": null,
+      "source_status": "requires_verification",
+      "status": "draft_not_executable",
+      "schema_warning": "Proposed only: inputs, unit balances, safety and technical feasibility not verified."
+    },
+    {
+      "id": "R-YOGURT",
+      "version": 1,
+      "family": "dairy",
+      "inputs": [
+        {
+          "good_id": "yogurt_base",
+          "quantity": null,
+          "unit": null,
+          "input_kind": "produced_good"
+        },
+        {
+          "good_id": "energy",
+          "quantity": null,
+          "unit": null,
+          "input_kind": "utility"
+        }
+      ],
+      "outputs": [
+        {
+          "good_id": "yogurt",
+          "quantity": null,
+          "unit": null
+        }
+      ],
+      "min_batch": null,
+      "equipment_profile": null,
+      "energy_profile": null,
+      "workforce_profile": null,
+      "quality_profile": null,
+      "source_status": "requires_verification",
+      "status": "draft_not_executable",
+      "schema_warning": "Proposed only: inputs, unit balances, safety and technical feasibility not verified."
+    },
+    {
+      "id": "R-CHEESE-CURD",
+      "version": 1,
+      "family": "dairy",
+      "inputs": [
+        {
+          "good_id": "pasteurized_milk",
+          "quantity": null,
+          "unit": null,
+          "input_kind": "produced_good"
+        },
+        {
+          "good_id": "starter_culture",
+          "quantity": null,
+          "unit": null,
+          "input_kind": "external_good"
+        }
+      ],
+      "outputs": [
+        {
+          "good_id": "cheese_curd",
+          "quantity": null,
+          "unit": null
+        }
+      ],
+      "min_batch": null,
+      "equipment_profile": null,
+      "energy_profile": null,
+      "workforce_profile": null,
+      "quality_profile": null,
+      "source_status": "requires_verification",
+      "status": "draft_not_executable",
+      "schema_warning": "Proposed only: inputs, unit balances, safety and technical feasibility not verified."
+    },
+    {
+      "id": "R-CHEESE",
+      "version": 1,
+      "family": "dairy",
+      "inputs": [
+        {
+          "good_id": "cheese_curd",
+          "quantity": null,
+          "unit": null,
+          "input_kind": "produced_good"
+        }
+      ],
+      "outputs": [
+        {
+          "good_id": "cheese",
+          "quantity": null,
+          "unit": null
+        }
+      ],
+      "min_batch": null,
+      "equipment_profile": null,
+      "energy_profile": null,
+      "workforce_profile": null,
+      "quality_profile": null,
+      "source_status": "requires_verification",
+      "status": "draft_not_executable",
+      "schema_warning": "Proposed only: inputs, unit balances, safety and technical feasibility not verified."
+    },
+    {
+      "id": "R-WHEY",
+      "version": 1,
+      "family": "dairy",
+      "inputs": [
+        {
+          "good_id": "cheese_curd",
+          "quantity": null,
+          "unit": null,
+          "input_kind": "produced_good"
+        }
+      ],
+      "outputs": [
+        {
+          "good_id": "whey",
+          "quantity": null,
+          "unit": null
+        }
+      ],
+      "min_batch": null,
+      "equipment_profile": null,
+      "energy_profile": null,
+      "workforce_profile": null,
+      "quality_profile": null,
+      "source_status": "requires_verification",
+      "status": "draft_not_executable",
+      "schema_warning": "Proposed only: inputs, unit balances, safety and technical feasibility not verified."
+    },
+    {
+      "id": "R-SOUR-CREAM",
+      "version": 1,
+      "family": "dairy",
+      "inputs": [
+        {
+          "good_id": "cream",
+          "quantity": null,
+          "unit": null,
+          "input_kind": "produced_good"
+        },
+        {
+          "good_id": "starter_culture",
+          "quantity": null,
+          "unit": null,
+          "input_kind": "external_good"
+        }
+      ],
+      "outputs": [
+        {
+          "good_id": "sour_cream",
+          "quantity": null,
+          "unit": null
+        }
+      ],
+      "min_batch": null,
+      "equipment_profile": null,
+      "energy_profile": null,
+      "workforce_profile": null,
+      "quality_profile": null,
+      "source_status": "requires_verification",
+      "status": "draft_not_executable",
+      "schema_warning": "Proposed only: inputs, unit balances, safety and technical feasibility not verified."
+    },
+    {
+      "id": "R-ICE-CREAM-MIX",
+      "version": 1,
+      "family": "dairy",
+      "inputs": [
+        {
+          "good_id": "pasteurized_milk",
+          "quantity": null,
+          "unit": null,
+          "input_kind": "produced_good"
+        },
+        {
+          "good_id": "sugar",
+          "quantity": null,
+          "unit": null,
+          "input_kind": "external_good"
+        }
+      ],
+      "outputs": [
+        {
+          "good_id": "ice_cream_mix",
+          "quantity": null,
+          "unit": null
+        }
+      ],
+      "min_batch": null,
+      "equipment_profile": null,
+      "energy_profile": null,
+      "workforce_profile": null,
+      "quality_profile": null,
+      "source_status": "requires_verification",
+      "status": "draft_not_executable",
+      "schema_warning": "Proposed only: inputs, unit balances, safety and technical feasibility not verified."
+    },
+    {
+      "id": "R-ICE-CREAM",
+      "version": 1,
+      "family": "dairy",
+      "inputs": [
+        {
+          "good_id": "ice_cream_mix",
+          "quantity": null,
+          "unit": null,
+          "input_kind": "produced_good"
+        },
+        {
+          "good_id": "energy",
+          "quantity": null,
+          "unit": null,
+          "input_kind": "utility"
+        }
+      ],
+      "outputs": [
+        {
+          "good_id": "ice_cream",
+          "quantity": null,
+          "unit": null
+        }
+      ],
+      "min_batch": null,
+      "equipment_profile": null,
+      "energy_profile": null,
+      "workforce_profile": null,
+      "quality_profile": null,
+      "source_status": "requires_verification",
+      "status": "draft_not_executable",
+      "schema_warning": "Proposed only: inputs, unit balances, safety and technical feasibility not verified."
+    },
+    {
+      "id": "R-WOOD-CHIPS",
+      "version": 1,
+      "family": "wood",
+      "inputs": [
+        {
+          "good_id": "logs",
+          "quantity": null,
+          "unit": null,
+          "input_kind": "produced_good"
+        }
+      ],
+      "outputs": [
+        {
+          "good_id": "wood_chips",
+          "quantity": null,
+          "unit": null
+        }
+      ],
+      "min_batch": null,
+      "equipment_profile": null,
+      "energy_profile": null,
+      "workforce_profile": null,
+      "quality_profile": null,
+      "source_status": "requires_verification",
+      "status": "draft_not_executable",
+      "schema_warning": "Proposed only: inputs, unit balances, safety and technical feasibility not verified."
+    },
+    {
+      "id": "R-PARTICLE-BOARD",
+      "version": 1,
+      "family": "wood",
+      "inputs": [
+        {
+          "good_id": "wood_chips",
+          "quantity": null,
+          "unit": null,
+          "input_kind": "produced_good"
+        },
+        {
+          "good_id": "resin_binder",
+          "quantity": null,
+          "unit": null,
+          "input_kind": "external_good"
+        }
+      ],
+      "outputs": [
+        {
+          "good_id": "particle_board",
+          "quantity": null,
+          "unit": null
+        }
+      ],
+      "min_batch": null,
+      "equipment_profile": null,
+      "energy_profile": null,
+      "workforce_profile": null,
+      "quality_profile": null,
+      "source_status": "requires_verification",
+      "status": "draft_not_executable",
+      "schema_warning": "Proposed only: inputs, unit balances, safety and technical feasibility not verified."
+    },
+    {
+      "id": "R-PLYWOOD",
+      "version": 1,
+      "family": "wood",
+      "inputs": [
+        {
+          "good_id": "sawn_timber",
+          "quantity": null,
+          "unit": null,
+          "input_kind": "produced_good"
+        },
+        {
+          "good_id": "resin_binder",
+          "quantity": null,
+          "unit": null,
+          "input_kind": "external_good"
+        }
+      ],
+      "outputs": [
+        {
+          "good_id": "plywood",
+          "quantity": null,
+          "unit": null
+        }
+      ],
+      "min_batch": null,
+      "equipment_profile": null,
+      "energy_profile": null,
+      "workforce_profile": null,
+      "quality_profile": null,
+      "source_status": "requires_verification",
+      "status": "draft_not_executable",
+      "schema_warning": "Proposed only: inputs, unit balances, safety and technical feasibility not verified."
+    },
+    {
+      "id": "R-WOOD-PELLETS",
+      "version": 1,
+      "family": "wood",
+      "inputs": [
+        {
+          "good_id": "wood_chips",
+          "quantity": null,
+          "unit": null,
+          "input_kind": "produced_good"
+        },
+        {
+          "good_id": "energy",
+          "quantity": null,
+          "unit": null,
+          "input_kind": "utility"
+        }
+      ],
+      "outputs": [
+        {
+          "good_id": "wood_pellets",
+          "quantity": null,
+          "unit": null
+        }
+      ],
+      "min_batch": null,
+      "equipment_profile": null,
+      "energy_profile": null,
+      "workforce_profile": null,
+      "quality_profile": null,
+      "source_status": "requires_verification",
+      "status": "draft_not_executable",
+      "schema_warning": "Proposed only: inputs, unit balances, safety and technical feasibility not verified."
+    },
+    {
+      "id": "R-PAPER-ROLL",
+      "version": 1,
+      "family": "wood",
+      "inputs": [
+        {
+          "good_id": "paper",
+          "quantity": null,
+          "unit": null,
+          "input_kind": "produced_good"
+        }
+      ],
+      "outputs": [
+        {
+          "good_id": "paper_roll",
+          "quantity": null,
+          "unit": null
+        }
+      ],
+      "min_batch": null,
+      "equipment_profile": null,
+      "energy_profile": null,
+      "workforce_profile": null,
+      "quality_profile": null,
+      "source_status": "requires_verification",
+      "status": "draft_not_executable",
+      "schema_warning": "Proposed only: inputs, unit balances, safety and technical feasibility not verified."
+    },
+    {
+      "id": "R-PAPER-BAG",
+      "version": 1,
+      "family": "wood",
+      "inputs": [
+        {
+          "good_id": "paper_roll",
+          "quantity": null,
+          "unit": null,
+          "input_kind": "produced_good"
+        }
+      ],
+      "outputs": [
+        {
+          "good_id": "paper_bag",
+          "quantity": null,
+          "unit": null
+        }
+      ],
+      "min_batch": null,
+      "equipment_profile": null,
+      "energy_profile": null,
+      "workforce_profile": null,
+      "quality_profile": null,
+      "source_status": "requires_verification",
+      "status": "draft_not_executable",
+      "schema_warning": "Proposed only: inputs, unit balances, safety and technical feasibility not verified."
+    },
+    {
+      "id": "R-CORRUGATED-BOARD",
+      "version": 1,
+      "family": "wood",
+      "inputs": [
+        {
+          "good_id": "cardboard",
+          "quantity": null,
+          "unit": null,
+          "input_kind": "produced_good"
+        },
+        {
+          "good_id": "paper",
+          "quantity": null,
+          "unit": null,
+          "input_kind": "produced_good"
+        }
+      ],
+      "outputs": [
+        {
+          "good_id": "corrugated_board",
+          "quantity": null,
+          "unit": null
+        }
+      ],
+      "min_batch": null,
+      "equipment_profile": null,
+      "energy_profile": null,
+      "workforce_profile": null,
+      "quality_profile": null,
+      "source_status": "requires_verification",
+      "status": "draft_not_executable",
+      "schema_warning": "Proposed only: inputs, unit balances, safety and technical feasibility not verified."
+    },
+    {
+      "id": "R-CARTON-BOX",
+      "version": 1,
+      "family": "wood",
+      "inputs": [
+        {
+          "good_id": "corrugated_board",
+          "quantity": null,
+          "unit": null,
+          "input_kind": "produced_good"
+        }
+      ],
+      "outputs": [
+        {
+          "good_id": "carton_box",
+          "quantity": null,
+          "unit": null
+        }
+      ],
+      "min_batch": null,
+      "equipment_profile": null,
+      "energy_profile": null,
+      "workforce_profile": null,
+      "quality_profile": null,
+      "source_status": "requires_verification",
+      "status": "draft_not_executable",
+      "schema_warning": "Proposed only: inputs, unit balances, safety and technical feasibility not verified."
+    },
+    {
+      "id": "R-CARROT",
+      "version": 1,
+      "family": "vegetables",
+      "inputs": [
+        {
+          "good_id": "carrot_field",
+          "quantity": null,
+          "unit": null,
+          "input_kind": "site"
+        }
+      ],
+      "outputs": [
+        {
+          "good_id": "carrot",
+          "quantity": null,
+          "unit": null
+        }
+      ],
+      "min_batch": null,
+      "equipment_profile": null,
+      "energy_profile": null,
+      "workforce_profile": null,
+      "quality_profile": null,
+      "source_status": "requires_verification",
+      "status": "draft_not_executable",
+      "schema_warning": "Proposed only: inputs, unit balances, safety and technical feasibility not verified."
+    },
+    {
+      "id": "R-WASHED-CARROT",
+      "version": 1,
+      "family": "vegetables",
+      "inputs": [
+        {
+          "good_id": "carrot",
+          "quantity": null,
+          "unit": null,
+          "input_kind": "produced_good"
+        },
+        {
+          "good_id": "water",
+          "quantity": null,
+          "unit": null,
+          "input_kind": "external_good"
+        }
+      ],
+      "outputs": [
+        {
+          "good_id": "washed_carrot",
+          "quantity": null,
+          "unit": null
+        }
+      ],
+      "min_batch": null,
+      "equipment_profile": null,
+      "energy_profile": null,
+      "workforce_profile": null,
+      "quality_profile": null,
+      "source_status": "requires_verification",
+      "status": "draft_not_executable",
+      "schema_warning": "Proposed only: inputs, unit balances, safety and technical feasibility not verified."
+    },
+    {
+      "id": "R-CARROT-PACK",
+      "version": 1,
+      "family": "vegetables",
+      "inputs": [
+        {
+          "good_id": "washed_carrot",
+          "quantity": null,
+          "unit": null,
+          "input_kind": "produced_good"
+        },
+        {
+          "good_id": "paper_pack",
+          "quantity": null,
+          "unit": null,
+          "input_kind": "produced_good"
+        }
+      ],
+      "outputs": [
+        {
+          "good_id": "carrot_pack",
+          "quantity": null,
+          "unit": null
+        }
+      ],
+      "min_batch": null,
+      "equipment_profile": null,
+      "energy_profile": null,
+      "workforce_profile": null,
+      "quality_profile": null,
+      "source_status": "requires_verification",
+      "status": "draft_not_executable",
+      "schema_warning": "Proposed only: inputs, unit balances, safety and technical feasibility not verified."
+    },
+    {
+      "id": "R-ONION",
+      "version": 1,
+      "family": "vegetables",
+      "inputs": [
+        {
+          "good_id": "onion_field",
+          "quantity": null,
+          "unit": null,
+          "input_kind": "site"
+        }
+      ],
+      "outputs": [
+        {
+          "good_id": "onion",
+          "quantity": null,
+          "unit": null
+        }
+      ],
+      "min_batch": null,
+      "equipment_profile": null,
+      "energy_profile": null,
+      "workforce_profile": null,
+      "quality_profile": null,
+      "source_status": "requires_verification",
+      "status": "draft_not_executable",
+      "schema_warning": "Proposed only: inputs, unit balances, safety and technical feasibility not verified."
+    },
+    {
+      "id": "R-ONION-PACK",
+      "version": 1,
+      "family": "vegetables",
+      "inputs": [
+        {
+          "good_id": "onion",
+          "quantity": null,
+          "unit": null,
+          "input_kind": "produced_good"
+        },
+        {
+          "good_id": "paper_pack",
+          "quantity": null,
+          "unit": null,
+          "input_kind": "produced_good"
+        }
+      ],
+      "outputs": [
+        {
+          "good_id": "onion_pack",
+          "quantity": null,
+          "unit": null
+        }
+      ],
+      "min_batch": null,
+      "equipment_profile": null,
+      "energy_profile": null,
+      "workforce_profile": null,
+      "quality_profile": null,
+      "source_status": "requires_verification",
+      "status": "draft_not_executable",
+      "schema_warning": "Proposed only: inputs, unit balances, safety and technical feasibility not verified."
+    },
+    {
+      "id": "R-TOMATO",
+      "version": 1,
+      "family": "vegetables",
+      "inputs": [
+        {
+          "good_id": "tomato_greenhouse",
+          "quantity": null,
+          "unit": null,
+          "input_kind": "site"
+        }
+      ],
+      "outputs": [
+        {
+          "good_id": "tomato",
+          "quantity": null,
+          "unit": null
+        }
+      ],
+      "min_batch": null,
+      "equipment_profile": null,
+      "energy_profile": null,
+      "workforce_profile": null,
+      "quality_profile": null,
+      "source_status": "requires_verification",
+      "status": "draft_not_executable",
+      "schema_warning": "Proposed only: inputs, unit balances, safety and technical feasibility not verified."
+    },
+    {
+      "id": "R-TOMATO-PASTE",
+      "version": 1,
+      "family": "vegetables",
+      "inputs": [
+        {
+          "good_id": "tomato",
+          "quantity": null,
+          "unit": null,
+          "input_kind": "produced_good"
+        },
+        {
+          "good_id": "energy",
+          "quantity": null,
+          "unit": null,
+          "input_kind": "utility"
+        }
+      ],
+      "outputs": [
+        {
+          "good_id": "tomato_paste",
+          "quantity": null,
+          "unit": null
+        }
+      ],
+      "min_batch": null,
+      "equipment_profile": null,
+      "energy_profile": null,
+      "workforce_profile": null,
+      "quality_profile": null,
+      "source_status": "requires_verification",
+      "status": "draft_not_executable",
+      "schema_warning": "Proposed only: inputs, unit balances, safety and technical feasibility not verified."
+    },
+    {
+      "id": "R-TOMATO-SAUCE",
+      "version": 1,
+      "family": "vegetables",
+      "inputs": [
+        {
+          "good_id": "tomato_paste",
+          "quantity": null,
+          "unit": null,
+          "input_kind": "produced_good"
+        },
+        {
+          "good_id": "water",
+          "quantity": null,
+          "unit": null,
+          "input_kind": "external_good"
+        }
+      ],
+      "outputs": [
+        {
+          "good_id": "tomato_sauce",
+          "quantity": null,
+          "unit": null
+        }
+      ],
+      "min_batch": null,
+      "equipment_profile": null,
+      "energy_profile": null,
+      "workforce_profile": null,
+      "quality_profile": null,
+      "source_status": "requires_verification",
+      "status": "draft_not_executable",
+      "schema_warning": "Proposed only: inputs, unit balances, safety and technical feasibility not verified."
+    },
+    {
+      "id": "R-APPLE",
+      "version": 1,
+      "family": "vegetables",
+      "inputs": [
+        {
+          "good_id": "apple_orchard",
+          "quantity": null,
+          "unit": null,
+          "input_kind": "site"
+        }
+      ],
+      "outputs": [
+        {
+          "good_id": "apple",
+          "quantity": null,
+          "unit": null
+        }
+      ],
+      "min_batch": null,
+      "equipment_profile": null,
+      "energy_profile": null,
+      "workforce_profile": null,
+      "quality_profile": null,
+      "source_status": "requires_verification",
+      "status": "draft_not_executable",
+      "schema_warning": "Proposed only: inputs, unit balances, safety and technical feasibility not verified."
+    },
+    {
+      "id": "R-APPLE-JUICE",
+      "version": 1,
+      "family": "vegetables",
+      "inputs": [
+        {
+          "good_id": "apple",
+          "quantity": null,
+          "unit": null,
+          "input_kind": "produced_good"
+        },
+        {
+          "good_id": "water",
+          "quantity": null,
+          "unit": null,
+          "input_kind": "external_good"
+        }
+      ],
+      "outputs": [
+        {
+          "good_id": "apple_juice",
+          "quantity": null,
+          "unit": null
+        }
+      ],
+      "min_batch": null,
+      "equipment_profile": null,
+      "energy_profile": null,
+      "workforce_profile": null,
+      "quality_profile": null,
+      "source_status": "requires_verification",
+      "status": "draft_not_executable",
+      "schema_warning": "Proposed only: inputs, unit balances, safety and technical feasibility not verified."
+    },
+    {
+      "id": "R-APPLE-JUICE-BOTTLE",
+      "version": 1,
+      "family": "vegetables",
+      "inputs": [
+        {
+          "good_id": "apple_juice",
+          "quantity": null,
+          "unit": null,
+          "input_kind": "produced_good"
+        },
+        {
+          "good_id": "glass_bottle",
+          "quantity": null,
+          "unit": null,
+          "input_kind": "produced_good"
+        },
+        {
+          "good_id": "bottle_cap",
+          "quantity": null,
+          "unit": null,
+          "input_kind": "produced_good"
+        }
+      ],
+      "outputs": [
+        {
+          "good_id": "apple_juice_bottle",
+          "quantity": null,
+          "unit": null
+        }
+      ],
+      "min_batch": null,
+      "equipment_profile": null,
+      "energy_profile": null,
+      "workforce_profile": null,
+      "quality_profile": null,
+      "source_status": "requires_verification",
+      "status": "draft_not_executable",
+      "schema_warning": "Proposed only: inputs, unit balances, safety and technical feasibility not verified."
+    },
+    {
+      "id": "R-POTATO-STARCH",
+      "version": 1,
+      "family": "vegetables",
+      "inputs": [
+        {
+          "good_id": "potato",
+          "quantity": null,
+          "unit": null,
+          "input_kind": "produced_good"
+        },
+        {
+          "good_id": "water",
+          "quantity": null,
+          "unit": null,
+          "input_kind": "external_good"
+        }
+      ],
+      "outputs": [
+        {
+          "good_id": "potato_starch",
+          "quantity": null,
+          "unit": null
+        }
+      ],
+      "min_batch": null,
+      "equipment_profile": null,
+      "energy_profile": null,
+      "workforce_profile": null,
+      "quality_profile": null,
+      "source_status": "requires_verification",
+      "status": "draft_not_executable",
+      "schema_warning": "Proposed only: inputs, unit balances, safety and technical feasibility not verified."
+    },
+    {
+      "id": "R-DIESEL-FRACTION",
+      "version": 1,
+      "family": "oil",
+      "inputs": [
+        {
+          "good_id": "crude_oil",
+          "quantity": null,
+          "unit": null,
+          "input_kind": "produced_good"
+        },
+        {
+          "good_id": "energy",
+          "quantity": null,
+          "unit": null,
+          "input_kind": "utility"
+        }
+      ],
+      "outputs": [
+        {
+          "good_id": "diesel_fraction",
+          "quantity": null,
+          "unit": null
+        }
+      ],
+      "min_batch": null,
+      "equipment_profile": null,
+      "energy_profile": null,
+      "workforce_profile": null,
+      "quality_profile": null,
+      "source_status": "requires_verification",
+      "status": "draft_not_executable",
+      "schema_warning": "Proposed only: inputs, unit balances, safety and technical feasibility not verified."
+    },
+    {
+      "id": "R-GASOLINE-FRACTION",
+      "version": 1,
+      "family": "oil",
+      "inputs": [
+        {
+          "good_id": "crude_oil",
+          "quantity": null,
+          "unit": null,
+          "input_kind": "produced_good"
+        },
+        {
+          "good_id": "energy",
+          "quantity": null,
+          "unit": null,
+          "input_kind": "utility"
+        }
+      ],
+      "outputs": [
+        {
+          "good_id": "gasoline_fraction",
+          "quantity": null,
+          "unit": null
+        }
+      ],
+      "min_batch": null,
+      "equipment_profile": null,
+      "energy_profile": null,
+      "workforce_profile": null,
+      "quality_profile": null,
+      "source_status": "requires_verification",
+      "status": "draft_not_executable",
+      "schema_warning": "Proposed only: inputs, unit balances, safety and technical feasibility not verified."
+    },
+    {
+      "id": "R-LUBRICANT-BASE",
+      "version": 1,
+      "family": "oil",
+      "inputs": [
+        {
+          "good_id": "crude_oil",
+          "quantity": null,
+          "unit": null,
+          "input_kind": "produced_good"
+        },
+        {
+          "good_id": "energy",
+          "quantity": null,
+          "unit": null,
+          "input_kind": "utility"
+        }
+      ],
+      "outputs": [
+        {
+          "good_id": "lubricant_base",
+          "quantity": null,
+          "unit": null
+        }
+      ],
+      "min_batch": null,
+      "equipment_profile": null,
+      "energy_profile": null,
+      "workforce_profile": null,
+      "quality_profile": null,
+      "source_status": "requires_verification",
+      "status": "draft_not_executable",
+      "schema_warning": "Proposed only: inputs, unit balances, safety and technical feasibility not verified."
+    },
+    {
+      "id": "R-LUBRICANT-PACK",
+      "version": 1,
+      "family": "oil",
+      "inputs": [
+        {
+          "good_id": "lubricant_base",
+          "quantity": null,
+          "unit": null,
+          "input_kind": "produced_good"
+        },
+        {
+          "good_id": "plastic_bottle",
+          "quantity": null,
+          "unit": null,
+          "input_kind": "produced_good"
+        }
+      ],
+      "outputs": [
+        {
+          "good_id": "lubricant_pack",
+          "quantity": null,
+          "unit": null
+        }
+      ],
+      "min_batch": null,
+      "equipment_profile": null,
+      "energy_profile": null,
+      "workforce_profile": null,
+      "quality_profile": null,
+      "source_status": "requires_verification",
+      "status": "draft_not_executable",
+      "schema_warning": "Proposed only: inputs, unit balances, safety and technical feasibility not verified."
+    },
+    {
+      "id": "R-PLASTIC-FILM",
+      "version": 1,
+      "family": "oil",
+      "inputs": [
+        {
+          "good_id": "plastic_resin",
+          "quantity": null,
+          "unit": null,
+          "input_kind": "produced_good"
+        },
+        {
+          "good_id": "energy",
+          "quantity": null,
+          "unit": null,
+          "input_kind": "utility"
+        }
+      ],
+      "outputs": [
+        {
+          "good_id": "plastic_film",
+          "quantity": null,
+          "unit": null
+        }
+      ],
+      "min_batch": null,
+      "equipment_profile": null,
+      "energy_profile": null,
+      "workforce_profile": null,
+      "quality_profile": null,
+      "source_status": "requires_verification",
+      "status": "draft_not_executable",
+      "schema_warning": "Proposed only: inputs, unit balances, safety and technical feasibility not verified."
+    },
+    {
+      "id": "R-PLASTIC-CONTAINER",
+      "version": 1,
+      "family": "oil",
+      "inputs": [
+        {
+          "good_id": "plastic_resin",
+          "quantity": null,
+          "unit": null,
+          "input_kind": "produced_good"
+        },
+        {
+          "good_id": "energy",
+          "quantity": null,
+          "unit": null,
+          "input_kind": "utility"
+        }
+      ],
+      "outputs": [
+        {
+          "good_id": "plastic_container",
+          "quantity": null,
+          "unit": null
+        }
+      ],
+      "min_batch": null,
+      "equipment_profile": null,
+      "energy_profile": null,
+      "workforce_profile": null,
+      "quality_profile": null,
+      "source_status": "requires_verification",
+      "status": "draft_not_executable",
+      "schema_warning": "Proposed only: inputs, unit balances, safety and technical feasibility not verified."
+    },
+    {
+      "id": "R-PLASTIC-PIPE",
+      "version": 1,
+      "family": "oil",
+      "inputs": [
+        {
+          "good_id": "plastic_resin",
+          "quantity": null,
+          "unit": null,
+          "input_kind": "produced_good"
+        },
+        {
+          "good_id": "energy",
+          "quantity": null,
+          "unit": null,
+          "input_kind": "utility"
+        }
+      ],
+      "outputs": [
+        {
+          "good_id": "plastic_pipe",
+          "quantity": null,
+          "unit": null
+        }
+      ],
+      "min_batch": null,
+      "equipment_profile": null,
+      "energy_profile": null,
+      "workforce_profile": null,
+      "quality_profile": null,
+      "source_status": "requires_verification",
+      "status": "draft_not_executable",
+      "schema_warning": "Proposed only: inputs, unit balances, safety and technical feasibility not verified."
+    },
+    {
+      "id": "R-PLASTIC-PACKAGING",
+      "version": 1,
+      "family": "oil",
+      "inputs": [
+        {
+          "good_id": "plastic_film",
+          "quantity": null,
+          "unit": null,
+          "input_kind": "produced_good"
+        }
+      ],
+      "outputs": [
+        {
+          "good_id": "plastic_packaging",
+          "quantity": null,
+          "unit": null
+        }
+      ],
+      "min_batch": null,
+      "equipment_profile": null,
+      "energy_profile": null,
+      "workforce_profile": null,
+      "quality_profile": null,
+      "source_status": "requires_verification",
+      "status": "draft_not_executable",
+      "schema_warning": "Proposed only: inputs, unit balances, safety and technical feasibility not verified."
+    },
+    {
+      "id": "R-CEMENT-CLINKER",
+      "version": 1,
+      "family": "construction",
+      "inputs": [
+        {
+          "good_id": "limestone",
+          "quantity": null,
+          "unit": null,
+          "input_kind": "produced_good"
+        },
+        {
+          "good_id": "clay",
+          "quantity": null,
+          "unit": null,
+          "input_kind": "produced_good"
+        },
+        {
+          "good_id": "energy",
+          "quantity": null,
+          "unit": null,
+          "input_kind": "utility"
+        }
+      ],
+      "outputs": [
+        {
+          "good_id": "cement_clinker",
+          "quantity": null,
+          "unit": null
+        }
+      ],
+      "min_batch": null,
+      "equipment_profile": null,
+      "energy_profile": null,
+      "workforce_profile": null,
+      "quality_profile": null,
+      "source_status": "requires_verification",
+      "status": "draft_not_executable",
+      "schema_warning": "Proposed only: inputs, unit balances, safety and technical feasibility not verified."
+    },
+    {
+      "id": "R-CEMENT",
+      "version": 1,
+      "family": "construction",
+      "inputs": [
+        {
+          "good_id": "cement_clinker",
+          "quantity": null,
+          "unit": null,
+          "input_kind": "produced_good"
+        },
+        {
+          "good_id": "energy",
+          "quantity": null,
+          "unit": null,
+          "input_kind": "utility"
+        }
+      ],
+      "outputs": [
+        {
+          "good_id": "cement",
+          "quantity": null,
+          "unit": null
+        }
+      ],
+      "min_batch": null,
+      "equipment_profile": null,
+      "energy_profile": null,
+      "workforce_profile": null,
+      "quality_profile": null,
+      "source_status": "requires_verification",
+      "status": "draft_not_executable",
+      "schema_warning": "Proposed only: inputs, unit balances, safety and technical feasibility not verified."
+    },
+    {
+      "id": "R-CONCRETE-BLOCK",
+      "version": 1,
+      "family": "construction",
+      "inputs": [
+        {
+          "good_id": "cement",
+          "quantity": null,
+          "unit": null,
+          "input_kind": "produced_good"
+        },
+        {
+          "good_id": "gravel",
+          "quantity": null,
+          "unit": null,
+          "input_kind": "produced_good"
+        },
+        {
+          "good_id": "water",
+          "quantity": null,
+          "unit": null,
+          "input_kind": "external_good"
+        }
+      ],
+      "outputs": [
+        {
+          "good_id": "concrete_block",
+          "quantity": null,
+          "unit": null
+        }
+      ],
+      "min_batch": null,
+      "equipment_profile": null,
+      "energy_profile": null,
+      "workforce_profile": null,
+      "quality_profile": null,
+      "source_status": "requires_verification",
+      "status": "draft_not_executable",
+      "schema_warning": "Proposed only: inputs, unit balances, safety and technical feasibility not verified."
+    },
+    {
+      "id": "R-PAVING-SLAB",
+      "version": 1,
+      "family": "construction",
+      "inputs": [
+        {
+          "good_id": "cement",
+          "quantity": null,
+          "unit": null,
+          "input_kind": "produced_good"
+        },
+        {
+          "good_id": "gravel",
+          "quantity": null,
+          "unit": null,
+          "input_kind": "produced_good"
+        },
+        {
+          "good_id": "water",
+          "quantity": null,
+          "unit": null,
+          "input_kind": "external_good"
+        }
+      ],
+      "outputs": [
+        {
+          "good_id": "paving_slab",
+          "quantity": null,
+          "unit": null
+        }
+      ],
+      "min_batch": null,
+      "equipment_profile": null,
+      "energy_profile": null,
+      "workforce_profile": null,
+      "quality_profile": null,
+      "source_status": "requires_verification",
+      "status": "draft_not_executable",
+      "schema_warning": "Proposed only: inputs, unit balances, safety and technical feasibility not verified."
+    },
+    {
+      "id": "R-CERAMIC-TILE",
+      "version": 1,
+      "family": "construction",
+      "inputs": [
+        {
+          "good_id": "clay",
+          "quantity": null,
+          "unit": null,
+          "input_kind": "produced_good"
+        },
+        {
+          "good_id": "energy",
+          "quantity": null,
+          "unit": null,
+          "input_kind": "utility"
+        }
+      ],
+      "outputs": [
+        {
+          "good_id": "ceramic_tile",
+          "quantity": null,
+          "unit": null
+        }
+      ],
+      "min_batch": null,
+      "equipment_profile": null,
+      "energy_profile": null,
+      "workforce_profile": null,
+      "quality_profile": null,
+      "source_status": "requires_verification",
+      "status": "draft_not_executable",
+      "schema_warning": "Proposed only: inputs, unit balances, safety and technical feasibility not verified."
+    },
+    {
+      "id": "R-ROOF-TILE",
+      "version": 1,
+      "family": "construction",
+      "inputs": [
+        {
+          "good_id": "clay",
+          "quantity": null,
+          "unit": null,
+          "input_kind": "produced_good"
+        },
+        {
+          "good_id": "energy",
+          "quantity": null,
+          "unit": null,
+          "input_kind": "utility"
+        }
+      ],
+      "outputs": [
+        {
+          "good_id": "roof_tile",
+          "quantity": null,
+          "unit": null
+        }
+      ],
+      "min_batch": null,
+      "equipment_profile": null,
+      "energy_profile": null,
+      "workforce_profile": null,
+      "quality_profile": null,
+      "source_status": "requires_verification",
+      "status": "draft_not_executable",
+      "schema_warning": "Proposed only: inputs, unit balances, safety and technical feasibility not verified."
+    },
+    {
+      "id": "R-DRY-MORTAR",
+      "version": 1,
+      "family": "construction",
+      "inputs": [
+        {
+          "good_id": "cement",
+          "quantity": null,
+          "unit": null,
+          "input_kind": "produced_good"
+        },
+        {
+          "good_id": "sand_supply",
+          "quantity": null,
+          "unit": null,
+          "input_kind": "external_good"
+        }
+      ],
+      "outputs": [
+        {
+          "good_id": "dry_mortar",
+          "quantity": null,
+          "unit": null
+        }
+      ],
+      "min_batch": null,
+      "equipment_profile": null,
+      "energy_profile": null,
+      "workforce_profile": null,
+      "quality_profile": null,
+      "source_status": "requires_verification",
+      "status": "draft_not_executable",
+      "schema_warning": "Proposed only: inputs, unit balances, safety and technical feasibility not verified."
+    },
+    {
+      "id": "R-MORTAR-MIX",
+      "version": 1,
+      "family": "construction",
+      "inputs": [
+        {
+          "good_id": "dry_mortar",
+          "quantity": null,
+          "unit": null,
+          "input_kind": "produced_good"
+        },
+        {
+          "good_id": "water",
+          "quantity": null,
+          "unit": null,
+          "input_kind": "external_good"
+        }
+      ],
+      "outputs": [
+        {
+          "good_id": "mortar_mix",
+          "quantity": null,
+          "unit": null
+        }
+      ],
+      "min_batch": null,
+      "equipment_profile": null,
+      "energy_profile": null,
+      "workforce_profile": null,
+      "quality_profile": null,
+      "source_status": "requires_verification",
+      "status": "draft_not_executable",
+      "schema_warning": "Proposed only: inputs, unit balances, safety and technical feasibility not verified."
+    },
+    {
+      "id": "R-CONCRETE-PANEL",
+      "version": 1,
+      "family": "construction",
+      "inputs": [
+        {
+          "good_id": "concrete",
+          "quantity": null,
+          "unit": null,
+          "input_kind": "produced_good"
+        },
+        {
+          "good_id": "rebar",
+          "quantity": null,
+          "unit": null,
+          "input_kind": "produced_good"
+        }
+      ],
+      "outputs": [
+        {
+          "good_id": "concrete_panel",
+          "quantity": null,
+          "unit": null
+        }
+      ],
+      "min_batch": null,
+      "equipment_profile": null,
+      "energy_profile": null,
+      "workforce_profile": null,
+      "quality_profile": null,
+      "source_status": "requires_verification",
+      "status": "draft_not_executable",
+      "schema_warning": "Proposed only: inputs, unit balances, safety and technical feasibility not verified."
+    },
+    {
+      "id": "R-GLASS-WINDOW",
+      "version": 1,
+      "family": "construction",
+      "inputs": [
+        {
+          "good_id": "glass_melt",
+          "quantity": null,
+          "unit": null,
+          "input_kind": "produced_good"
+        },
+        {
+          "good_id": "frame_supply",
+          "quantity": null,
+          "unit": null,
+          "input_kind": "external_good"
+        }
+      ],
+      "outputs": [
+        {
+          "good_id": "glass_window",
+          "quantity": null,
+          "unit": null
+        }
+      ],
+      "min_batch": null,
+      "equipment_profile": null,
+      "energy_profile": null,
+      "workforce_profile": null,
+      "quality_profile": null,
+      "source_status": "requires_verification",
+      "status": "draft_not_executable",
+      "schema_warning": "Proposed only: inputs, unit balances, safety and technical feasibility not verified."
+    },
+    {
+      "id": "R-GLASS-SHEET",
+      "version": 1,
+      "family": "glass",
+      "inputs": [
+        {
+          "good_id": "glass_melt",
+          "quantity": null,
+          "unit": null,
+          "input_kind": "produced_good"
+        }
+      ],
+      "outputs": [
+        {
+          "good_id": "glass_sheet",
+          "quantity": null,
+          "unit": null
+        }
+      ],
+      "min_batch": null,
+      "equipment_profile": null,
+      "energy_profile": null,
+      "workforce_profile": null,
+      "quality_profile": null,
+      "source_status": "requires_verification",
+      "status": "draft_not_executable",
+      "schema_warning": "Proposed only: inputs, unit balances, safety and technical feasibility not verified."
+    },
+    {
+      "id": "R-GLASS-FIBER",
+      "version": 1,
+      "family": "glass",
+      "inputs": [
+        {
+          "good_id": "glass_melt",
+          "quantity": null,
+          "unit": null,
+          "input_kind": "produced_good"
+        }
+      ],
+      "outputs": [
+        {
+          "good_id": "glass_fiber",
+          "quantity": null,
+          "unit": null
+        }
+      ],
+      "min_batch": null,
+      "equipment_profile": null,
+      "energy_profile": null,
+      "workforce_profile": null,
+      "quality_profile": null,
+      "source_status": "requires_verification",
+      "status": "draft_not_executable",
+      "schema_warning": "Proposed only: inputs, unit balances, safety and technical feasibility not verified."
+    },
+    {
+      "id": "R-GLASS-CULLET",
+      "version": 1,
+      "family": "glass",
+      "inputs": [
+        {
+          "good_id": "glass_bottle",
+          "quantity": null,
+          "unit": null,
+          "input_kind": "produced_good"
+        }
+      ],
+      "outputs": [
+        {
+          "good_id": "glass_cullet",
+          "quantity": null,
+          "unit": null
+        }
+      ],
+      "min_batch": null,
+      "equipment_profile": null,
+      "energy_profile": null,
+      "workforce_profile": null,
+      "quality_profile": null,
+      "source_status": "requires_verification",
+      "status": "draft_not_executable",
+      "schema_warning": "Proposed only: inputs, unit balances, safety and technical feasibility not verified."
+    },
+    {
+      "id": "R-RECYCLED-GLASS-MELT",
+      "version": 1,
+      "family": "glass",
+      "inputs": [
+        {
+          "good_id": "glass_cullet",
+          "quantity": null,
+          "unit": null,
+          "input_kind": "produced_good"
+        },
+        {
+          "good_id": "energy",
+          "quantity": null,
+          "unit": null,
+          "input_kind": "utility"
+        }
+      ],
+      "outputs": [
+        {
+          "good_id": "recycled_glass_melt",
+          "quantity": null,
+          "unit": null
+        }
+      ],
+      "min_batch": null,
+      "equipment_profile": null,
+      "energy_profile": null,
+      "workforce_profile": null,
+      "quality_profile": null,
+      "source_status": "requires_verification",
+      "status": "draft_not_executable",
+      "schema_warning": "Proposed only: inputs, unit balances, safety and technical feasibility not verified."
+    },
+    {
+      "id": "R-GLASSWARE",
+      "version": 1,
+      "family": "glass",
+      "inputs": [
+        {
+          "good_id": "glass_melt",
+          "quantity": null,
+          "unit": null,
+          "input_kind": "produced_good"
+        }
+      ],
+      "outputs": [
+        {
+          "good_id": "glassware",
+          "quantity": null,
+          "unit": null
+        }
+      ],
+      "min_batch": null,
+      "equipment_profile": null,
+      "energy_profile": null,
+      "workforce_profile": null,
+      "quality_profile": null,
+      "source_status": "requires_verification",
+      "status": "draft_not_executable",
+      "schema_warning": "Proposed only: inputs, unit balances, safety and technical feasibility not verified."
+    },
+    {
+      "id": "R-GLASS-PACKAGING",
+      "version": 1,
+      "family": "glass",
+      "inputs": [
+        {
+          "good_id": "glass_jar",
+          "quantity": null,
+          "unit": null,
+          "input_kind": "produced_good"
+        },
+        {
+          "good_id": "paper_pack",
+          "quantity": null,
+          "unit": null,
+          "input_kind": "produced_good"
+        }
+      ],
+      "outputs": [
+        {
+          "good_id": "glass_packaging",
+          "quantity": null,
+          "unit": null
+        }
+      ],
+      "min_batch": null,
+      "equipment_profile": null,
+      "energy_profile": null,
+      "workforce_profile": null,
+      "quality_profile": null,
+      "source_status": "requires_verification",
+      "status": "draft_not_executable",
+      "schema_warning": "Proposed only: inputs, unit balances, safety and technical feasibility not verified."
+    }
+  ]
+}

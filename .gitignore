@@ -8,3 +8,7 @@
 *.apk
 *.aab
 *.keystore
+
+# Python offline validators
+**/__pycache__/
+*.pyc

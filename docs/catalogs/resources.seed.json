@@ -1,0 +1,958 @@
+{
+  "schema_version": 1,
+  "scope": "draft resource taxonomy; units and actual sourcing unverified",
+  "resources": [
+    {
+      "id": "barley_field",
+      "kind": "site",
+      "unit": null,
+      "source_status": "requires_verification",
+      "status": "draft"
+    },
+    {
+      "id": "barley_flour",
+      "kind": "produced_good",
+      "unit": null,
+      "source_status": "requires_verification",
+      "status": "draft"
+    },
+    {
+      "id": "barley_grain",
+      "kind": "produced_good",
+      "unit": null,
+      "source_status": "requires_verification",
+      "status": "draft"
+    },
+    {
+      "id": "bitumen",
+      "kind": "produced_good",
+      "unit": null,
+      "source_status": "requires_verification",
+      "status": "draft"
+    },
+    {
+      "id": "bottle_cap",
+      "kind": "produced_good",
+      "unit": null,
+      "source_status": "requires_verification",
+      "status": "draft"
+    },
+    {
+      "id": "bread_dough",
+      "kind": "produced_good",
+      "unit": null,
+      "source_status": "requires_verification",
+      "status": "draft"
+    },
+    {
+      "id": "bread_loaf",
+      "kind": "produced_good",
+      "unit": null,
+      "source_status": "requires_verification",
+      "status": "draft"
+    },
+    {
+      "id": "bread_pack",
+      "kind": "produced_good",
+      "unit": null,
+      "source_status": "requires_verification",
+      "status": "draft"
+    },
+    {
+      "id": "brick",
+      "kind": "produced_good",
+      "unit": null,
+      "source_status": "requires_verification",
+      "status": "draft"
+    },
+    {
+      "id": "butter",
+      "kind": "produced_good",
+      "unit": null,
+      "source_status": "requires_verification",
+      "status": "draft"
+    },
+    {
+      "id": "cardboard",
+      "kind": "produced_good",
+      "unit": null,
+      "source_status": "requires_verification",
+      "status": "draft"
+    },
+    {
+      "id": "clay",
+      "kind": "produced_good",
+      "unit": null,
+      "source_status": "requires_verification",
+      "status": "draft"
+    },
+    {
+      "id": "clay_deposit",
+      "kind": "site",
+      "unit": null,
+      "source_status": "requires_verification",
+      "status": "draft"
+    },
+    {
+      "id": "cocoa_drink",
+      "kind": "produced_good",
+      "unit": null,
+      "source_status": "requires_verification",
+      "status": "draft"
+    },
+    {
+      "id": "cocoa_drink_bottle",
+      "kind": "produced_good",
+      "unit": null,
+      "source_status": "requires_verification",
+      "status": "draft"
+    },
+    {
+      "id": "cocoa_powder",
+      "kind": "external_good",
+      "unit": null,
+      "source_status": "requires_verification",
+      "status": "draft"
+    },
+    {
+      "id": "concrete",
+      "kind": "produced_good",
+      "unit": null,
+      "source_status": "requires_verification",
+      "status": "draft"
+    },
+    {
+      "id": "cream",
+      "kind": "produced_good",
+      "unit": null,
+      "source_status": "requires_verification",
+      "status": "draft"
+    },
+    {
+      "id": "crude_oil",
+      "kind": "produced_good",
+      "unit": null,
+      "source_status": "requires_verification",
+      "status": "draft"
+    },
+    {
+      "id": "dairy_farm",
+      "kind": "site",
+      "unit": null,
+      "source_status": "requires_verification",
+      "status": "draft"
+    },
+    {
+      "id": "energy",
+      "kind": "utility",
+      "unit": null,
+      "source_status": "requires_verification",
+      "status": "draft"
+    },
+    {
+      "id": "forest",
+      "kind": "site",
+      "unit": null,
+      "source_status": "requires_verification",
+      "status": "draft"
+    },
+    {
+      "id": "glass_bottle",
+      "kind": "produced_good",
+      "unit": null,
+      "source_status": "requires_verification",
+      "status": "draft"
+    },
+    {
+      "id": "glass_jar",
+      "kind": "produced_good",
+      "unit": null,
+      "source_status": "requires_verification",
+      "status": "draft"
+    },
+    {
+      "id": "glass_melt",
+      "kind": "produced_good",
+      "unit": null,
+      "source_status": "requires_verification",
+      "status": "draft"
+    },
+    {
+      "id": "gravel",
+      "kind": "produced_good",
+      "unit": null,
+      "source_status": "requires_verification",
+      "status": "draft"
+    },
+    {
+      "id": "limestone",
+      "kind": "produced_good",
+      "unit": null,
+      "source_status": "requires_verification",
+      "status": "draft"
+    },
+    {
+      "id": "limestone_deposit",
+      "kind": "site",
+      "unit": null,
+      "source_status": "requires_verification",
+      "status": "draft"
+    },
+    {
+      "id": "logs",
+      "kind": "produced_good",
+      "unit": null,
+      "source_status": "requires_verification",
+      "status": "draft"
+    },
+    {
+      "id": "milk_bottle",
+      "kind": "produced_good",
+      "unit": null,
+      "source_status": "requires_verification",
+      "status": "draft"
+    },
+    {
+      "id": "oil_deposit",
+      "kind": "site",
+      "unit": null,
+      "source_status": "requires_verification",
+      "status": "draft"
+    },
+    {
+      "id": "paper",
+      "kind": "produced_good",
+      "unit": null,
+      "source_status": "requires_verification",
+      "status": "draft"
+    },
+    {
+      "id": "paper_pack",
+      "kind": "produced_good",
+      "unit": null,
+      "source_status": "requires_verification",
+      "status": "draft"
+    },
+    {
+      "id": "pasteurized_milk",
+      "kind": "produced_good",
+      "unit": null,
+      "source_status": "requires_verification",
+      "status": "draft"
+    },
+    {
+      "id": "plastic_bottle",
+      "kind": "produced_good",
+      "unit": null,
+      "source_status": "requires_verification",
+      "status": "draft"
+    },
+    {
+      "id": "plastic_resin",
+      "kind": "produced_good",
+      "unit": null,
+      "source_status": "requires_verification",
+      "status": "draft"
+    },
+    {
+      "id": "potato",
+      "kind": "produced_good",
+      "unit": null,
+      "source_status": "requires_verification",
+      "status": "draft"
+    },
+    {
+      "id": "potato_field",
+      "kind": "site",
+      "unit": null,
+      "source_status": "requires_verification",
+      "status": "draft"
+    },
+    {
+      "id": "potato_pack",
+      "kind": "produced_good",
+      "unit": null,
+      "source_status": "requires_verification",
+      "status": "draft"
+    },
+    {
+      "id": "quartz_sand",
+      "kind": "produced_good",
+      "unit": null,
+      "source_status": "requires_verification",
+      "status": "draft"
+    },
+    {
+      "id": "raw_milk",
+      "kind": "produced_good",
+      "unit": null,
+      "source_status": "requires_verification",
+      "status": "draft"
+    },
+    {
+      "id": "rebar",
+      "kind": "produced_good",
+      "unit": null,
+      "source_status": "requires_verification",
+      "status": "draft"
+    },
+    {
+      "id": "refined_fuel",
+      "kind": "produced_good",
+      "unit": null,
+      "source_status": "requires_verification",
+      "status": "draft"
+    },
+    {
+      "id": "reinforced_concrete",
+      "kind": "produced_good",
+      "unit": null,
+      "source_status": "requires_verification",
+      "status": "draft"
+    },
+    {
+      "id": "sand_deposit",
+      "kind": "site",
+      "unit": null,
+      "source_status": "requires_verification",
+      "status": "draft"
+    },
+    {
+      "id": "sawn_timber",
+      "kind": "produced_good",
+      "unit": null,
+      "source_status": "requires_verification",
+      "status": "draft"
+    },
+    {
+      "id": "soda_ash",
+      "kind": "produced_good",
+      "unit": null,
+      "source_status": "requires_verification",
+      "status": "draft"
+    },
+    {
+      "id": "soda_ash_supply",
+      "kind": "external_good",
+      "unit": null,
+      "source_status": "requires_verification",
+      "status": "draft"
+    },
+    {
+      "id": "steel_supply",
+      "kind": "external_good",
+      "unit": null,
+      "source_status": "requires_verification",
+      "status": "draft"
+    },
+    {
+      "id": "stone_deposit",
+      "kind": "site",
+      "unit": null,
+      "source_status": "requires_verification",
+      "status": "draft"
+    },
+    {
+      "id": "sunflower_field",
+      "kind": "site",
+      "unit": null,
+      "source_status": "requires_verification",
+      "status": "draft"
+    },
+    {
+      "id": "sunflower_oil",
+      "kind": "produced_good",
+      "unit": null,
+      "source_status": "requires_verification",
+      "status": "draft"
+    },
+    {
+      "id": "sunflower_oil_bottle",
+      "kind": "produced_good",
+      "unit": null,
+      "source_status": "requires_verification",
+      "status": "draft"
+    },
+    {
+      "id": "sunflower_seed",
+      "kind": "produced_good",
+      "unit": null,
+      "source_status": "requires_verification",
+      "status": "draft"
+    },
+    {
+      "id": "washed_potato",
+      "kind": "produced_good",
+      "unit": null,
+      "source_status": "requires_verification",
+      "status": "draft"
+    },
+    {
+      "id": "water",
+      "kind": "external_good",
+      "unit": null,
+      "source_status": "requires_verification",
+      "status": "draft"
+    },
+    {
+      "id": "wheat_field",
+      "kind": "site",
+      "unit": null,
+      "source_status": "requires_verification",
+      "status": "draft"
+    },
+    {
+      "id": "wheat_flour",
+      "kind": "produced_good",
+      "unit": null,
+      "source_status": "requires_verification",
+      "status": "draft"
+    },
+    {
+      "id": "wheat_grain",
+      "kind": "produced_good",
+      "unit": null,
+      "source_status": "requires_verification",
+      "status": "draft"
+    },
+    {
+      "id": "wood_pulp",
+      "kind": "produced_good",
+      "unit": null,
+      "source_status": "requires_verification",
+      "status": "draft"
+    },
+    {
+      "id": "yeast",
+      "kind": "external_good",
+      "unit": null,
+      "source_status": "requires_verification",
+      "status": "draft"
+    },
+    {
+      "id": "rye_field",
+      "kind": "site",
+      "unit": null,
+      "source_status": "requires_verification",
+      "status": "draft"
+    },
+    {
+      "id": "rye_grain",
+      "kind": "produced_good",
+      "unit": null,
+      "source_status": "requires_verification",
+      "status": "draft"
+    },
+    {
+      "id": "rye_flour",
+      "kind": "produced_good",
+      "unit": null,
+      "source_status": "requires_verification",
+      "status": "draft"
+    },
+    {
+      "id": "rye_dough",
+      "kind": "produced_good",
+      "unit": null,
+      "source_status": "requires_verification",
+      "status": "draft"
+    },
+    {
+      "id": "rye_bread",
+      "kind": "produced_good",
+      "unit": null,
+      "source_status": "requires_verification",
+      "status": "draft"
+    },
+    {
+      "id": "oat_field",
+      "kind": "site",
+      "unit": null,
+      "source_status": "requires_verification",
+      "status": "draft"
+    },
+    {
+      "id": "oat_grain",
+      "kind": "produced_good",
+      "unit": null,
+      "source_status": "requires_verification",
+      "status": "draft"
+    },
+    {
+      "id": "oat_flakes",
+      "kind": "produced_good",
+      "unit": null,
+      "source_status": "requires_verification",
+      "status": "draft"
+    },
+    {
+      "id": "wheat_bran",
+      "kind": "produced_good",
+      "unit": null,
+      "source_status": "requires_verification",
+      "status": "draft"
+    },
+    {
+      "id": "animal_feed",
+      "kind": "produced_good",
+      "unit": null,
+      "source_status": "requires_verification",
+      "status": "draft"
+    },
+    {
+      "id": "pasta_dough",
+      "kind": "produced_good",
+      "unit": null,
+      "source_status": "requires_verification",
+      "status": "draft"
+    },
+    {
+      "id": "dry_pasta",
+      "kind": "produced_good",
+      "unit": null,
+      "source_status": "requires_verification",
+      "status": "draft"
+    },
+    {
+      "id": "skimmed_milk",
+      "kind": "produced_good",
+      "unit": null,
+      "source_status": "requires_verification",
+      "status": "draft"
+    },
+    {
+      "id": "milk_powder",
+      "kind": "produced_good",
+      "unit": null,
+      "source_status": "requires_verification",
+      "status": "draft"
+    },
+    {
+      "id": "starter_culture",
+      "kind": "external_good",
+      "unit": null,
+      "source_status": "requires_verification",
+      "status": "draft"
+    },
+    {
+      "id": "yogurt_base",
+      "kind": "produced_good",
+      "unit": null,
+      "source_status": "requires_verification",
+      "status": "draft"
+    },
+    {
+      "id": "yogurt",
+      "kind": "produced_good",
+      "unit": null,
+      "source_status": "requires_verification",
+      "status": "draft"
+    },
+    {
+      "id": "cheese_curd",
+      "kind": "produced_good",
+      "unit": null,
+      "source_status": "requires_verification",
+      "status": "draft"
+    },
+    {
+      "id": "cheese",
+      "kind": "produced_good",
+      "unit": null,
+      "source_status": "requires_verification",
+      "status": "draft"
+    },
+    {
+      "id": "whey",
+      "kind": "produced_good",
+      "unit": null,
+      "source_status": "requires_verification",
+      "status": "draft"
+    },
+    {
+      "id": "sour_cream",
+      "kind": "produced_good",
+      "unit": null,
+      "source_status": "requires_verification",
+      "status": "draft"
+    },
+    {
+      "id": "sugar",
+      "kind": "external_good",
+      "unit": null,
+      "source_status": "requires_verification",
+      "status": "draft"
+    },
+    {
+      "id": "ice_cream_mix",
+      "kind": "produced_good",
+      "unit": null,
+      "source_status": "requires_verification",
+      "status": "draft"
+    },
+    {
+      "id": "ice_cream",
+      "kind": "produced_good",
+      "unit": null,
+      "source_status": "requires_verification",
+      "status": "draft"
+    },
+    {
+      "id": "wood_chips",
+      "kind": "produced_good",
+      "unit": null,
+      "source_status": "requires_verification",
+      "status": "draft"
+    },
+    {
+      "id": "resin_binder",
+      "kind": "external_good",
+      "unit": null,
+      "source_status": "requires_verification",
+      "status": "draft"
+    },
+    {
+      "id": "particle_board",
+      "kind": "produced_good",
+      "unit": null,
+      "source_status": "requires_verification",
+      "status": "draft"
+    },
+    {
+      "id": "plywood",
+      "kind": "produced_good",
+      "unit": null,
+      "source_status": "requires_verification",
+      "status": "draft"
+    },
+    {
+      "id": "wood_pellets",
+      "kind": "produced_good",
+      "unit": null,
+      "source_status": "requires_verification",
+      "status": "draft"
+    },
+    {
+      "id": "paper_roll",
+      "kind": "produced_good",
+      "unit": null,
+      "source_status": "requires_verification",
+      "status": "draft"
+    },
+    {
+      "id": "paper_bag",
+      "kind": "produced_good",
+      "unit": null,
+      "source_status": "requires_verification",
+      "status": "draft"
+    },
+    {
+      "id": "corrugated_board",
+      "kind": "produced_good",
+      "unit": null,
+      "source_status": "requires_verification",
+      "status": "draft"
+    },
+    {
+      "id": "carton_box",
+      "kind": "produced_good",
+      "unit": null,
+      "source_status": "requires_verification",
+      "status": "draft"
+    },
+    {
+      "id": "carrot_field",
+      "kind": "site",
+      "unit": null,
+      "source_status": "requires_verification",
+      "status": "draft"
+    },
+    {
+      "id": "carrot",
+      "kind": "produced_good",
+      "unit": null,
+      "source_status": "requires_verification",
+      "status": "draft"
+    },
+    {
+      "id": "washed_carrot",
+      "kind": "produced_good",
+      "unit": null,
+      "source_status": "requires_verification",
+      "status": "draft"
+    },
+    {
+      "id": "carrot_pack",
+      "kind": "produced_good",
+      "unit": null,
+      "source_status": "requires_verification",
+      "status": "draft"
+    },
+    {
+      "id": "onion_field",
+      "kind": "site",
+      "unit": null,
+      "source_status": "requires_verification",
+      "status": "draft"
+    },
+    {
+      "id": "onion",
+      "kind": "produced_good",
+      "unit": null,
+      "source_status": "requires_verification",
+      "status": "draft"
+    },
+    {
+      "id": "onion_pack",
+      "kind": "produced_good",
+      "unit": null,
+      "source_status": "requires_verification",
+      "status": "draft"
+    },
+    {
+      "id": "tomato_greenhouse",
+      "kind": "site",
+      "unit": null,
+      "source_status": "requires_verification",
+      "status": "draft"
+    },
+    {
+      "id": "tomato",
+      "kind": "produced_good",
+      "unit": null,
+      "source_status": "requires_verification",
+      "status": "draft"
+    },
+    {
+      "id": "tomato_paste",
+      "kind": "produced_good",
+      "unit": null,
+      "source_status": "requires_verification",
+      "status": "draft"
+    },
+    {
+      "id": "tomato_sauce",
+      "kind": "produced_good",
+      "unit": null,
+      "source_status": "requires_verification",
+      "status": "draft"
+    },
+    {
+      "id": "apple_orchard",
+      "kind": "site",
+      "unit": null,
+      "source_status": "requires_verification",
+      "status": "draft"
+    },
+    {
+      "id": "apple",
+      "kind": "produced_good",
+      "unit": null,
+      "source_status": "requires_verification",
+      "status": "draft"
+    },
+    {
+      "id": "apple_juice",
+      "kind": "produced_good",
+      "unit": null,
+      "source_status": "requires_verification",
+      "status": "draft"
+    },
+    {
+      "id": "apple_juice_bottle",
+      "kind": "produced_good",
+      "unit": null,
+      "source_status": "requires_verification",
+      "status": "draft"
+    },
+    {
+      "id": "potato_starch",
+      "kind": "produced_good",
+      "unit": null,
+      "source_status": "requires_verification",
+      "status": "draft"
+    },
+    {
+      "id": "diesel_fraction",
+      "kind": "produced_good",
+      "unit": null,
+      "source_status": "requires_verification",
+      "status": "draft"
+    },
+    {
+      "id": "gasoline_fraction",
+      "kind": "produced_good",
+      "unit": null,
+      "source_status": "requires_verification",
+      "status": "draft"
+    },
+    {
+      "id": "lubricant_base",
+      "kind": "produced_good",
+      "unit": null,
+      "source_status": "requires_verification",
+      "status": "draft"
+    },
+    {
+      "id": "lubricant_pack",
+      "kind": "produced_good",
+      "unit": null,
+      "source_status": "requires_verification",
+      "status": "draft"
+    },
+    {
+      "id": "plastic_film",
+      "kind": "produced_good",
+      "unit": null,
+      "source_status": "requires_verification",
+      "status": "draft"
+    },
+    {
+      "id": "plastic_container",
+      "kind": "produced_good",
+      "unit": null,
+      "source_status": "requires_verification",
+      "status": "draft"
+    },
+    {
+      "id": "plastic_pipe",
+      "kind": "produced_good",
+      "unit": null,
+      "source_status": "requires_verification",
+      "status": "draft"
+    },
+    {
+      "id": "plastic_packaging",
+      "kind": "produced_good",
+      "unit": null,
+      "source_status": "requires_verification",
+      "status": "draft"
+    },
+    {
+      "id": "cement_clinker",
+      "kind": "produced_good",
+      "unit": null,
+      "source_status": "requires_verification",
+      "status": "draft"
+    },
+    {
+      "id": "cement",
+      "kind": "produced_good",
+      "unit": null,
+      "source_status": "requires_verification",
+      "status": "draft"
+    },
+    {
+      "id": "concrete_block",
+      "kind": "produced_good",
+      "unit": null,
+      "source_status": "requires_verification",
+      "status": "draft"
+    },
+    {
+      "id": "paving_slab",
+      "kind": "produced_good",
+      "unit": null,
+      "source_status": "requires_verification",
+      "status": "draft"
+    },
+    {
+      "id": "ceramic_tile",
+      "kind": "produced_good",
+      "unit": null,
+      "source_status": "requires_verification",
+      "status": "draft"
+    },
+    {
+      "id": "roof_tile",
+      "kind": "produced_good",
+      "unit": null,
+      "source_status": "requires_verification",
+      "status": "draft"
+    },
+    {
+      "id": "sand_supply",
+      "kind": "external_good",
+      "unit": null,
+      "source_status": "requires_verification",
+      "status": "draft"
+    },
+    {
+      "id": "dry_mortar",
+      "kind": "produced_good",
+      "unit": null,
+      "source_status": "requires_verification",
+      "status": "draft"
+    },
+    {
+      "id": "mortar_mix",
+      "kind": "produced_good",
+      "unit": null,
+      "source_status": "requires_verification",
+      "status": "draft"
+    },
+    {
+      "id": "concrete_panel",
+      "kind": "produced_good",
+      "unit": null,
+      "source_status": "requires_verification",
+      "status": "draft"
+    },
+    {
+      "id": "frame_supply",
+      "kind": "external_good",
+      "unit": null,
+      "source_status": "requires_verification",
+      "status": "draft"
+    },
+    {
+      "id": "glass_window",
+      "kind": "produced_good",
+      "unit": null,
+      "source_status": "requires_verification",
+      "status": "draft"
+    },
+    {
+      "id": "glass_sheet",
+      "kind": "produced_good",
+      "unit": null,
+      "source_status": "requires_verification",
+      "status": "draft"
+    },
+    {
+      "id": "glass_fiber",
+      "kind": "produced_good",
+      "unit": null,
+      "source_status": "requires_verification",
+      "status": "draft"
+    },
+    {
+      "id": "glass_cullet",
+      "kind": "produced_good",
+      "unit": null,
+      "source_status": "requires_verification",
+      "status": "draft"
+    },
+    {
+      "id": "recycled_glass_melt",
+      "kind": "produced_good",
+      "unit": null,
+      "source_status": "requires_verification",
+      "status": "draft"
+    },
+    {
+      "id": "glassware",
+      "kind": "produced_good",
+      "unit": null,
+      "source_status": "requires_verification",
+      "status": "draft"
+    },
+    {
+      "id": "glass_packaging",
+      "kind": "produced_good",
+      "unit": null,
+      "source_status": "requires_verification",
+      "status": "draft"
+    }
+  ]
+}

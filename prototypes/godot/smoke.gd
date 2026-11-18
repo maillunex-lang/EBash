@@ -29,21 +29,21 @@ func check_districts() -> void:
 
 func _initialize() -> void:
  check_districts()
+ set_meta("ebash_city_route",true)
+ set_meta("ebash_city_id","ufa")
  var scene = load("res://Main.tscn").instantiate()
  root.add_child.call_deferred(scene)
  await process_frame
  await process_frame
- assert(scene.buildings.size() == 49)
- scene.show_factory()
- scene.select_cell(4)
- assert(scene.selected == 4)
- var balance = scene.cash
- scene.advance_tick()
- assert(scene.tick == 1 and scene.cash == balance+1250)
- scene.toggle_mode()
- assert(scene.mode)
- scene.show_republic()
- assert(not scene.city.visible)
+ assert(scene.city_id == "ufa" and scene.district.lots.size() == 25)
+ assert(scene.city_card.visible)
+ scene.open_search()
+ assert(scene.search_results.get_child_count() == 25)
+ scene.search_query.text_changed.emit("12")
+ assert(scene.search_results.get_child_count() == 1)
+ scene.search_results.get_child(0).pressed.emit()
+ assert(scene.active_lot == 12)
+ var before_zoom: float = scene.camera.size
  var touch_a := InputEventScreenTouch.new()
  touch_a.index = 0
  touch_a.pressed = true
@@ -57,7 +57,6 @@ func _initialize() -> void:
  var pinch := InputEventScreenDrag.new()
  pinch.index = 1
  pinch.position = Vector2(350, 200)
- var before_zoom: float = scene.camera.size
  scene._unhandled_input(pinch)
  assert(scene.camera.size < before_zoom)
  touch_b.pressed = false
@@ -65,7 +64,8 @@ func _initialize() -> void:
  touch_a.pressed = false
  scene._unhandled_input(touch_a)
  assert(scene.touches.is_empty())
- scene._layout_panel()
- assert(scene.panel.offset_right - scene.panel.offset_left <= 800.0)
- print("SMOKE OK: city, factory, selection, demo tick, company, republic")
+ scene.open_hub("company")
+ await scene_changed
+ assert(current_scene.company_tab.disabled)
+ print("SMOKE OK: districts, city map, search, camera, company hub")
  quit()

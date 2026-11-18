@@ -21,7 +21,18 @@ func run() -> void:
  assert(city.bakery_button.visible and city.bakery_button.text == "Построить пекарню")
  await city.construction_action()
  assert(city.construction.site == "6" and city.balance == 170000 and not city.construction.open)
- change_scene_to_file("res://Main.tscn")
+ city.open_hub("company")
+ await scene_changed
+ var hub := current_scene
+ while hub.company_data.is_empty():
+  await process_frame
+ assert(hub.enterprise_buttons.has("works"))
+ var works_label := ""
+ for child in hub.body.get_children():
+  if child is Label and str(child.text).contains("Приёмка на тике"):
+   works_label = child.text
+ assert(works_label.contains("участок 6"))
+ hub.enterprise_buttons["works"].pressed.emit()
  await scene_changed
  city = current_scene
  while city.construction.is_empty():
@@ -31,7 +42,13 @@ func run() -> void:
  assert(not city.construction.open)
  await city.construction_action()
  assert(city.construction.open and city.district.lots[6].kind == "bakery")
- city.bakery_button.pressed.emit()
+ city.open_hub("company")
+ await scene_changed
+ hub = current_scene
+ while hub.company_data.is_empty():
+  await process_frame
+ assert(hub.enterprise_buttons.has("manage"))
+ hub.enterprise_buttons["manage"].pressed.emit()
  await scene_changed
  var panel := current_scene
  while panel.busy:

@@ -2,33 +2,18 @@
 
 ## Текущая проверка
 
-Рабочий клиент — Godot 4.7.2, Android arm64. Начальная сцена — [Launcher](godot/Launcher.gd), выбор города и компания — [Region](godot/Region.gd), город и поиск — [Main](godot/Main.gd). [Маршрут проверок](../docs/READING.md) · [HTTPS-мир](../docs/roadmap/p3-public-path.md). Последний кандидат на Lunex — `/home/gamedev/ebash-build/ebash-city-search-alpha-20261118.apk`. Подпись проверена. Ручной проход на телефоне открыт.
-
-## История сравнения движков
-
-### Состав сравнительного стенда
-
-- Godot: `godot/project.godot`. Целевая версия — 4.7.2 (D-094); проверки ниже выполнены на 4.6.3.
-- Unity Personal: `unity/`, проект под 2022.3.62f1; требуется редактор с Android Build Support и активацией Personal.
-
-В сравнении использовался общий локальный сценарий: условный город из 49 зданий, фиксированная ортографическая камера, перемещение/масштаб, обзор городов, режим компании, сетка 3×3, выбор ячейки, демонстрационная связь, смена продукта, локальный тик и переключение 30/60 FPS.
-
-Для сравнения применялись процедурные модели, единая городская сцена и локальные условные суммы. Интерфейс был реализован на Godot Control и Unity IMGUI.
+Рабочий клиент — **только игра** (D-192): Godot 4.7.2, Android arm64. Маршрут — [Launcher](godot/Launcher.gd) → [Region](godot/Region.gd) → карта [Main](godot/Main.gd) → предприятие [PilotPanel](godot/PilotPanel.gd) против сервера. Локальный UI-стенд без сервера не развивается. [Маршрут проверок](../docs/READING.md) · [HTTPS-мир](../docs/roadmap/p3-public-path.md). Последний кандидат на Lunex — `/home/gamedev/ebash-build/ebash-city-search-alpha-20261118.apk`. Подпись проверена. Ручной проход на телефоне открыт.
 
 ## Сборка
 
-Godot: установить Godot 4.7.2 и Android export templates 4.7.2, JDK и Android SDK, настроить пути в Editor Settings и debug keystore. Из корня: `godot --headless --path prototypes/godot --export-debug Android /путь/ebash-godot.apk`.
-
-Unity: активировать Personal в Unity Hub, установить редактор с Android Build Support (SDK/NDK/OpenJDK). Открыть `prototypes/unity` или выполнить `Unity -batchmode -quit -projectPath /путь/prototypes/unity -executeMethod BuildPrototype.BuildAndroid -logFile /путь/unity-build.log`. Для выходного APK можно задать переменную `EBASH_APK_PATH`. Ключи подписи не хранить в репозитории.
+Установить Godot 4.7.2 и Android export templates 4.7.2, JDK и Android SDK, настроить пути в Editor Settings и debug keystore. Из корня: `godot --headless --path prototypes/godot --export-debug Android /путь/ebash-godot.apk`. Ключи подписи не хранить в репозитории.
 
 ## Проверка на телефоне
 
-Использовать одно устройство и одинаковую частоту кадров. Проверить запуск, читаемость текста, перетаскивание, масштаб, переходы компании и города, выбор ячеек. Замерить FPS, нагрев и расход памяти после одинакового времени работы. Headless-запуск не заменяет проверку Android и визуальный осмотр.
+Одно устройство, landscape. Проверить запуск, читаемость, карту, компанию, пекарню, сетевые ошибки и повторный вход. Headless не заменяет проверку на Android.
 
-Unity-сборка требует доступного лицензированного редактора; наличие исходников не означает, что APK собран или код проверен компилятором.
+Базовые автопроверки клиента: `godot --headless --path prototypes/godot --script smoke.gd` и `region_smoke.gd`. Серверные игровые сценарии — `EBASH_PILOT_MODE=… bash server/check_godot_pilot.sh` (имена `demo-smoke` / `profile-demo` — тестовые миры, не отдельный продукт).
 
-## Историческая проверка сравнительных сцен
+## История
 
-Godot: APK arm64 собран, подпись v2/v3 проверена; headless smoke-проверка города, предприятия, выбора ячейки, демотика и переходов прошла. На реальном Android и визуально пока не проверен. Для повтора: `godot --headless --path prototypes/godot --script smoke.gd`.
-
-Unity: в прежнем окружении редактор 2022.3.62f1 был установлен и запущен. Историческая проверка остановилась до компиляции проекта: `No valid Unity Editor license found`. Требуется интерактивная активация Unity Personal через Unity Hub; Unity APK пока отсутствует. Историческое состояние установки Android-модуля не подтверждает наличие Unity в нынешнем окружении VPS.
+Каталог `unity/` и старые сравнительные заметки сохранены как архив выбора движка (D-092). Новые задачи по Unity или локальному «демозаводу» не ставятся.

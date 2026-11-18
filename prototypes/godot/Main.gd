@@ -42,9 +42,12 @@ var selected := 0
 var cash := 250000
 var tick := 0
 var linked := -1
+var factory_view := "production"
+var slot_buttons: Dictionary = {}
+var cell_links: Array = [[0,3],[1,4],[2,4],[3,4],[4,6],[4,7]]
 var roles := [
  "Молоко", "Бутылки", "Крышки", "Розлив", "Розлив",
- "Коктейль", "Продажа", "Продажа", "Продажа"
+ "Коктейль", "Коктейль", "Коктейль", "—"
 ]
 
 func box(parent: Node3D, pos: Vector3, size: Vector3, color: Color) -> MeshInstance3D:
@@ -507,23 +510,76 @@ func toggle_mode() -> void:
  button("Управлять заводом",show_factory,v)
  button("Назад к карте",toggle_mode,v)
 
+func cell_role_name(index: int) -> String:
+ if index < 3:
+  return "Закупка"
+ if index < 6:
+  return "Производство"
+ return "Продажа"
+
+func cell_load(index: int) -> int:
+ var loads := [88,64,51,72,40,0,55,20,0]
+ return loads[index]
+
+func set_factory_view(view: String) -> void:
+ factory_view = view
+ show_factory()
+
 func show_factory() -> void:
  var v := clear_panel()
- label("МОЛОЧНЫЙ ЗАВОД / ПРОИЗВОДСТВО",v,26)
- label("Обзор  •  Производство  •  Персонал  •  Склады  •  Финансы",v,17)
+ slot_buttons.clear()
+ label("МОЛОЧНЫЙ ЗАВОД",v,26)
+ var tabs := HBoxContainer.new()
+ v.add_child(tabs)
+ var production_tab := button("Производство",set_factory_view.bind("production"),tabs)
+ var chain_tab := button("Цепочка",set_factory_view.bind("chain"),tabs)
+ production_tab.disabled = factory_view == "production"
+ chain_tab.disabled = factory_view == "chain"
+ label("Обзор  •  Персонал  •  Склады  •  Финансы",v,16)
+ if factory_view == "chain":
+  _show_factory_chain(v)
+ else:
+  _show_factory_production(v)
+ label("Деморецепты и показатели рассчитаны локально в прототипе.",v,15)
+ button("Закрыть",func(): panel.hide(),v)
+
+func _show_factory_production(v: VBoxContainer) -> void:
  var row := HBoxContainer.new()
+ row.add_theme_constant_override("separation",16)
  v.add_child(row)
+ var slots := VBoxContainer.new()
+ slots.add_theme_constant_override("separation",8)
+ row.add_child(slots)
+ label("Слоты",slots,18)
  var grid := GridContainer.new()
- grid.columns=3
- row.add_child(grid)
+ grid.columns = 3
+ grid.add_theme_constant_override("h_separation",6)
+ grid.add_theme_constant_override("v_separation",6)
+ slots.add_child(grid)
  for i in range(9):
   var index := i
-  button("%s\n%s" % [i+1,roles[i]],func(): select_cell(index),grid)
+  var caption := str(i+1)
+  if cell_load(i) == 0:
+   caption += "\n·"
+  var item := button(caption,func(): select_cell(index),grid)
+  item.custom_minimum_size = Vector2(56,56)
+  item.disabled = selected == index
+  slot_buttons[index] = item
+ var links_text := "Связи: "
+ var parts: PackedStringArray = []
+ for edge in cell_links:
+  parts.append("%s→%s" % [int(edge[0])+1,int(edge[1])+1])
+ links_text += ", ".join(parts)
+ label(links_text,slots,14)
  var details := VBoxContainer.new()
+ details.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+ details.add_theme_constant_override("separation",8)
  row.add_child(details)
- var cell_info := "  Выбрана ячейка %s\n  %s\n" % [selected + 1, roles[selected]]
- cell_info += "  Качество: 38 / 100\n  Загрузка: 72%%"
- label(cell_info, details)
+ var cell_info := "Ячейка %s · %s\nТовар: %s\nКачество: 38 / 100\nЗагрузка: %s%%" % [
+  selected+1,cell_role_name(selected),roles[selected],cell_load(selected)]
+ if selected == 3:
+  cell_info += "\nУзкое место: нехватка входа"
+ label(cell_info,details,20)
  button("Сменить продукт", func():
   roles[selected] = "Коктейль" if roles[selected] != "Коктейль" else "Розлив"
   show_factory(), details)
@@ -532,12 +588,40 @@ func show_factory() -> void:
   if cash>=5000:
    cash-=5000
    advance_status(),details)
- label("Деморецепты и показатели рассчитаны локально в прототипе.",v,15)
- button("Закрыть",func(): panel.hide(),v)
+
+func _show_factory_chain(v: VBoxContainer) -> void:
+ var row := HBoxContainer.new()
+ row.add_theme_constant_override("separation",12)
+ row.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+ v.add_child(row)
+ var groups := [
+  {"title":"Закупка","from":0,"to":3},
+  {"title":"Производство","from":3,"to":6},
+  {"title":"Продажа","from":6,"to":9},
+ ]
+ for group in groups:
+  var column := VBoxContainer.new()
+  column.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+  column.add_theme_constant_override("separation",6)
+  row.add_child(column)
+  label(str(group.title),column,18)
+  for i in range(int(group.from),int(group.to)):
+   var index := i
+   var caption := "#%s %s · %s%%" % [i+1,roles[i],cell_load(i)]
+   if i == 3:
+    caption += " · узкое место"
+   var item := button(caption,func(): select_cell(index),column)
+   item.custom_minimum_size = Vector2(0,48)
+   item.disabled = selected == index
+   slot_buttons[index] = item
 
 func select_cell(index: int) -> void:
  if linked>=0:
   status.text="  Связь: %s → %s (демо)" % [linked+1,index+1]
+  if linked != index:
+   var edge := [linked,index]
+   if not cell_links.has(edge):
+    cell_links.append(edge)
   linked=-1
  selected=index
  show_factory()

@@ -35,8 +35,14 @@ func _initialize() -> void:
  await process_frame
  assert(scene.buildings.size() == 49)
  scene.show_factory()
+ assert(scene.factory_view == "production" and scene.slot_buttons.size() == 9)
  scene.select_cell(4)
- assert(scene.selected == 4)
+ assert(scene.selected == 4 and scene.slot_buttons[4].disabled)
+ scene.set_factory_view("chain")
+ assert(scene.factory_view == "chain" and scene.slot_buttons.size() == 9)
+ scene.select_cell(1)
+ assert(scene.selected == 1 and scene.factory_view == "chain")
+ scene.set_factory_view("production")
  var balance = scene.cash
  scene.advance_tick()
  assert(scene.tick == 1 and scene.cash == balance+1250)

@@ -2,7 +2,7 @@
 
 ## Текущая проверка
 
-Рабочий клиент — Godot 4.7.2, Android arm64. Начальная сцена — [Launcher](godot/Launcher.gd), выбор города и компания — [Region](godot/Region.gd), город и поиск — [Main](godot/Main.gd). [Маршрут проверок](../docs/READING.md) · [HTTPS-мир](../docs/roadmap/p3-public-path.md). Последний кандидат на Lunex — `/home/gamedev/ebash-build/ebash-city-search-alpha-20261118.apk`. Подпись проверена. Ручной проход на телефоне открыт.
+Рабочий клиент — Godot 4.7.2, Android arm64. Начальная сцена — [Launcher](godot/Launcher.gd), выбор города и компания — [Region](godot/Region.gd), город и поиск — [Main](godot/Main.gd). Из «Моя компания» доступны площадки, стройка, управление, рынок и финансы. [Маршрут проверок](../docs/READING.md) · [HTTPS-мир](../docs/roadmap/p3-public-path.md). Последний кандидат на Lunex — `/home/gamedev/ebash-build/ebash-city-search-alpha-20261118.apk`. Подпись проверена. Ручной проход на телефоне открыт.
 
 ## История сравнения движков
 

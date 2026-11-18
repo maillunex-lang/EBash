@@ -315,6 +315,15 @@ func focus_search_result(index: int) -> void:
  var ground := camera.position - forward * (camera.position.y / forward.y)
  camera.position += Vector3(center.x-ground.x,0,center.z-ground.z)
 
+func apply_focus_lot() -> void:
+ if not get_tree().has_meta("ebash_focus_lot"):
+  return
+ var index := int(get_tree().get_meta("ebash_focus_lot"))
+ get_tree().remove_meta("ebash_focus_lot")
+ if index < 0 or index >= lot_bounds.size():
+  return
+ focus_search_result(index)
+
 func make_game_city() -> void:
  var layer := CanvasLayer.new()
  add_child(layer)
@@ -342,10 +351,12 @@ func make_game_city() -> void:
   camera.position = view.position
   camera.size = view.zoom
  if not CityCatalog.CITIES[city_id].bakery_world:
+  apply_focus_lot()
   return
  city_api = PilotClient.new()
  add_child(city_api)
  await refresh_bakery()
+ apply_focus_lot()
 
 func refresh_bakery() -> void:
  if not city_api.configure_from_session():
@@ -355,6 +366,7 @@ func refresh_bakery() -> void:
  if response["status"] != 200:
   bakery_status.text = "Пекарня · сервер недоступен"
   return
+ city_api.remember_session()
  var company: Dictionary = response["data"]
  var production: Dictionary = company.get("game_production", {})
  var state: Dictionary = production.get("construction",{})

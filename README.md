@@ -4,7 +4,7 @@
 
 ИИ-исполнителям: для передачи контекста открыть [HANDOFF](docs/HANDOFF.md), для правил [AGENTS.md](AGENTS.md) (для Claude — [CLAUDE.md](CLAUDE.md), для Copilot — [инструкции](.github/copilot-instructions.md)). Навыки: [задача](.agents/skills/ebash-task/SKILL.md), [решение владельца](.agents/skills/ebash-decision/SKILL.md), [Godot](.agents/skills/ebash-godot/SKILL.md), [сборка APK](.agents/skills/ebash-android-build/SKILL.md), [прототипы](.agents/skills/ebash-prototype/SKILL.md).
 
-Людям: [карта документации](docs/INDEX.md) · [текущее состояние](docs/STATUS.md).
+[Текущее состояние](docs/STATUS.md) · [дорожная карта](docs/roadmap/stages.md) · [запуск демо](server/README.md#играбельная-демоверсия-пекарни) · [карта документации](docs/INDEX.md).
 
 Единая офлайн-проверка из корня: `python3 scripts/check_all.py`. [Краткие утверждённые правила](docs/gdd/QUICK-REFERENCE.md).
 

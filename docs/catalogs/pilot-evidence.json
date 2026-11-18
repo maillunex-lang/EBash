@@ -1,0 +1,1817 @@
+{
+  "schema_version": 1,
+  "status": "reference_only",
+  "profiles": [
+    {
+      "recipe_id": "R-WHEAT-FLOUR",
+      "recipe_version": 2,
+      "source": "https://www.canada.ca/en/grain-commission/services/science/research-papers-reports/milling-evaluation-new-wheat-lines.html",
+      "reference": {
+        "laboratory_extraction_percent": 74,
+        "historical_fraction_split": {
+          "source": "https://www.cerealsgrains.org/publications/cc/backissues/1967/Documents/chem44_39.pdf",
+          "sample": "9009 HRW-L, Table I",
+          "basis": "total_recovered_products",
+          "fraction_basis_points": {
+            "flour": 7673,
+            "bran": 1382,
+            "shorts": 680,
+            "red_dog": 180,
+            "germ": 85
+          }
+        }
+      },
+      "unverified": [
+        "min_batch",
+        "equipment_capacity",
+        "energy",
+        "workforce",
+        "quality",
+        "fraction_yields"
+      ]
+    },
+    {
+      "recipe_id": "R-BREAD-DOUGH",
+      "recipe_version": 2,
+      "source": "https://www.kingarthurbaking.com/recipes/no-knead-crusty-white-bread-recipe",
+      "reference": {
+        "ingredient_mass_g": {
+          "wheat_flour": 900,
+          "water": 680,
+          "salt": 18,
+          "yeast": 14
+        }
+      },
+      "unverified": [
+        "min_batch",
+        "energy",
+        "workforce",
+        "quality",
+        "equipment_compatibility_in_operation"
+      ],
+      "equipment_reference": {
+        "model": "Sunmix EASY20",
+        "source": "https://www.sunmix.it/en/attachment/565400",
+        "alternate_source": "https://www.sunmix.it/documenti/565506",
+        "max_dough_g": 20000,
+        "max_flour_g": 10000,
+        "bowl_l": 25,
+        "spiral_motor_w": 1100,
+        "control_recipe_portions": 8
+      }
+    },
+    {
+      "recipe_id": "R-BREAD-LOAF",
+      "recipe_version": 1,
+      "source": "https://www.kingarthurbaking.com/blog/2023/05/31/how-to-tell-if-bread-is-done",
+      "reference": {
+        "example_minimum_bake_weight_loss_percent": 15,
+        "scope": "General baking guidance for most breads. The 15 percent threshold is used separately from the illustrative pilot mass balance and does not establish the yield of these loaves."
+      },
+      "unverified": [
+        "min_batch",
+        "equipment_capacity",
+        "energy",
+        "workforce",
+        "quality",
+        "measured_yield"
+      ],
+      "oven_reference": {
+        "model": "UNOX XEFR-04EU-ETDV",
+        "source": "https://partnerhub.unox.com/data/spec_sheet/XEFR-04EU-ETDV-SPC_en_Electric_2023-12.pdf",
+        "trays": 4,
+        "tray_mm": [
+          600,
+          400
+        ],
+        "tray_pitch_mm": 75,
+        "electrical_power_w": 6900
+      },
+      "layout_assumption": {
+        "slot_mm": [
+          300,
+          200
+        ]
+      }
+    },
+    {
+      "recipe_id": "R-CREAM",
+      "recipe_version": 2,
+      "source": "https://dairyprocessinghandbook.tetrapak.com/chapter/centrifugal-separators-and-milk-standardization",
+      "reference": {
+        "fat_basis_points": {
+          "raw_milk": 400,
+          "cream": 4000,
+          "skimmed_milk": 5
+        }
+      },
+      "unverified": [
+        "min_batch",
+        "equipment_capacity",
+        "energy",
+        "workforce",
+        "quality",
+        "measured_yield"
+      ]
+    },
+    {
+      "recipe_id": "R-PASTEURIZED-MILK",
+      "recipe_version": 1,
+      "source": "https://dairyprocessinghandbook.tetrapak.com/chapter/heat-exchangers",
+      "reference": {
+        "temperature_c_range": [
+          72,
+          75
+        ],
+        "hold_seconds_range": [
+          15,
+          20
+        ]
+      },
+      "unverified": [
+        "min_batch",
+        "equipment_capacity",
+        "energy",
+        "workforce",
+        "quality",
+        "measured_yield"
+      ]
+    },
+    {
+      "recipe_id": "R-CHEESE-CURD",
+      "recipe_version": 2,
+      "source": "https://dairyprocessinghandbook.tetrapak.com/chapter/cheese",
+      "reference": {
+        "process_stage": "Coagulation and separation of whey from curd grains"
+      },
+      "unverified": [
+        "complete_ingredients",
+        "measured_yield",
+        "min_batch",
+        "equipment_capacity",
+        "energy",
+        "workforce",
+        "quality"
+      ]
+    },
+    {
+      "recipe_id": "R-CHEESE",
+      "recipe_version": 1,
+      "source": "https://dairyprocessinghandbook.tetrapak.com/chapter/cheese",
+      "reference": {
+        "process_stage": "Forming and ripening of cheddar; process reference for selecting a profile"
+      },
+      "unverified": [
+        "complete_ingredients",
+        "measured_yield",
+        "min_batch",
+        "equipment_capacity",
+        "energy",
+        "workforce",
+        "quality"
+      ]
+    },
+    {
+      "recipe_id": "R-PASTA-DOUGH",
+      "recipe_version": 1,
+      "source": "https://www.epa.gov/sites/default/files/2020-10/documents/b9s09-5.pdf",
+      "reference": {
+        "process_scope": "Mix milled wheat and water before extrusion; check flour type and moisture."
+      },
+      "unverified": [
+        "material_quantities_and_units",
+        "min_batch",
+        "equipment_capacity",
+        "energy",
+        "workforce",
+        "quality"
+      ]
+    },
+    {
+      "recipe_id": "R-DRY-PASTA",
+      "recipe_version": 1,
+      "source": "https://www.epa.gov/sites/default/files/2020-10/documents/b9s09-5.pdf",
+      "reference": {
+        "process_scope": "Shape by extrusion before drying; check whether the two stages share one equipment cell.",
+        "drying_moisture": {
+          "source": "https://www.epa.gov/sites/default/files/2020-10/documents/c9s09-5.pdf",
+          "approximate_input_percent": 31,
+          "output_percent_range": [
+            12,
+            13
+          ]
+        }
+      },
+      "unverified": [
+        "material_quantities_and_units",
+        "min_batch",
+        "equipment_capacity",
+        "energy",
+        "workforce",
+        "quality"
+      ]
+    },
+    {
+      "recipe_id": "R-YOGURT-BASE",
+      "recipe_version": 1,
+      "source": "https://dairyprocessinghandbook.tetrapak.com/chapter/fermented-milk-products",
+      "reference": {
+        "process_scope": "Prepare the milk base and add starter culture."
+      },
+      "unverified": [
+        "material_quantities_and_units",
+        "min_batch",
+        "equipment_capacity",
+        "energy",
+        "workforce",
+        "quality"
+      ]
+    },
+    {
+      "recipe_id": "R-YOGURT",
+      "recipe_version": 1,
+      "source": "https://dairyprocessinghandbook.tetrapak.com/chapter/fermented-milk-products",
+      "reference": {
+        "process_scope": "Fermentation and cooling are distinct; choose stirred or set yoghurt before assigning losses."
+      },
+      "unverified": [
+        "material_quantities_and_units",
+        "min_batch",
+        "equipment_capacity",
+        "energy",
+        "workforce",
+        "quality"
+      ]
+    },
+    {
+      "recipe_id": "R-SOUR-CREAM",
+      "recipe_version": 1,
+      "source": "https://dairyprocessinghandbook.tetrapak.com/chapter/fermented-milk-products",
+      "reference": {
+        "process_scope": "Cultured cream requires a cream base, starter and a defined cooling step."
+      },
+      "unverified": [
+        "material_quantities_and_units",
+        "min_batch",
+        "equipment_capacity",
+        "energy",
+        "workforce",
+        "quality"
+      ]
+    },
+    {
+      "recipe_id": "R-ICE-CREAM-MIX",
+      "recipe_version": 1,
+      "source": "https://dairyprocessinghandbook.tetrapak.com/chapter/ice-cream",
+      "reference": {
+        "process_scope": "Balance fat, non-fat milk solids and water before specifying mix inputs."
+      },
+      "unverified": [
+        "material_quantities_and_units",
+        "min_batch",
+        "equipment_capacity",
+        "energy",
+        "workforce",
+        "quality"
+      ]
+    },
+    {
+      "recipe_id": "R-ICE-CREAM",
+      "recipe_version": 1,
+      "source": "https://dairyprocessinghandbook.tetrapak.com/chapter/ice-cream",
+      "reference": {
+        "process_scope": "Freezing and hardening require distinct capacity and storage assumptions."
+      },
+      "unverified": [
+        "material_quantities_and_units",
+        "min_batch",
+        "equipment_capacity",
+        "energy",
+        "workforce",
+        "quality"
+      ]
+    },
+    {
+      "recipe_id": "R-GLASS-MELT",
+      "recipe_version": 1,
+      "source": "https://archive.epa.gov/compliance/resources/publications/assistance/sectors/web/pdf/stclglsn.pdf",
+      "reference": {
+        "process_scope": "Batch preparation and furnace melting are distinct stages."
+      },
+      "unverified": [
+        "material_quantities_and_units",
+        "min_batch",
+        "equipment_capacity",
+        "energy",
+        "workforce",
+        "quality"
+      ]
+    },
+    {
+      "recipe_id": "R-GLASS-BOTTLE",
+      "recipe_version": 1,
+      "source": "https://archive.epa.gov/compliance/resources/publications/assistance/sectors/web/pdf/stclglsn.pdf",
+      "reference": {
+        "process_scope": "Container glass is formed from a molten charge; specify a bottle mould."
+      },
+      "unverified": [
+        "material_quantities_and_units",
+        "min_batch",
+        "equipment_capacity",
+        "energy",
+        "workforce",
+        "quality"
+      ]
+    },
+    {
+      "recipe_id": "R-GLASS-JAR",
+      "recipe_version": 1,
+      "source": "https://archive.epa.gov/compliance/resources/publications/assistance/sectors/web/pdf/stclglsn.pdf",
+      "reference": {
+        "process_scope": "Container forming requires product-specific forming tooling."
+      },
+      "unverified": [
+        "material_quantities_and_units",
+        "min_batch",
+        "equipment_capacity",
+        "energy",
+        "workforce",
+        "quality"
+      ]
+    },
+    {
+      "recipe_id": "R-GLASS-SHEET",
+      "recipe_version": 1,
+      "source": "https://archive.epa.gov/compliance/resources/publications/assistance/sectors/web/pdf/stclglsn.pdf",
+      "reference": {
+        "process_scope": "Use a float-glass process reference for flat sheet."
+      },
+      "unverified": [
+        "material_quantities_and_units",
+        "min_batch",
+        "equipment_capacity",
+        "energy",
+        "workforce",
+        "quality"
+      ]
+    },
+    {
+      "recipe_id": "R-GLASS-FIBER",
+      "recipe_version": 1,
+      "source": "https://archive.epa.gov/compliance/resources/publications/assistance/sectors/web/pdf/stclglsn.pdf",
+      "reference": {
+        "process_scope": "Glass fibre has a dedicated forming process; generic sheet or container melt compatibility requires review."
+      },
+      "unverified": [
+        "material_quantities_and_units",
+        "min_batch",
+        "equipment_capacity",
+        "energy",
+        "workforce",
+        "quality"
+      ]
+    },
+    {
+      "recipe_id": "R-GLASS-CULLET",
+      "recipe_version": 1,
+      "source": "https://www.epa.gov/eg/glass-manufacturing-effluent-guidelines",
+      "reference": {
+        "process_scope": "Distinguish recycled glass feed from products; confirm source and contamination limits."
+      },
+      "unverified": [
+        "material_quantities_and_units",
+        "min_batch",
+        "equipment_capacity",
+        "energy",
+        "workforce",
+        "quality"
+      ]
+    },
+    {
+      "recipe_id": "R-RECYCLED-GLASS-MELT",
+      "recipe_version": 1,
+      "source": "https://www.epa.gov/eg/glass-manufacturing-effluent-guidelines",
+      "reference": {
+        "process_scope": "Cullet can enter melting; check contamination and formulation before specifying a recovered batch."
+      },
+      "unverified": [
+        "material_quantities_and_units",
+        "min_batch",
+        "equipment_capacity",
+        "energy",
+        "workforce",
+        "quality"
+      ]
+    },
+    {
+      "recipe_id": "R-PLYWOOD",
+      "recipe_version": 1,
+      "source": "https://www.epa.gov/air-emissions-factors-and-quantification/ap-42-fifth-edition-volume-i-chapter-10-wood-products-1",
+      "reference": {
+        "process_scope": "AP-42 section 10.5: veneer preparation, layup and pressing."
+      },
+      "unverified": [
+        "material_quantities_and_units",
+        "min_batch",
+        "equipment_capacity",
+        "energy",
+        "workforce",
+        "quality"
+      ]
+    },
+    {
+      "recipe_id": "R-PARTICLE-BOARD",
+      "recipe_version": 1,
+      "source": "https://www.epa.gov/air-emissions-factors-and-quantification/ap-42-fifth-edition-volume-i-chapter-10-wood-products-1",
+      "reference": {
+        "process_scope": "AP-42 section 10.6.2: prepare wood particles, blend with binder and press.",
+        "numeric_reference": {
+          "source": "https://nepis.epa.gov/Exe/ZyPURL.cgi?Dockey=00002VNJ.TXT",
+          "study_scope": "Moisture of wood particles after drying, before blending and pressing",
+          "output_particle_moisture_wet_basis_percent_range": [
+            2,
+            8
+          ]
+        }
+      },
+      "unverified": [
+        "material_quantities_and_units",
+        "min_batch",
+        "equipment_capacity",
+        "energy",
+        "workforce",
+        "quality"
+      ]
+    },
+    {
+      "recipe_id": "R-DIESEL-FRACTION",
+      "recipe_version": 1,
+      "source": "https://www.eia.gov/TodayinEnergy/detail.php?id=6970",
+      "reference": {
+        "process_scope": "Middle distillate from crude fractionation; do not model it as an independent full-crude yield."
+      },
+      "unverified": [
+        "material_quantities_and_units",
+        "min_batch",
+        "equipment_capacity",
+        "energy",
+        "workforce",
+        "quality"
+      ]
+    },
+    {
+      "recipe_id": "R-GASOLINE-FRACTION",
+      "recipe_version": 1,
+      "source": "https://www.eia.gov/TodayinEnergy/detail.php?id=6970",
+      "reference": {
+        "process_scope": "Distinguish light distillation streams and gasoline blending components from finished product."
+      },
+      "unverified": [
+        "material_quantities_and_units",
+        "min_batch",
+        "equipment_capacity",
+        "energy",
+        "workforce",
+        "quality"
+      ]
+    },
+    {
+      "recipe_id": "R-REFINED-FUEL",
+      "recipe_version": 1,
+      "source": "https://www.eia.gov/energyexplained/oil-and-petroleum-products/refining-crude-oil-the-refining-process.php",
+      "reference": {
+        "process_scope": "Finished fuels follow separation, conversion and treatment; specify which fuel and blending steps.",
+        "refinery_volume_benchmark": {
+          "source": "https://www.eia.gov/energyexplained/oil-and-petroleum-products/refining-crude-oil-inputs-and-outputs.php",
+          "basis": "2023 US refinery aggregate volume in US gallons, not single distillation or mass balance",
+          "crude_gallons": 42,
+          "approximate_total_product_gallons": 45
+        }
+      },
+      "unverified": [
+        "material_quantities_and_units",
+        "min_batch",
+        "equipment_capacity",
+        "energy",
+        "workforce",
+        "quality"
+      ]
+    },
+    {
+      "recipe_id": "R-TOMATO-PASTE",
+      "recipe_version": 1,
+      "source": "https://www.fao.org/fileadmin/user_upload/tci/docs/AH6-Fruit%20and%20Veg%20Processing.pdf",
+      "reference": {
+        "process_scope": "Track concentration separately from raw tomato preparation; use solids content when establishing yield.",
+        "soluble_solids": {
+          "source": "https://workspace.fao.org/sites/codex/Standards/CXS%2057-1981/CXS_057e.pdf",
+          "standard": "CXS 57-1981",
+          "minimum_natural_soluble_solids_percent": 24
+        },
+        "processing_ratio": {
+          "tomato_kg_per_paste_kg_range": [
+            5,
+            7
+          ],
+          "screenings_percent_range": [
+            3,
+            4
+          ]
+        }
+      },
+      "unverified": [
+        "material_quantities_and_units",
+        "min_batch",
+        "equipment_capacity",
+        "energy",
+        "workforce",
+        "quality"
+      ]
+    },
+    {
+      "recipe_id": "R-TOMATO-SAUCE",
+      "recipe_version": 1,
+      "source": "https://www.fao.org/fileadmin/user_upload/tci/docs/AH6-Fruit%20and%20Veg%20Processing.pdf",
+      "reference": {
+        "process_scope": "Prepared tomato products need a distinct composition; ketchup is a process reference, not a general sauce formula."
+      },
+      "unverified": [
+        "material_quantities_and_units",
+        "min_batch",
+        "equipment_capacity",
+        "energy",
+        "workforce",
+        "quality"
+      ]
+    },
+    {
+      "recipe_id": "R-APPLE-JUICE",
+      "recipe_version": 1,
+      "source": "https://www.fao.org/fileadmin/user_upload/tci/docs/AH6-Fruit%20and%20Veg%20Processing.pdf",
+      "reference": {
+        "process_scope": "Clarify whether the output is single-strength juice or concentrate before assigning yield."
+      },
+      "unverified": [
+        "material_quantities_and_units",
+        "min_batch",
+        "equipment_capacity",
+        "energy",
+        "workforce",
+        "quality"
+      ]
+    },
+    {
+      "recipe_id": "R-CEMENT-CLINKER",
+      "recipe_version": 1,
+      "source": "https://www.epa.gov/air-emissions-factors-and-quantification/ap-42-fifth-edition-volume-i-chapter-11-mineral-products-0",
+      "reference": {
+        "process_scope": "AP-42 section 11.6: clinker formation in a kiln is separate from finish grinding."
+      },
+      "unverified": [
+        "material_quantities_and_units",
+        "min_batch",
+        "equipment_capacity",
+        "energy",
+        "workforce",
+        "quality"
+      ]
+    },
+    {
+      "recipe_id": "R-CEMENT",
+      "recipe_version": 2,
+      "source": "https://www.epa.gov/air-emissions-factors-and-quantification/ap-42-fifth-edition-volume-i-chapter-11-mineral-products-0",
+      "reference": {
+        "process_scope": "AP-42 section 11.6: finish grinding follows clinker formation.",
+        "numeric_reference": {
+          "source": "https://nepis.epa.gov/Exe/ZyPURL.cgi?Dockey=P100RGTU.TXT",
+          "study_scope": "Portland cement finish grinding; gypsum or natural anhydrite addition",
+          "gypsum_or_anhydrite_max_percent": 5
+        }
+      },
+      "unverified": [
+        "material_quantities_and_units",
+        "min_batch",
+        "equipment_capacity",
+        "energy",
+        "workforce",
+        "quality"
+      ]
+    },
+    {
+      "recipe_id": "R-CONCRETE",
+      "recipe_version": 1,
+      "source": "https://www.epa.gov/air-emissions-factors-and-quantification/ap-42-fifth-edition-volume-i-chapter-11-mineral-products-0",
+      "reference": {
+        "process_scope": "AP-42 section 11.12 describes batching cementitious binders, aggregates and water. The draft lists limestone but no cementitious binder. Resolve the missing binder and the role of limestone before assigning a mix."
+      },
+      "unverified": [
+        "material_quantities_and_units",
+        "min_batch",
+        "equipment_capacity",
+        "energy",
+        "workforce",
+        "quality"
+      ]
+    },
+    {
+      "recipe_id": "R-BRICK",
+      "recipe_version": 1,
+      "source": "https://www.epa.gov/sites/default/files/2020-10/documents/c11s03.pdf",
+      "reference": {
+        "process_scope": "Form, dry, fire and cool; distinguish wet clay charge from fired product."
+      },
+      "unverified": [
+        "material_quantities_and_units",
+        "min_batch",
+        "equipment_capacity",
+        "energy",
+        "workforce",
+        "quality"
+      ]
+    },
+    {
+      "recipe_id": "R-CLAY",
+      "recipe_version": 1,
+      "source": "https://www.epa.gov/sites/default/files/2020-10/documents/c11s03.pdf",
+      "reference": {
+        "process_scope": "Raw material extraction and preparation precede forming; assign site and material specifications separately."
+      },
+      "unverified": [
+        "material_quantities_and_units",
+        "min_batch",
+        "equipment_capacity",
+        "energy",
+        "workforce",
+        "quality"
+      ]
+    },
+    {
+      "recipe_id": "R-ROOF-TILE",
+      "recipe_version": 1,
+      "source": "https://www.epa.gov/sites/default/files/2020-10/documents/c11s03.pdf",
+      "reference": {
+        "process_scope": "Structural clay process reference; confirm forming method and firing curve for the selected roof tile."
+      },
+      "unverified": [
+        "material_quantities_and_units",
+        "min_batch",
+        "equipment_capacity",
+        "energy",
+        "workforce",
+        "quality"
+      ]
+    },
+    {
+      "recipe_id": "R-CERAMIC-TILE",
+      "recipe_version": 1,
+      "source": "https://www.epa.gov/air-emissions-factors-and-quantification/ap-42-fifth-edition-volume-i-chapter-11-mineral-products-0",
+      "reference": {
+        "process_scope": "AP-42 section 11.7; select ceramic body preparation, forming and firing steps for the actual tile."
+      },
+      "unverified": [
+        "material_quantities_and_units",
+        "min_batch",
+        "equipment_capacity",
+        "energy",
+        "workforce",
+        "quality"
+      ]
+    },
+    {
+      "recipe_id": "R-MILK-POWDER",
+      "recipe_version": 1,
+      "source": "https://dairyprocessinghandbook.tetrapak.com/chapter/milk-and-whey-powdered-ingredients",
+      "reference": {
+        "study_scope": "Typical multistage spray drying of whole milk powder on a Wide Body dryer",
+        "inlet_air_c_range": [
+          200,
+          220
+        ],
+        "outlet_air_c_range": [
+          75,
+          80
+        ]
+      },
+      "unverified": [
+        "material_quantities_and_units",
+        "min_batch",
+        "equipment_capacity",
+        "energy",
+        "workforce",
+        "quality"
+      ]
+    },
+    {
+      "recipe_id": "R-POTATO-STARCH",
+      "recipe_version": 1,
+      "source": "https://www.fao.org/fileadmin/user_upload/inpho/docs/Post_Harvest_Compendium_-_Potato.pdf",
+      "reference": {
+        "study_scope": "FAO reference for potato starch extraction; actual yield depends on feed and process",
+        "starch_mass_yield_percent_range": [
+          10,
+          20
+        ]
+      },
+      "unverified": [
+        "material_quantities_and_units",
+        "min_batch",
+        "equipment_capacity",
+        "energy",
+        "workforce",
+        "quality"
+      ]
+    },
+    {
+      "recipe_id": "R-BUTTER",
+      "recipe_version": 2,
+      "source": "https://workspace.fao.org/sites/codex/Standards/CXS%20279-1971/CXS_279e.pdf",
+      "reference": {
+        "standard": "CXS 279-1971",
+        "minimum_milkfat_percent": 80,
+        "maximum_water_percent": 16,
+        "maximum_nonfat_milk_solids_percent": 2,
+        "churning_example": {
+          "source": "https://dairyprocessinghandbook.tetrapak.com/chapter/butter",
+          "cream_fat_to_buttermilk_basis_points": 50
+        }
+      },
+      "unverified": [
+        "material_quantities_and_units",
+        "min_batch",
+        "equipment_capacity",
+        "energy",
+        "workforce",
+        "quality"
+      ]
+    },
+    {
+      "recipe_id": "R-PAPER",
+      "recipe_version": 1,
+      "source": "https://www.valmet.com/insights/articles/up-and-running/new-technology/BPWetPressEfficiency/",
+      "reference": {
+        "scope": "wet press section before thermal drying",
+        "approximate_inlet_dry_solids_percent": 20,
+        "approximate_outlet_dry_solids_percent": 50
+      },
+      "unverified": [
+        "material_quantities_and_units",
+        "min_batch",
+        "equipment_capacity",
+        "energy",
+        "workforce",
+        "quality"
+      ]
+    },
+    {
+      "recipe_id": "R-WASHED-POTATO",
+      "recipe_version": 1,
+      "source": "https://www.fao.org/4/ae075e/ae075e06.htm",
+      "reference": {
+        "process_scope": "Washing after storage is a candidate handling route; separate water use and sorting rejects."
+      },
+      "unverified": [
+        "material_quantities_and_units",
+        "min_batch",
+        "equipment_capacity",
+        "energy",
+        "workforce",
+        "quality"
+      ]
+    },
+    {
+      "recipe_id": "R-WASHED-CARROT",
+      "recipe_version": 1,
+      "source": "https://www.fao.org/4/ae075e/ae075e06.htm",
+      "reference": {
+        "process_scope": "Post-storage washing is described for carrots; quantify removed soil, rejects and water separately."
+      },
+      "unverified": [
+        "material_quantities_and_units",
+        "min_batch",
+        "equipment_capacity",
+        "energy",
+        "workforce",
+        "quality"
+      ]
+    },
+    {
+      "recipe_id": "R-POTATO-PACK",
+      "recipe_version": 1,
+      "source": "https://www.fao.org/4/t0073e/T0073E04.HTM",
+      "reference": {
+        "process_scope": "Durable produce can use mechanical packing, with grading and packing capacity specified separately."
+      },
+      "unverified": [
+        "material_quantities_and_units",
+        "min_batch",
+        "equipment_capacity",
+        "energy",
+        "workforce",
+        "quality"
+      ]
+    },
+    {
+      "recipe_id": "R-CARROT-PACK",
+      "recipe_version": 1,
+      "source": "https://www.fao.org/4/y4893e/y4893e05.htm",
+      "reference": {
+        "process_scope": "Use produce sizing and cushioning as packaging design inputs; verify carrot pack mass and tare."
+      },
+      "unverified": [
+        "material_quantities_and_units",
+        "min_batch",
+        "equipment_capacity",
+        "energy",
+        "workforce",
+        "quality"
+      ]
+    },
+    {
+      "recipe_id": "R-QUARTZ-SAND",
+      "recipe_version": 1,
+      "source": "https://www.epa.gov/sites/default/files/2020-10/documents/b11s19-1.pdf",
+      "reference": {
+        "process_scope": "Industrial sand screening, washing and classification; confirm glass-grade silica quality separately."
+      },
+      "unverified": [
+        "material_quantities_and_units",
+        "min_batch",
+        "equipment_capacity",
+        "energy",
+        "workforce",
+        "quality"
+      ]
+    },
+    {
+      "recipe_id": "R-GRAVEL",
+      "recipe_version": 1,
+      "source": "https://www.epa.gov/sites/default/files/2020-10/documents/b11s19-1.pdf",
+      "reference": {
+        "process_scope": "Screen and classify sand and gravel products; establish accepted size classes."
+      },
+      "unverified": [
+        "material_quantities_and_units",
+        "min_batch",
+        "equipment_capacity",
+        "energy",
+        "workforce",
+        "quality"
+      ]
+    },
+    {
+      "recipe_id": "R-LIMESTONE",
+      "recipe_version": 1,
+      "source": "https://19january2021snapshot.epa.gov/sites/static/files/2020-10/documents/c11s1902.pdf",
+      "reference": {
+        "process_scope": "Crushing, screening and size classification for limestone; define chemical grade for the glass line."
+      },
+      "unverified": [
+        "material_quantities_and_units",
+        "min_batch",
+        "equipment_capacity",
+        "energy",
+        "workforce",
+        "quality"
+      ]
+    },
+    {
+      "recipe_id": "R-WOOD-PULP",
+      "recipe_version": 1,
+      "source": "https://www.epa.gov/system/files/documents/2021-07/owm0023.pdf",
+      "reference": {
+        "process_scope": "Separate raw material preparation from pulping; choose chemical or mechanical process before using yield."
+      },
+      "unverified": [
+        "material_quantities_and_units",
+        "min_batch",
+        "equipment_capacity",
+        "energy",
+        "workforce",
+        "quality"
+      ]
+    },
+    {
+      "recipe_id": "R-MILK-BOTTLE",
+      "recipe_version": 1,
+      "source": "https://dairyprocessinghandbook.tetrapak.com/chapter/pasteurized-and-esl-dairy-products",
+      "reference": {
+        "process_scope": "Pasteurized product passes a buffer tank to a filling machine; bottle and cap compatibility needs separate proof."
+      },
+      "unverified": [
+        "material_quantities_and_units",
+        "min_batch",
+        "equipment_capacity",
+        "energy",
+        "workforce",
+        "quality"
+      ]
+    },
+    {
+      "recipe_id": "R-CARDBOARD",
+      "recipe_version": 1,
+      "source": "https://www.epa.gov/smm/comprehensive-procurement-guidelines-paper-and-paper-products",
+      "reference": {
+        "process_scope": "Distinguish containerboard liner or medium from folding paperboard before selecting the stock specification."
+      },
+      "unverified": [
+        "material_quantities_and_units",
+        "min_batch",
+        "equipment_capacity",
+        "energy",
+        "workforce",
+        "quality"
+      ]
+    },
+    {
+      "recipe_id": "R-WHEAT-GRAIN",
+      "recipe_version": 1,
+      "source": "https://extension.umn.edu/agriculture/crop-production/small-grains/drying-wheat-and-barley",
+      "reference": {
+        "process_scope": "Postharvest drying and storage reference for wheat.",
+        "storage_moisture_percent_range": [
+          13,
+          14
+        ]
+      },
+      "unverified": [
+        "material_quantities_and_units",
+        "min_batch",
+        "equipment_capacity",
+        "energy",
+        "workforce",
+        "quality"
+      ]
+    },
+    {
+      "recipe_id": "R-BARLEY-GRAIN",
+      "recipe_version": 1,
+      "source": "https://extension.umn.edu/agriculture/crop-production/small-grains/drying-wheat-and-barley",
+      "reference": {
+        "process_scope": "Postharvest drying and storage reference for barley; agronomic yield remains separate.",
+        "storage_moisture_percent_range": [
+          13,
+          14
+        ]
+      },
+      "unverified": [
+        "material_quantities_and_units",
+        "min_batch",
+        "equipment_capacity",
+        "energy",
+        "workforce",
+        "quality"
+      ]
+    },
+    {
+      "recipe_id": "R-RYE-GRAIN",
+      "recipe_version": 1,
+      "source": "https://www.fao.org/4/x7660e/x7660e09.htm",
+      "reference": {
+        "process_scope": "Agronomic context for rye as a grain crop; forage harvest guidance does not establish grain yield."
+      },
+      "unverified": [
+        "material_quantities_and_units",
+        "min_batch",
+        "equipment_capacity",
+        "energy",
+        "workforce",
+        "quality"
+      ]
+    },
+    {
+      "recipe_id": "R-OAT-GRAIN",
+      "recipe_version": 1,
+      "source": "https://extension.umn.edu/agriculture/crop-production/small-grains/seeding-depth",
+      "reference": {
+        "process_scope": "Field establishment guidance for oats; harvesting and local yield remain separate."
+      },
+      "unverified": [
+        "material_quantities_and_units",
+        "min_batch",
+        "equipment_capacity",
+        "energy",
+        "workforce",
+        "quality"
+      ]
+    },
+    {
+      "recipe_id": "R-RYE-FLOUR",
+      "recipe_version": 1,
+      "source": "https://gaftp.epa.gov/ap42/ch09/s091/final/c9s09-1_1998.pdf",
+      "reference": {
+        "process_scope": "Rye flour reference from break rolling; choose flour grade, extraction and coproduct split."
+      },
+      "unverified": [
+        "material_quantities_and_units",
+        "min_batch",
+        "equipment_capacity",
+        "energy",
+        "workforce",
+        "quality"
+      ]
+    },
+    {
+      "recipe_id": "R-OAT-FLAKES",
+      "recipe_version": 1,
+      "source": "https://gaftp.epa.gov/ap42/ch09/s091/final/c9s09-1_1998.pdf",
+      "reference": {
+        "process_scope": "Hull and separate oat groats before steaming and flaking; confirm groat recovery."
+      },
+      "unverified": [
+        "material_quantities_and_units",
+        "min_batch",
+        "equipment_capacity",
+        "energy",
+        "workforce",
+        "quality"
+      ]
+    },
+    {
+      "recipe_id": "R-ANIMAL-FEED",
+      "recipe_version": 1,
+      "source": "https://nepis.epa.gov/Exe/ZyPURL.cgi?Dockey=2000LK1A.TXT",
+      "reference": {
+        "process_scope": "Grain and milling byproducts can be blended and pelleted; select target animal and formulation before specifying mass ratios."
+      },
+      "unverified": [
+        "material_quantities_and_units",
+        "min_batch",
+        "equipment_capacity",
+        "energy",
+        "workforce",
+        "quality"
+      ]
+    },
+    {
+      "recipe_id": "R-CORRUGATED-BOARD",
+      "recipe_version": 1,
+      "source": "https://www.fefco.org/node/1588",
+      "reference": {
+        "process_scope": "Liners and fluting enter a corrugator. The C-flute example requires 1.43 square metres of flat fluting per square metre of board. Account for starch adhesive separately from the paper inputs.",
+        "example_c_flute_takeup_percent": 143
+      },
+      "unverified": [
+        "material_quantities_and_units",
+        "min_batch",
+        "equipment_capacity",
+        "energy",
+        "workforce",
+        "quality"
+      ]
+    },
+    {
+      "recipe_id": "R-CARTON-BOX",
+      "recipe_version": 1,
+      "source": "https://www.fefco.org/node/1588",
+      "reference": {
+        "process_scope": "Corrugated-box route: sheets are converted by slotting, folding and gluing; confirm carton subtype and trim."
+      },
+      "unverified": [
+        "material_quantities_and_units",
+        "min_batch",
+        "equipment_capacity",
+        "energy",
+        "workforce",
+        "quality"
+      ]
+    },
+    {
+      "recipe_id": "R-PLASTIC-BOTTLE",
+      "recipe_version": 1,
+      "source": "https://nepis.epa.gov/Exe/ZyPURL.cgi?Dockey=2000I02W.TXT",
+      "reference": {
+        "process_scope": "Blow molding produces hollow bottles; establish polymer grade, preform and scrap accounting."
+      },
+      "unverified": [
+        "material_quantities_and_units",
+        "min_batch",
+        "equipment_capacity",
+        "energy",
+        "workforce",
+        "quality"
+      ]
+    },
+    {
+      "recipe_id": "R-PLASTIC-CAP",
+      "recipe_version": 1,
+      "source": "https://nepis.epa.gov/Exe/ZyPURL.cgi?Dockey=P1001V6L.txt",
+      "reference": {
+        "process_scope": "Injection molding is a candidate route for caps; verify the polymer, mold and neck fit separately."
+      },
+      "unverified": [
+        "material_quantities_and_units",
+        "min_batch",
+        "equipment_capacity",
+        "energy",
+        "workforce",
+        "quality"
+      ]
+    },
+    {
+      "recipe_id": "R-PLASTIC-FILM",
+      "recipe_version": 1,
+      "source": "https://19january2021snapshot.epa.gov/sites/static/files/2015-08/documents/ii11.pdf",
+      "reference": {
+        "process_scope": "Select blown or cast film extrusion before setting width and yield."
+      },
+      "unverified": [
+        "material_quantities_and_units",
+        "min_batch",
+        "equipment_capacity",
+        "energy",
+        "workforce",
+        "quality"
+      ]
+    },
+    {
+      "recipe_id": "R-PLASTIC-CONTAINER",
+      "recipe_version": 1,
+      "source": "https://nepis.epa.gov/Exe/ZyPURL.cgi?Dockey=P1001V6L.txt",
+      "reference": {
+        "process_scope": "Select blow molding, injection molding or thermoforming based on container geometry and material."
+      },
+      "unverified": [
+        "material_quantities_and_units",
+        "min_batch",
+        "equipment_capacity",
+        "energy",
+        "workforce",
+        "quality"
+      ]
+    },
+    {
+      "recipe_id": "R-PLASTIC-PIPE",
+      "recipe_version": 1,
+      "source": "https://nepis.epa.gov/Exe/ZyPURL.cgi?Dockey=2000K44U.TXT",
+      "reference": {
+        "process_scope": "Pipe extrusion is a distinct profile; wall thickness and polymer grade determine material demand."
+      },
+      "unverified": [
+        "material_quantities_and_units",
+        "min_batch",
+        "equipment_capacity",
+        "energy",
+        "workforce",
+        "quality"
+      ]
+    },
+    {
+      "recipe_id": "R-SAWN-TIMBER",
+      "recipe_version": 1,
+      "source": "https://nepis.epa.gov/Exe/ZyPURL.cgi?Dockey=P1003AMW.TXT",
+      "reference": {
+        "process_scope": "Sawmilling produces lumber and residues from the same intake; establish the cut and recovery pattern."
+      },
+      "unverified": [
+        "material_quantities_and_units",
+        "min_batch",
+        "equipment_capacity",
+        "energy",
+        "workforce",
+        "quality"
+      ]
+    },
+    {
+      "recipe_id": "R-WOOD-CHIPS",
+      "recipe_version": 1,
+      "source": "https://nepis.epa.gov/Exe/ZyPURL.cgi?Dockey=P1003AMW.TXT",
+      "reference": {
+        "process_scope": "Sawmill coproduct reference; distinguish recovery of mill chips from the dedicated chipping of purchased wood."
+      },
+      "unverified": [
+        "material_quantities_and_units",
+        "min_batch",
+        "equipment_capacity",
+        "energy",
+        "workforce",
+        "quality"
+      ]
+    },
+    {
+      "recipe_id": "R-WOOD-PELLETS",
+      "recipe_version": 1,
+      "source": "https://www.epa.gov/system/files/documents/2025-02/2421-065-0016-v-02-2narrative-1.pdf",
+      "reference": {
+        "process_scope": "Plant example uses green chips and dry planer shavings; use actual moisture and drying inputs for a pellet profile."
+      },
+      "unverified": [
+        "material_quantities_and_units",
+        "min_batch",
+        "equipment_capacity",
+        "energy",
+        "workforce",
+        "quality"
+      ]
+    },
+    {
+      "recipe_id": "R-RAW-MILK",
+      "recipe_version": 1,
+      "source": "https://dairyprocessinghandbook.tetrapak.com/chapter/primary-production-milk",
+      "reference": {
+        "process_scope": "Farm cooling example for raw milk after milking; target and duration require a selected farm system.",
+        "example_cooling_from_c": 37,
+        "example_cooling_to_c": 4
+      },
+      "unverified": [
+        "material_quantities_and_units",
+        "min_batch",
+        "equipment_capacity",
+        "energy",
+        "workforce",
+        "quality"
+      ]
+    },
+    {
+      "recipe_id": "R-GLASSWARE",
+      "recipe_version": 1,
+      "source": "https://glassallianceeurope.eu/wp-content/uploads/2023/09/gmp-guidelines-for-glass-september-2015_1_file.pdf",
+      "reference": {
+        "process_scope": "Pressed-and-blown drinking vessels may need trimming after forming; set trim recovery and inspection separately."
+      },
+      "unverified": [
+        "material_quantities_and_units",
+        "min_batch",
+        "equipment_capacity",
+        "energy",
+        "workforce",
+        "quality"
+      ]
+    },
+    {
+      "recipe_id": "R-SUNFLOWER-OIL",
+      "recipe_version": 1,
+      "source": "https://www.fao.org/4/al375e/al375e.pdf",
+      "reference": {
+        "process_scope": "Separate seed cleaning, pressing and optional extraction from edible-oil refining; quantify oil and cake independently."
+      },
+      "unverified": [
+        "material_quantities_and_units",
+        "min_batch",
+        "equipment_capacity",
+        "energy",
+        "workforce",
+        "quality"
+      ]
+    },
+    {
+      "recipe_id": "R-REINFORCED-CONCRETE",
+      "recipe_version": 1,
+      "source": "https://www.cement.org/cement-concrete/applications-of-cement/",
+      "reference": {
+        "process_scope": "Steel reinforcement and concrete work together; confirm steel schedule and concrete grade for the chosen element."
+      },
+      "unverified": [
+        "material_quantities_and_units",
+        "min_batch",
+        "equipment_capacity",
+        "energy",
+        "workforce",
+        "quality"
+      ]
+    },
+    {
+      "recipe_id": "R-CONCRETE-BLOCK",
+      "recipe_version": 1,
+      "source": "https://www.cement.org/cement-concrete/applications-of-cement/",
+      "reference": {
+        "process_scope": "Concrete masonry units may be formed from dry mixture compacted in molds and cured; specify block dimensions and yield."
+      },
+      "unverified": [
+        "material_quantities_and_units",
+        "min_batch",
+        "equipment_capacity",
+        "energy",
+        "workforce",
+        "quality"
+      ]
+    },
+    {
+      "recipe_id": "R-CONCRETE-PANEL",
+      "recipe_version": 1,
+      "source": "https://www.cement.org/cement-concrete/applications-of-cement/",
+      "reference": {
+        "process_scope": "Precast panels use a mold and controlled curing; establish panel design before specifying reinforcement or batch."
+      },
+      "unverified": [
+        "material_quantities_and_units",
+        "min_batch",
+        "equipment_capacity",
+        "energy",
+        "workforce",
+        "quality"
+      ]
+    },
+    {
+      "recipe_id": "R-POTATO",
+      "recipe_version": 1,
+      "source": "https://www.fao.org/4/ae075e/ae075e03.htm",
+      "reference": {
+        "process_scope": "Harvest-maturity reference for potatoes; separately select field yield, seed and grading rejects."
+      },
+      "unverified": [
+        "material_quantities_and_units",
+        "min_batch",
+        "equipment_capacity",
+        "energy",
+        "workforce",
+        "quality"
+      ]
+    },
+    {
+      "recipe_id": "R-CARROT",
+      "recipe_version": 1,
+      "source": "https://www.fao.org/4/ae075e/ae075e03.htm",
+      "reference": {
+        "process_scope": "Harvest-maturity reference for carrots; separately establish variety, area yield and production losses."
+      },
+      "unverified": [
+        "material_quantities_and_units",
+        "min_batch",
+        "equipment_capacity",
+        "energy",
+        "workforce",
+        "quality"
+      ]
+    },
+    {
+      "recipe_id": "R-BREAD-PACK",
+      "recipe_version": 1,
+      "source": "https://asbe.org/article/bread-cooling/",
+      "reference": {
+        "process_scope": "Cool bread before bagging. The source covers the cooling step. Validate the paper pack and closure for the chosen loaf."
+      },
+      "unverified": [
+        "material_quantities_and_units",
+        "min_batch",
+        "equipment_capacity",
+        "energy",
+        "workforce",
+        "quality"
+      ]
+    },
+    {
+      "recipe_id": "R-BARLEY-FLOUR",
+      "recipe_version": 1,
+      "source": "https://www.sciencedirect.com/science/article/pii/S0260877409005329",
+      "reference": {
+        "process_scope": "The study describes milling hulled barley. Establish the grain type, milling fractions and extraction basis for the catalog operation."
+      },
+      "unverified": [
+        "material_quantities_and_units",
+        "min_batch",
+        "equipment_capacity",
+        "energy",
+        "workforce",
+        "quality"
+      ]
+    },
+    {
+      "recipe_id": "R-COCOA-DRINK",
+      "recipe_version": 1,
+      "source": "https://dairyprocessinghandbook.tetrapak.com/chapter/mixers",
+      "reference": {
+        "process_scope": "Use cocoa powder dispersion in a liquid as the mixing reference. Confirm the formula and suspension requirements for the milk drink."
+      },
+      "unverified": [
+        "material_quantities_and_units",
+        "min_batch",
+        "equipment_capacity",
+        "energy",
+        "workforce",
+        "quality"
+      ]
+    },
+    {
+      "recipe_id": "R-COCOA-DRINK-BOTTLE",
+      "recipe_version": 1,
+      "source": "https://dairyprocessinghandbook.tetrapak.com/chapter/pasteurized-and-esl-dairy-products",
+      "reference": {
+        "process_scope": "The dairy line illustrates buffering and filling. Confirm the heat treatment, glass bottle, closure and shelf-life specification for the chosen drink."
+      },
+      "unverified": [
+        "material_quantities_and_units",
+        "min_batch",
+        "equipment_capacity",
+        "energy",
+        "workforce",
+        "quality"
+      ]
+    },
+    {
+      "recipe_id": "R-SODA-ASH",
+      "recipe_version": 1,
+      "source": "https://www.usgs.gov/centers/national-minerals-information-center/soda-ash-statistics-and-information",
+      "reference": {
+        "process_scope": "USGS distinguishes natural and synthetic soda ash sources. Use the reference to specify the purchased material grade for this supply operation."
+      },
+      "unverified": [
+        "material_quantities_and_units",
+        "min_batch",
+        "equipment_capacity",
+        "energy",
+        "workforce",
+        "quality"
+      ]
+    },
+    {
+      "recipe_id": "R-LOGS",
+      "recipe_version": 1,
+      "source": "https://www.osha.gov/etools/logging/manual-operations/limbing-bucking",
+      "reference": {
+        "process_scope": "Limbing and bucking define the conversion of felled trees into logs. Specify log assortment, measurement basis and field recovery separately."
+      },
+      "unverified": [
+        "material_quantities_and_units",
+        "min_batch",
+        "equipment_capacity",
+        "energy",
+        "workforce",
+        "quality"
+      ]
+    },
+    {
+      "recipe_id": "R-PAPER-PACK",
+      "recipe_version": 1,
+      "source": "https://www.eurosac.org/high-performance-packaging/food-contact",
+      "reference": {
+        "process_scope": "Food-contact paper sacks illustrate material and barrier choices. Establish the pack format and its suitability for each game product."
+      },
+      "unverified": [
+        "material_quantities_and_units",
+        "min_batch",
+        "equipment_capacity",
+        "energy",
+        "workforce",
+        "quality"
+      ]
+    },
+    {
+      "recipe_id": "R-CRUDE-OIL",
+      "recipe_version": 1,
+      "source": "https://www.eia.gov/tools/glossary/index.php?id=crude+oil",
+      "reference": {
+        "process_scope": "Use the EIA production measurement boundary, including adjustment for basic sediment and water. Establish well and field productivity separately."
+      },
+      "unverified": [
+        "material_quantities_and_units",
+        "min_batch",
+        "equipment_capacity",
+        "energy",
+        "workforce",
+        "quality"
+      ]
+    },
+    {
+      "recipe_id": "R-BITUMEN",
+      "recipe_version": 1,
+      "source": "https://www.eia.gov/energyexplained/oil-and-petroleum-products/refining-crude-oil-inputs-and-outputs.php",
+      "reference": {
+        "process_scope": "Refinery output statistics identify asphalt and road oil as a product category. Specify a bitumen grade, route and refinery-specific yield."
+      },
+      "unverified": [
+        "material_quantities_and_units",
+        "min_batch",
+        "equipment_capacity",
+        "energy",
+        "workforce",
+        "quality"
+      ]
+    },
+    {
+      "recipe_id": "R-PLASTIC-RESIN",
+      "recipe_version": 1,
+      "source": "https://www.usitc.gov/publications/other/pub2590.pdf",
+      "reference": {
+        "process_scope": "The USITC report describes obtaining ethylene from petroleum or natural gas and polymerizing it to make polyethylene. Define the conversion from the crude-oil input to ethylene, select the resin grade, and specify finishing before assigning yields."
+      },
+      "unverified": [
+        "material_quantities_and_units",
+        "min_batch",
+        "equipment_capacity",
+        "energy",
+        "workforce",
+        "quality"
+      ]
+    },
+    {
+      "recipe_id": "R-SUNFLOWER-SEED",
+      "recipe_version": 1,
+      "source": "https://www.dpi.nsw.gov.au/__data/assets/pdf_file/0011/249779/Sunflower-production-guidelines-for-the-northern-grains-region.pdf",
+      "reference": {
+        "process_scope": "Regional guidelines cover sunflower harvest and grain moisture. Field yield depends on cultivar, growing conditions and harvest losses."
+      },
+      "unverified": [
+        "material_quantities_and_units",
+        "min_batch",
+        "equipment_capacity",
+        "energy",
+        "workforce",
+        "quality"
+      ]
+    },
+    {
+      "recipe_id": "R-SUNFLOWER-OIL-BOTTLE",
+      "recipe_version": 1,
+      "source": "https://www.sidel.com/about/media/press-releases/filler-for-edible-oil/",
+      "reference": {
+        "process_scope": "An edible-oil filling line provides an equipment reference. Set the bottle format, target fill, closure and filling losses for sunflower oil."
+      },
+      "unverified": [
+        "material_quantities_and_units",
+        "min_batch",
+        "equipment_capacity",
+        "energy",
+        "workforce",
+        "quality"
+      ]
+    },
+    {
+      "recipe_id": "R-REBAR",
+      "recipe_version": 1,
+      "source": "https://en.ykscorp.kr/process_sub2",
+      "reference": {
+        "process_scope": "The manufacturer illustrates reheating and hot rolling billets. Identify the steel feed form, finished diameter and grade for this operation."
+      },
+      "unverified": [
+        "material_quantities_and_units",
+        "min_batch",
+        "equipment_capacity",
+        "energy",
+        "workforce",
+        "quality"
+      ]
+    },
+    {
+      "recipe_id": "R-RYE-DOUGH",
+      "recipe_version": 1,
+      "source": "https://www.kingarthurbaking.com/pro/formulas/deli-rye",
+      "reference": {
+        "process_scope": "The professional deli rye formula illustrates sourdough preparation and dough mixing. Its wheat flour and sourdough make it a formulation example requiring reconciliation with the draft inputs."
+      },
+      "unverified": [
+        "material_quantities_and_units",
+        "min_batch",
+        "equipment_capacity",
+        "energy",
+        "workforce",
+        "quality"
+      ]
+    },
+    {
+      "recipe_id": "R-RYE-BREAD",
+      "recipe_version": 1,
+      "source": "https://www.kingarthurbaking.com/pro/formulas/deli-rye",
+      "reference": {
+        "process_scope": "The deli rye formula documents proofing and baking for its own dough. Establish loaf size and mass change during baking for the selected formula."
+      },
+      "unverified": [
+        "material_quantities_and_units",
+        "min_batch",
+        "equipment_capacity",
+        "energy",
+        "workforce",
+        "quality"
+      ]
+    },
+    {
+      "recipe_id": "R-PAPER-ROLL",
+      "recipe_version": 1,
+      "source": "https://www.valmet.com/board-and-paper/board-and-paper-machines/winding/",
+      "reference": {
+        "process_scope": "Winding converts a parent reel into finished rolls. Specify roll dimensions, core and trim allowance."
+      },
+      "unverified": [
+        "material_quantities_and_units",
+        "min_batch",
+        "equipment_capacity",
+        "energy",
+        "workforce",
+        "quality"
+      ]
+    },
+    {
+      "recipe_id": "R-PAPER-BAG",
+      "recipe_version": 1,
+      "source": "https://www.eurosac.org/fileadmin/pdf/eurosac_publications/2023_01_Industry_Guidelines_HQ_paper_bags.pdf",
+      "reference": {
+        "process_scope": "Industry guidelines describe paper bag construction, including gussets and glued bottoms. Select a construction and specify paper and adhesive use."
+      },
+      "unverified": [
+        "material_quantities_and_units",
+        "min_batch",
+        "equipment_capacity",
+        "energy",
+        "workforce",
+        "quality"
+      ]
+    },
+    {
+      "recipe_id": "R-ONION",
+      "recipe_version": 1,
+      "source": "https://www.fao.org/4/y4893e/y4893e04.htm",
+      "reference": {
+        "process_scope": "Use FAO harvest maturity and curing guidance for bulb onions. Define any curing losses and saleable field yield separately."
+      },
+      "unverified": [
+        "material_quantities_and_units",
+        "min_batch",
+        "equipment_capacity",
+        "energy",
+        "workforce",
+        "quality"
+      ]
+    },
+    {
+      "recipe_id": "R-ONION-PACK",
+      "recipe_version": 1,
+      "source": "https://www.fao.org/4/y4893e/y4893e05.htm",
+      "reference": {
+        "process_scope": "FAO postharvest guidance informs produce packing. Check ventilation and handling of cured onions for the draft paper pack."
+      },
+      "unverified": [
+        "material_quantities_and_units",
+        "min_batch",
+        "equipment_capacity",
+        "energy",
+        "workforce",
+        "quality"
+      ]
+    },
+    {
+      "recipe_id": "R-TOMATO",
+      "recipe_version": 1,
+      "source": "https://www.fao.org/4/y4893e/y4893e04.htm",
+      "reference": {
+        "process_scope": "Harvest stage depends on the destination market. Establish greenhouse productivity and saleable grading thresholds separately."
+      },
+      "unverified": [
+        "material_quantities_and_units",
+        "min_batch",
+        "equipment_capacity",
+        "energy",
+        "workforce",
+        "quality"
+      ]
+    },
+    {
+      "recipe_id": "R-APPLE",
+      "recipe_version": 1,
+      "source": "https://www.fao.org/4/y4893e/y4893e04.htm",
+      "reference": {
+        "process_scope": "Use maturity indicators such as starch and firmness to define harvest readiness. Establish orchard yield and saleable fraction by cultivar and season."
+      },
+      "unverified": [
+        "material_quantities_and_units",
+        "min_batch",
+        "equipment_capacity",
+        "energy",
+        "workforce",
+        "quality"
+      ]
+    },
+    {
+      "recipe_id": "R-APPLE-JUICE-BOTTLE",
+      "recipe_version": 1,
+      "source": "https://orangebook.tetrapak.com/chapter/processing-juice-packer",
+      "reference": {
+        "process_scope": "The juice packing reference illustrates hot filling as a candidate process. Confirm the apple juice treatment, glass bottle and closure compatibility for the chosen line."
+      },
+      "unverified": [
+        "material_quantities_and_units",
+        "min_batch",
+        "equipment_capacity",
+        "energy",
+        "workforce",
+        "quality"
+      ]
+    },
+    {
+      "recipe_id": "R-LUBRICANT-BASE",
+      "recipe_version": 1,
+      "source": "https://www.exxonmobil.com/en/basestocks/faq-production",
+      "reference": {
+        "process_scope": "Group I base stock provides a route example covering distillation, solvent extraction and dewaxing. Select the grade and quantify the applicable refinery stream balance."
+      },
+      "unverified": [
+        "material_quantities_and_units",
+        "min_batch",
+        "equipment_capacity",
+        "energy",
+        "workforce",
+        "quality"
+      ]
+    },
+    {
+      "recipe_id": "R-PLASTIC-PACKAGING",
+      "recipe_version": 1,
+      "source": "https://www.pinpak.com.au/about-us/film-bag-manufacturing/bag-making/",
+      "reference": {
+        "process_scope": "A film converter illustrates feeding roll stock, cutting and heat sealing to make bags. Confirm that the intended packaging uses this route and determine film and trim requirements for the selected format."
+      },
+      "unverified": [
+        "material_quantities_and_units",
+        "min_batch",
+        "equipment_capacity",
+        "energy",
+        "workforce",
+        "quality"
+      ]
+    },
+    {
+      "recipe_id": "R-PAVING-SLAB",
+      "recipe_version": 1,
+      "source": "https://www.cmha.org/resource/pav-tec-025/",
+      "reference": {
+        "process_scope": "Concrete paving slabs can use dry cast, wet cast or hydraulic press processes. Select a forming route before establishing mix requirements and curing."
+      },
+      "unverified": [
+        "material_quantities_and_units",
+        "min_batch",
+        "equipment_capacity",
+        "energy",
+        "workforce",
+        "quality"
+      ]
+    },
+    {
+      "recipe_id": "R-DRY-MORTAR",
+      "recipe_version": 1,
+      "source": "https://www.molins.es/concrete-aggregates/en/products/bulk-and-packaged/dry-mortar-bag/",
+      "reference": {
+        "process_scope": "Factory dry mortar illustrates a cement, sand and additive blend. Select a mortar class and check whether its additives belong in the draft inputs."
+      },
+      "unverified": [
+        "material_quantities_and_units",
+        "min_batch",
+        "equipment_capacity",
+        "energy",
+        "workforce",
+        "quality"
+      ]
+    },
+    {
+      "recipe_id": "R-MORTAR-MIX",
+      "recipe_version": 1,
+      "source": "https://www.cemex.co.uk/products/mortars/bagged-mortars",
+      "reference": {
+        "process_scope": "The supplier documents fresh mortar yield for its bagged products after adding water. Confirm water demand and yield for the selected dry mix."
+      },
+      "unverified": [
+        "material_quantities_and_units",
+        "min_batch",
+        "equipment_capacity",
+        "energy",
+        "workforce",
+        "quality"
+      ]
+    },
+    {
+      "recipe_id": "R-GLASS-WINDOW",
+      "recipe_version": 1,
+      "source": "https://www.glass.org/sites/default/files/2023-01/GANA_Glazing_Manual_2022_pw.pdf",
+      "reference": {
+        "process_scope": "The glazing manual informs assembly with a frame. Define the intermediate process that turns the draft glass melt into a pane before glazing."
+      },
+      "unverified": [
+        "material_quantities_and_units",
+        "min_batch",
+        "equipment_capacity",
+        "energy",
+        "workforce",
+        "quality"
+      ]
+    },
+    {
+      "recipe_id": "R-GLASS-PACKAGING",
+      "recipe_version": 1,
+      "source": "https://feve.org/glass-industry/",
+      "reference": {
+        "process_scope": "FEVE covers glass jars as primary containers. The draft also uses a paper pack, so its secondary pack design and jar count require separate evidence."
+      },
+      "unverified": [
+        "material_quantities_and_units",
+        "min_batch",
+        "equipment_capacity",
+        "energy",
+        "workforce",
+        "quality"
+      ]
+    },
+    {
+      "recipe_id": "R-LUBRICANT-PACK",
+      "recipe_version": 1,
+      "source": "https://www.mepapackaging.com/lube-oil",
+      "reference": {
+        "process_scope": "The equipment supplier describes weight or volumetric filling into HDPE bottles and screw capping. The draft lists base stock and a plastic bottle. Verify the viscosity and bottle compatibility for the selected base stock, account for a compatible closure, and determine the target fill quantity and losses for this format."
+      },
+      "unverified": [
+        "material_quantities_and_units",
+        "min_batch",
+        "equipment_capacity",
+        "energy",
+        "workforce",
+        "quality"
+      ]
+    }
+  ]
+}

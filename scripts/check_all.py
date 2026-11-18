@@ -11,6 +11,7 @@ CHECKS = (
     'test_check_docs.py',
     'check_handoff.py',
     'check_des004_catalog.py',
+    'check_des004_pilot_profiles.py',
     'check_des003_balance.py',
     'check_des003_examples.py',
 )

@@ -32,7 +32,7 @@
     },
     {
       "id": "R-WHEAT-FLOUR",
-      "version": 1,
+      "version": 2,
       "family": "grain",
       "inputs": [
         {
@@ -45,6 +45,11 @@
       "outputs": [
         {
           "good_id": "wheat_flour",
+          "quantity": null,
+          "unit": null
+        },
+        {
+          "good_id": "wheat_bran",
           "quantity": null,
           "unit": null
         }
@@ -60,25 +65,31 @@
     },
     {
       "id": "R-BREAD-DOUGH",
-      "version": 1,
+      "version": 2,
       "family": "grain",
       "inputs": [
         {
           "good_id": "wheat_flour",
-          "quantity": null,
-          "unit": null,
+          "quantity": 900,
+          "unit": "g",
           "input_kind": "produced_good"
         },
         {
           "good_id": "water",
-          "quantity": null,
-          "unit": null,
+          "quantity": 680,
+          "unit": "g",
           "input_kind": "external_good"
         },
         {
           "good_id": "yeast",
-          "quantity": null,
-          "unit": null,
+          "quantity": 14,
+          "unit": "g",
+          "input_kind": "external_good"
+        },
+        {
+          "good_id": "salt",
+          "quantity": 18,
+          "unit": "g",
           "input_kind": "external_good"
         }
       ],
@@ -86,7 +97,7 @@
         {
           "good_id": "bread_dough",
           "quantity": null,
-          "unit": null
+          "unit": "g"
         }
       ],
       "min_batch": null,
@@ -96,7 +107,7 @@
       "quality_profile": null,
       "source_status": "requires_verification",
       "status": "draft_not_executable",
-      "schema_warning": "Input kinds are proposed metadata only; site and utility must be migrated to proper contracts before execution."
+      "schema_warning": "Ingredient quantities are a sourced reference formula in grams per portion; this draft is not a validated industrial batch or executable profile."
     },
     {
       "id": "R-BREAD-LOAF",
@@ -326,7 +337,7 @@
     },
     {
       "id": "R-CREAM",
-      "version": 1,
+      "version": 2,
       "family": "dairy",
       "inputs": [
         {
@@ -339,6 +350,11 @@
       "outputs": [
         {
           "good_id": "cream",
+          "quantity": null,
+          "unit": null
+        },
+        {
+          "good_id": "skimmed_milk",
           "quantity": null,
           "unit": null
         }
@@ -354,7 +370,7 @@
     },
     {
       "id": "R-BUTTER",
-      "version": 1,
+      "version": 2,
       "family": "dairy",
       "inputs": [
         {
@@ -373,6 +389,11 @@
       "outputs": [
         {
           "good_id": "butter",
+          "quantity": null,
+          "unit": null
+        },
+        {
+          "good_id": "buttermilk",
           "quantity": null,
           "unit": null
         }
@@ -1607,34 +1628,6 @@
       "schema_warning": "Proposed only: inputs, unit balances, safety and technical feasibility not verified."
     },
     {
-      "id": "R-WHEAT-BRAN",
-      "version": 1,
-      "family": "grain",
-      "inputs": [
-        {
-          "good_id": "wheat_grain",
-          "quantity": null,
-          "unit": null,
-          "input_kind": "produced_good"
-        }
-      ],
-      "outputs": [
-        {
-          "good_id": "wheat_bran",
-          "quantity": null,
-          "unit": null
-        }
-      ],
-      "min_batch": null,
-      "equipment_profile": null,
-      "energy_profile": null,
-      "workforce_profile": null,
-      "quality_profile": null,
-      "source_status": "requires_verification",
-      "status": "draft_not_executable",
-      "schema_warning": "Proposed only: inputs, unit balances, safety and technical feasibility not verified."
-    },
-    {
       "id": "R-ANIMAL-FEED",
       "version": 1,
       "family": "grain",
@@ -1723,34 +1716,6 @@
       "outputs": [
         {
           "good_id": "dry_pasta",
-          "quantity": null,
-          "unit": null
-        }
-      ],
-      "min_batch": null,
-      "equipment_profile": null,
-      "energy_profile": null,
-      "workforce_profile": null,
-      "quality_profile": null,
-      "source_status": "requires_verification",
-      "status": "draft_not_executable",
-      "schema_warning": "Proposed only: inputs, unit balances, safety and technical feasibility not verified."
-    },
-    {
-      "id": "R-SKIMMED-MILK",
-      "version": 1,
-      "family": "dairy",
-      "inputs": [
-        {
-          "good_id": "raw_milk",
-          "quantity": null,
-          "unit": null,
-          "input_kind": "produced_good"
-        }
-      ],
-      "outputs": [
-        {
-          "good_id": "skimmed_milk",
           "quantity": null,
           "unit": null
         }
@@ -1868,7 +1833,7 @@
     },
     {
       "id": "R-CHEESE-CURD",
-      "version": 1,
+      "version": 2,
       "family": "dairy",
       "inputs": [
         {
@@ -1887,6 +1852,11 @@
       "outputs": [
         {
           "good_id": "cheese_curd",
+          "quantity": null,
+          "unit": null
+        },
+        {
+          "good_id": "whey",
           "quantity": null,
           "unit": null
         }
@@ -1915,34 +1885,6 @@
       "outputs": [
         {
           "good_id": "cheese",
-          "quantity": null,
-          "unit": null
-        }
-      ],
-      "min_batch": null,
-      "equipment_profile": null,
-      "energy_profile": null,
-      "workforce_profile": null,
-      "quality_profile": null,
-      "source_status": "requires_verification",
-      "status": "draft_not_executable",
-      "schema_warning": "Proposed only: inputs, unit balances, safety and technical feasibility not verified."
-    },
-    {
-      "id": "R-WHEY",
-      "version": 1,
-      "family": "dairy",
-      "inputs": [
-        {
-          "good_id": "cheese_curd",
-          "quantity": null,
-          "unit": null,
-          "input_kind": "produced_good"
-        }
-      ],
-      "outputs": [
-        {
-          "good_id": "whey",
           "quantity": null,
           "unit": null
         }
@@ -3004,7 +2946,7 @@
     },
     {
       "id": "R-CEMENT",
-      "version": 1,
+      "version": 2,
       "family": "construction",
       "inputs": [
         {
@@ -3018,6 +2960,12 @@
           "quantity": null,
           "unit": null,
           "input_kind": "utility"
+        },
+        {
+          "good_id": "gypsum",
+          "quantity": null,
+          "unit": null,
+          "input_kind": "external_good"
         }
       ],
       "outputs": [

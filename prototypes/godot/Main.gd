@@ -205,7 +205,7 @@ func show_factory() -> void:
   if cash>=5000:
    cash-=5000
    advance_status(),details)
- label("Деморецепты и показатели условны. Экономика сервера не реализована.",v,15)
+ label("Деморецепты и показатели рассчитаны локально в прототипе.",v,15)
  button("Закрыть",func(): panel.hide(),v)
 
 func select_cell(index: int) -> void:

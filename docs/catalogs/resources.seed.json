@@ -953,6 +953,27 @@
       "unit": null,
       "source_status": "requires_verification",
       "status": "draft"
+    },
+    {
+      "id": "salt",
+      "kind": "external_good",
+      "unit": null,
+      "source_status": "requires_verification",
+      "status": "draft"
+    },
+    {
+      "id": "buttermilk",
+      "kind": "produced_good",
+      "unit": null,
+      "source_status": "requires_verification",
+      "status": "draft"
+    },
+    {
+      "id": "gypsum",
+      "kind": "external_good",
+      "unit": null,
+      "source_status": "requires_verification",
+      "status": "draft"
     }
   ]
 }

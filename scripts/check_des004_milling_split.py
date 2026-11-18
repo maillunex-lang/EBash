@@ -2,6 +2,8 @@
 """Check a proposed, non-executable co-product split for wheat milling."""
 import json
 from pathlib import Path
+
+from generated_report import check_generated_report
 root=Path(__file__).resolve().parents[1]/'docs/catalogs'
 set_=json.loads((root/'game-production-profiles.v1.json').read_text())
 p=next(p for p in set_['profiles'] if p['id']=='GAME-WHEAT-FLOUR-V1')
@@ -23,5 +25,5 @@ out={'status':'proposed_not_executable','recipe_id':'R-WHEAT-FLOUR','recipe_vers
  'other_unstocked_fractions_and_losses_g':other,
  'historical_fraction_source':ref['reference']['historical_fraction_split']['source'],
  'notes':'Do not add to approved production profiles until equipment applicability, recoverable bran quality, losses and market price are verified.'}
-(root/'milling-split.proposal.json').write_text(json.dumps(out,ensure_ascii=False,indent=2)+'\n')
+check_generated_report(root/'milling-split.proposal.json', json.dumps(out,ensure_ascii=False,indent=2)+'\n')
 print('PASS: proposed mass balance',out['input_wheat_grain_g'],'=',out['flour_g'],'+',out['bran_g'],'+',out['other_unstocked_fractions_and_losses_g'])

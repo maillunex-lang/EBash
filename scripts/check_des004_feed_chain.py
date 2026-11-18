@@ -2,6 +2,8 @@
 """Validate a NON-EXECUTABLE game-only bran/barley/feed scenario and conservation."""
 import json
 from pathlib import Path
+
+from generated_report import check_generated_report
 from fractions import Fraction
 root=Path(__file__).resolve().parents[1]/'docs/catalogs'
 recipes={r['id']:r for r in json.loads((root/'recipes.seed.json').read_text())['recipes']}
@@ -36,5 +38,5 @@ report={'status':'proposed_not_executable','recipe_id':'R-ANIMAL-FEED','recipe_v
  'game_only_hypothesis':feed,'scenario':{'wheat_grain_input_g':10000,'flour_output_g':7400,'bran_output_g':1333,'unstocked_milling_fractions_g':1267,'barley_grain_purchased_g':1200,'feed_output_g':produced,'bran_remaining_g':bran},
  'illustrative_prices_not_approved':prices,'profit_kopecks':{'milling_without_bran':str(base),'milling_plus_bran_sale':str(bran_sale),'milling_plus_feed':str(feed_case)},
  'required_before_activation':['validate feed safety and nutritional composition','validate production equipment and energy','approve game price policy and ensure co-products not double sold','define barley field production separately','test inventory lots, reservations and next-tick sales']}
-(root/'feed-chain.proposal.json').write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+check_generated_report(root/'feed-chain.proposal.json', json.dumps(report,ensure_ascii=False,indent=2)+'\n')
 print('PASS: 10kg wheat -> 7.4kg flour + 1.333kg bran + 1.267kg other; 1.2kg purchased barley + 0.8kg bran -> 2kg feed; positive illustrative incremental feed margin (not a market forecast)')

@@ -3,6 +3,8 @@
 import json
 from collections import defaultdict
 from pathlib import Path
+
+from generated_report import check_generated_report
 root=Path(__file__).resolve().parents[1]/'docs/catalogs'
 recipes={r['id']:r for r in json.loads((root/'recipes.seed.json').read_text())['recipes'] if r['family']=='grain'}
 assert len(recipes)==16
@@ -73,5 +75,5 @@ result={'status':'proposed_not_executable','scope':'16 grain scenarios, not appr
  'units':'grams for mass goods; counts for loaves/packs; site requirement is a location/capacity right',
  'assumptions':'All quantities except explicitly sourced bread/milling pilot values are provisional game balance hypotheses; no safety or equipment compatibility certification.',
  'profiles':out,'activation_blockers':['quality and food/feed safety','site/crop yield rules','equipment compatibility and 3x3 layout','loss/residue classification','economic pricing and margin sensitivity','warehouse lots, reservations, sale delay, delivery integration']}
-(root/'grain-scenarios.proposal.json').write_text(json.dumps(result,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+check_generated_report(root/'grain-scenarios.proposal.json', json.dumps(result,ensure_ascii=False,indent=2)+'\n')
 print('PASS: 16/16 grain proposals, graph inputs/outputs, comparable mass conservation, feed and pasta chain')

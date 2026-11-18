@@ -16,13 +16,14 @@ const (
 )
 
 type millOffer struct {
-	Delay     int    `json:"delivery_ticks"`
-	ID        string `json:"offer_id"`
-	Seller    bool   `json:"seller"`
-	Available bool   `json:"available"`
-	Quantity  int64  `json:"quantity_g,string"`
-	Price     int64  `json:"price_kopecks,string"`
-	Supplies  int64  `json:"ingredients_kopecks,string"`
+	ProfileSupplies int64  `json:"profile_ingredients_kopecks,string"`
+	Delay           int    `json:"delivery_ticks"`
+	ID              string `json:"offer_id"`
+	Seller          bool   `json:"seller"`
+	Available       bool   `json:"available"`
+	Quantity        int64  `json:"quantity_g,string"`
+	Price           int64  `json:"price_kopecks,string"`
+	Supplies        int64  `json:"ingredients_kopecks,string"`
 }
 
 func isMill(account string) bool { return account == millAccount || account == remoteMill }
@@ -88,11 +89,15 @@ func (c *company) produceMill(tick int64) []event {
 	return []event{movement("mill_production", map[string]int64{"mill_grain_g": -10000, "mill_flour_g": flourProduced, "residue_g": 10000 - flourProduced})}
 }
 
-func buyMillFlour(buyer, seller *company, account, offer string, limit, tick int64) ([]event, []event, string) {
-	price, delay := int64(millPrice), int64(0)
-	if millSeller(offer) == remoteMill {
-		price, delay = remoteMillPrice, remoteDelay
+func millPriceAndDelay(account string) (int64, int64) {
+	if account == remoteMill {
+		return remoteMillPrice, remoteDelay
 	}
+	return millPrice, 0
+}
+
+func buyMillFlour(buyer, seller *company, account, offer string, limit, tick int64) ([]event, []event, string) {
+	price, delay := millPriceAndDelay(millSeller(offer))
 	switch {
 	case isMill(account) || seller.MillFlour < flourProduced || seller.MillUnlisted || offer != seller.flourOfferID():
 		return nil, nil, "MILL_OFFER_UNAVAILABLE"

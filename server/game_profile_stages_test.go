@@ -6,6 +6,21 @@ import (
 )
 
 func TestGameProfileCompetingMillsToBreadSameTick(t *testing.T) {
+	set, lines := competingMillsScenario(t)
+	verifyCompetingMillsToBread(t, set, lines)
+}
+
+func BenchmarkCompetingMillsToBread(b *testing.B) {
+	set, lines := competingMillsScenario(b)
+	b.ReportAllocs()
+	b.ResetTimer()
+	for i := 0; i < b.N; i++ {
+		verifyCompetingMillsToBread(b, set, lines)
+	}
+}
+
+func competingMillsScenario(t testing.TB) (gameProfileSet, []gameLine) {
+	t.Helper()
 	set, err := readGameProfiles("../docs/catalogs/game-production-profiles.v1.json")
 	if err != nil {
 		t.Fatal(err)
@@ -17,6 +32,11 @@ func TestGameProfileCompetingMillsToBreadSameTick(t *testing.T) {
 		{ID: "mixer", ProfileID: "GAME-BREAD-DOUGH-V1", RequestedBatches: 8, AvailableEquipment: "spiral_mixer", Factors: f},
 		{ID: "mill-a", ProfileID: "GAME-WHEAT-FLOUR-V1", RequestedBatches: 1, AvailableEquipment: "roller_mill_sifter", Factors: f},
 	}
+	return set, lines
+}
+
+func verifyCompetingMillsToBread(t testing.TB, set gameProfileSet, lines []gameLine) {
+	t.Helper()
 	stock := map[string]int64{"wheat_grain": 20000, "water": 5440, "salt": 144, "yeast": 112}
 	budget := gameBudget{EnergyWh: 4760, Workers: 4, CashKopecks: 38000, EquipmentCapacity: map[string]int64{"roller_mill_sifter": 2, "spiral_mixer": 8, "proofer_oven": 8}}
 	runs, err := executeGameLines(set, lines, stock, &budget)

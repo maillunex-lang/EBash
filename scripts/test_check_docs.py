@@ -2,6 +2,7 @@
 """Negative checks of Markdown validation on an isolated, disposable copy."""
 from pathlib import Path
 import os
+from source_files import source_files
 import shutil
 import subprocess
 import tempfile
@@ -19,14 +20,13 @@ def run(root: Path) -> subprocess.CompletedProcess[str]:
 def main() -> None:
     with tempfile.TemporaryDirectory(prefix='ebash-docs-audit-') as tmp:
         root = Path(tmp)
-        for src in ROOT.rglob('*'):
-            if '.git' in src.relative_to(ROOT).parts or not src.is_file():
-                continue
-            if src.suffix not in {'.md', '.json'}:
-                continue
+        for src in source_files(ROOT):
             dst = root / src.relative_to(ROOT)
             dst.parent.mkdir(parents=True, exist_ok=True)
-            shutil.copy2(src, dst)
+            if src.suffix == '.md':
+                shutil.copy2(src, dst)
+            else:
+                dst.touch()
         baseline = run(root)
         assert baseline.returncode == 0, baseline.stdout + baseline.stderr
         task = root / 'docs/tasks/DES-004.md'

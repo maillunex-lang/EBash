@@ -41,6 +41,10 @@ func (s store) migrate(ctx context.Context) error {
 }
 
 func (s store) seed(ctx context.Context, world, account, token string) error {
+	return s.seedWithProfiles(ctx, world, account, token, nil)
+}
+
+func (s store) seedWithProfiles(ctx context.Context, world, account, token string, production *gameProductionState) error {
 	if len(token) < 24 || world == "" || account == "" {
 		return errors.New("world, account and token of at least 24 characters required")
 	}
@@ -56,7 +60,7 @@ func (s store) seed(ctx context.Context, world, account, token string) error {
 	if err = tx.QueryRow(ctx, "SELECT last_tick FROM worlds WHERE id=$1 FOR UPDATE", world).Scan(&last); err != nil {
 		return err
 	}
-	initial := company{Cash: initialCash, LastTick: last, SupplyLot: accountSupply(account) != nil}
+	initial := company{Cash: initialCash, LastTick: last, SupplyLot: accountSupply(account) != nil, GameProduction: production}
 	if isMill(account) {
 		initial.MillFlour = flourProduced
 		if account == remoteMill {
@@ -215,11 +219,11 @@ func loadCompanies(ctx context.Context, tx pgx.Tx, world string) (map[string]com
 }
 
 func (s store) tick(ctx context.Context, world string, target int64, beforeCommit func() error) error {
-	return s.tickWithProduction(ctx, world, target, beforeCommit, produce)
+	return s.tickWithProduction(ctx, world, target, beforeCommit, produce, false)
 }
 
 func (s store) tickWithProduction(ctx context.Context, world string, target int64,
-	beforeCommit func() error, production func(*company, int64) []event) error {
+	beforeCommit func() error, production func(*company, int64) []event, gameTrading bool) error {
 	if target < 1 {
 		return errTickOrder
 	}
@@ -254,7 +258,26 @@ func (s store) tickWithProduction(ctx context.Context, world string, target int6
 		}
 		var deltas []event
 		var reason string
-		if accountSupply(p.account) != nil {
+		if p.cmd.Type == "build_bakery" && gameTrading {
+			deltas, reason = startBakery(&c, companies, p.cmd.Payload, target)
+		} else if c.GameProduction != nil && c.GameProduction.Construction != nil && !c.GameProduction.Construction.Open {
+			reason = "BAKERY_NOT_OPEN"
+		} else if p.cmd.Type == "game_buy_flour" || p.cmd.Type == "game_sell_bread" {
+			if !gameTrading || c.GameProduction == nil || isMill(p.account) || accountSupply(p.account) != nil {
+				reason = "GAME_TRADE_DISABLED"
+			} else if p.cmd.Type == "game_sell_bread" {
+				deltas, reason = c.sellGameBread(target)
+			} else {
+				sellerID := millSeller(p.cmd.Payload.Offer)
+				seller := companies[sellerID]
+				var sellerEvents []event
+				deltas, sellerEvents, reason = buyGameFlour(&c, &seller, p.cmd.Payload, target)
+				if reason == "" {
+					companies[sellerID] = seller
+					events[sellerID] = append(events[sellerID], sellerEvents...)
+				}
+			}
+		} else if accountSupply(p.account) != nil {
 			reason = "SUPPLIER_ACCOUNT"
 		} else if p.cmd.Type == "buy_chain_supply" && !isMill(p.account) {
 			offer := supplyByID(p.cmd.Payload.Offer)
@@ -312,7 +335,16 @@ func (s store) tickWithProduction(ctx context.Context, world string, target int6
 			accountEvents = append(accountEvents, c.advanceMillOrder(target)...)
 			accountEvents = append(accountEvents, c.deliverChain(target)...)
 			accountEvents = append(accountEvents, c.advanceChainOrder(target)...)
-			accountEvents = append(accountEvents, production(&c, target)...)
+			if c.GameProduction != nil && c.GameProduction.Construction != nil {
+				b := c.GameProduction.Construction
+				if !b.Open && b.Site != "" && target >= b.ReadyTick {
+					b.Open = true
+					accountEvents = append(accountEvents, movement("bakery_commissioned", nil))
+				}
+			}
+			if c.GameProduction == nil || c.GameProduction.Construction == nil || c.GameProduction.Construction.Open {
+				accountEvents = append(accountEvents, production(&c, target)...)
+			}
 		}
 		c.LastTick = target
 		state, err := json.Marshal(c)

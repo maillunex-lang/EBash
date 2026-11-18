@@ -22,6 +22,19 @@ func configure(url: String, world_id: String, access_token: String) -> bool:
  token = access_token
  return true
 
+func configure_from_session() -> bool:
+ var session: Dictionary = get_tree().get_meta("ebash_session", {})
+ return configure(
+  session.get("url", OS.get_environment("EBASH_PILOT_API")),
+  session.get("world", OS.get_environment("EBASH_PILOT_WORLD")),
+  session.get("token", OS.get_environment("EBASH_PILOT_TOKEN"))
+ )
+
+
+func remember_session() -> void:
+ get_tree().set_meta("ebash_session", {"url": base_url, "world": world, "token": token})
+
+
 func fetch(path: String) -> Dictionary:
  return await send(HTTPClient.METHOD_GET, path)
 

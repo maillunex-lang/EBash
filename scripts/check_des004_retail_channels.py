@@ -3,6 +3,8 @@
 import json
 from collections import Counter
 from pathlib import Path
+
+from generated_report import check_generated_report
 root=Path(__file__).resolve().parents[1]/'docs/catalogs'
 recipes=json.loads((root/'recipes.seed.json').read_text())['recipes']
 produced={o['good_id'] for r in recipes for o in r['outputs']}
@@ -61,6 +63,6 @@ result={'schema_version':1,'status':'design_proposal_not_active',
  'Building materials shop versus project-based B2B procurement',
  'Animal feed packaging, intended buyer and safety','Household demand for fuel/industrial goods should not be assumed',
  'Multi-store cross-listing and city availability require explicit rules']}
-(root/'retail-channels.proposal.json').write_text(json.dumps(result,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+check_generated_report(root/'retail-channels.proposal.json', json.dumps(result,ensure_ascii=False,indent=2)+'\n')
 print(f'PASS: {len(produced)} catalog goods + {len(proposed_furniture)} furniture outputs; {len(channels)} store types; {len(retail)} retail SKUs; {len(terminal_b2b)} terminal B2B-only goods')
 print('Terminal B2B:',', '.join(terminal_b2b))

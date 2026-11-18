@@ -4,6 +4,8 @@ import json
 from collections import Counter
 from fractions import Fraction
 from pathlib import Path
+
+from generated_report import check_generated_report
 root=Path(__file__).resolve().parents[1]/'docs/catalogs'
 proposed=json.loads((root/'grain-scenarios.proposal.json').read_text())
 assert proposed['status']=='proposed_not_executable'
@@ -61,6 +63,6 @@ report={'status':'analysis_only','pricing':'illustrative_kopecks_per_kg_not_mark
  'Missing energy tariff, labor, capital, storage and logistics parameters',
  'Quality and feed safety not certified',
  'Do not execute proposed recipes until atomic inventory and next-tick sale tests pass']}
-(root/'grain-economy.audit.json').write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+check_generated_report(root/'grain-economy.audit.json', json.dumps(report,ensure_ascii=False,indent=2)+'\n')
 for r in results:print('CHECK:',r['chain'],r['gross_margin_before_energy_labor_capex_and_tax_kopecks'],'kopecks optimistic margin')
 print('PASS: 6 scenarios, nonnegative stock, 16 equipment/energy/staff constraints, crop site requirements')

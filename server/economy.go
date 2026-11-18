@@ -99,6 +99,13 @@ func (cmd command) valid() bool {
 		return p == (payload{})
 	case "configure_line":
 		return p == (payload{Enterprise: "pilot-bakery", Cell: "4", Profile: "test-bread-v1"})
+	case "build_bakery":
+		return (p.Offer == "6" || p.Offer == "12" || p.Offer == "18") && p.Limit > 0 && p == (payload{Offer: p.Offer, Limit: p.Limit})
+	case "game_buy_flour":
+		return validMillLot(p.Offer) &&
+			p == (payload{Offer: p.Offer, Quantity: flourProduced, Limit: p.Limit}) && p.Limit > 0
+	case "game_sell_bread":
+		return p == (payload{Lot: gameBreadLot, Quantity: breadCount, Price: breadPrice})
 	case "offer_output":
 		if p != (payload{Lot: p.Lot, Quantity: p.Quantity, Price: p.Price}) || len(p.Lot) > 128 || p.Lot == "" {
 			return false

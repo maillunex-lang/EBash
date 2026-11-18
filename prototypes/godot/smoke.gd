@@ -1,5 +1,34 @@
 extends SceneTree
+const District := preload("res://District.gd")
+
+func check_districts() -> void:
+ for district_seed in range(128):
+  var map := District.generate(district_seed)
+  assert(map == District.generate(district_seed))
+  assert(map != District.generate(district_seed+1))
+  var plots: Array[Rect2] = []
+  var sites: Dictionary = {}
+  assert(map.lots.size() == 25)
+  for lot: Dictionary in map.lots:
+   var plot: Rect2 = lot.plot
+   for other in plots:
+    assert(not plot.intersects(other))
+   plots.append(plot)
+   assert(plot.size.x > 6.4 and plot.size.y > 5.4)
+   for x: int in map.xs:
+    assert(plot.end.x <= x-1.25 or plot.position.x >= x+1.25)
+   for z: int in map.zs:
+    assert(plot.end.y <= z-1.25 or plot.position.y >= z+1.25)
+   assert(int(plot.position.y-1.25) in map.zs)
+   if lot.kind in ["bakery","near","remote"]:
+    assert(not sites.has(lot.kind))
+    sites[lot.kind] = plot.get_center()
+  assert(sites.size() == 3)
+  var bakery: Vector2 = sites.bakery
+  assert(bakery.distance_to(sites.near) < bakery.distance_to(sites.remote))
+
 func _initialize() -> void:
+ check_districts()
  var scene = load("res://Main.tscn").instantiate()
  root.add_child.call_deferred(scene)
  await process_frame

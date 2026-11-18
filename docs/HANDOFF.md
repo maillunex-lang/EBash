@@ -1,7 +1,7 @@
 # Передача EBash другому ИИ
 
-1. **Известна задача:** начни с [маршрута чтения](READING.md) и одного ID в [backlog](roadmap/implementation-backlog.md) либо [DES-очереди](tasks/INDEX.md). **Не читай весь проект.**
-2. **Задача не названа:** прочитай [STATUS](STATUS.md), затем [дорожную карту](roadmap/stages.md) и выбери ближайший открытый пакет.
+1. **Известна задача:** начни с [маршрута чтения](READING.md) и одного раздела по ID в [backlog](roadmap/implementation-backlog.md) либо [DES-очереди](tasks/INDEX.md). **Не читай весь проект.**
+2. **Задача не названа:** открой [следующий пакет](roadmap/stages.md). Для отчёта о готовности используй [STATUS](STATUS.md).
 3. **Ограничения:** [AGENTS](../AGENTS.md), рабочая папка `/home/gamedev/ebash-main`, другие проекты и службы не трогать, GitHub только по отдельному распоряжению.
 4. **Правила:** [краткие инварианты](gdd/QUICK-REFERENCE.md), детали по ID в [реестре](decisions/001-foundation.md) через `grep -n`, не целиком.
 5. **Проверки:** профильная команда из [READING](READING.md), `python3 scripts/check_all.py`, `git diff --check`. Не выдавай Go-тесты за приёмку Android или полного MMO.

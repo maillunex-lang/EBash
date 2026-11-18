@@ -2,6 +2,8 @@
 """Draft furniture factory + retail design, independent of executable recipe catalog."""
 import json
 from pathlib import Path
+
+from generated_report import check_generated_report
 root=Path(__file__).resolve().parents[1]/'docs/catalogs'
 base=json.loads((root/'recipes.seed.json').read_text())['recipes']
 existing={r['id'] for r in base}
@@ -52,5 +54,5 @@ result={'schema_version':1,'status':'design_proposal_not_executable','facility':
  'define fittings/finish suppliers and units','test 3x3 line placement, equipment, energy, workers',
  'define waste, quality, safety and durability','price/cost balance and population demand',
  'implement production and store inventory integration before enabling']}
-(root/'furniture.proposal.json').write_text(json.dumps(result,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+check_generated_report(root/'furniture.proposal.json', json.dumps(result,ensure_ascii=False,indent=2)+'\n')
 print('PASS: 8 furniture drafts, factory, retail store, 10 resource candidates; external supply gaps:',', '.join(external))

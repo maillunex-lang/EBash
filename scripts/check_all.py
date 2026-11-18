@@ -14,6 +14,7 @@ CHECKS = (
     'check_handoff.py',
     'check_des004_catalog.py',
     'check_des004_pilot_profiles.py',
+    'check_game_production_profiles.py',
     'check_des004_grain_activation.py',
     'check_des004_milling_split.py',
     'check_des004_feed_chain.py',
@@ -23,6 +24,7 @@ CHECKS = (
     'check_des004_retail_channels.py',
     'check_des003_balance.py',
     'check_des003_examples.py',
+    'check_p32_bread_journey.py',
 )
 
 

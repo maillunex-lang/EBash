@@ -2,6 +2,7 @@
 """Read-only structural inventory of EBash source files; excludes runtime artifacts."""
 import json
 from collections import Counter
+from source_files import source_files
 from pathlib import Path
 root=Path(__file__).resolve().parents[1]
 scopes=('docs','scripts','server','prototypes','web','.agents')
@@ -10,7 +11,7 @@ files=[]
 for scope in scopes:
     directory=root/scope
     if not directory.exists():continue
-    for path in directory.rglob('*'):
+    for path in source_files(directory):
         if not path.is_file() or any(p in excluded for p in path.relative_to(root).parts):continue
         files.append(path)
 files.sort()

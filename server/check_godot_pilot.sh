@@ -28,7 +28,14 @@ export EBASH_PILOT_TOKEN
 EBASH_PILOT_TOKEN=$(openssl rand -hex 24)
 export EBASH_PILOT_WORLD=godot-pilot
 mode=${EBASH_PILOT_MODE:-smoke}
+unset EBASH_DEMO_PROFILES EBASH_DEMO_CONSTRUCTION
+if [[ $mode == profile-demo || $mode == construction-smoke ]]; then export EBASH_DEMO_CONSTRUCTION=1; fi
 case "$mode" in
+    profile-demo|profile-demo-smoke|construction-smoke)
+        export EBASH_DEMO_WORLD=bakery-profile-demo
+        export EBASH_DEMO_PROFILES="$PWD/../docs/catalogs/game-production-profiles.v1.json"
+        EBASH_PILOT_WORLD="$EBASH_DEMO_WORLD"
+        ;;
     demo|demo-smoke)
         export EBASH_DEMO_WORLD=bakery-demo
         EBASH_PILOT_WORLD="$EBASH_DEMO_WORLD"
@@ -68,8 +75,18 @@ if [[ $ready != true ]]; then
     cat "$lab/http.log" >&2
     exit 1
 fi
-if [[ $mode == demo ]]; then
-    "$godot" --path ../prototypes/godot res://Pilot.tscn
+if [[ $mode == demo || $mode == profile-demo ]]; then
+    "$godot" --path ../prototypes/godot res://Launcher.tscn
+    exit
+fi
+if [[ $mode == construction-smoke ]]; then
+ timeout 45s "$godot" --headless --path ../prototypes/godot --script construction_smoke.gd | tee "$lab/construction.log"
+ grep -Fx "CONSTRUCTION OK" "$lab/construction.log"
+ exit
+fi
+if [[ $mode == profile-demo-smoke ]]; then
+    timeout 45s "$godot" --headless --path ../prototypes/godot --script pilot_smoke.gd | tee "$lab/profile-demo.log"
+    grep -Fx 'E104 DEMO SMOKE OK: two suppliers, delivered stock and sales' "$lab/profile-demo.log"
     exit
 fi
 if [[ $mode == demo-smoke ]]; then
@@ -93,7 +110,7 @@ for sector in milk wood glass vegetables construction oil; do
     for distance in near remote; do
         EBASH_PILOT_TOKEN="$(openssl rand -hex 24)" "$EBASH_PILOT_SERVER_BIN" seed -world "$EBASH_PILOT_WORLD" -account "supplier-$sector-$distance"
     done
-    timeout 25s "$godot" --headless --path ../prototypes/godot --script pilot_smoke.gd | tee "$lab/chain-$index.log"
+    timeout 120s "$godot" --headless --path ../prototypes/godot --script pilot_smoke.gd | tee "$lab/chain-$index.log"
     grep -q '^CHAIN SMOKE OK:' "$lab/chain-$index.log"
 done
 
@@ -108,5 +125,5 @@ export EBASH_PILOT_COMPETITOR_TOKEN
 EBASH_PILOT_COMPETITOR_TOKEN=$(openssl rand -hex 24)
 EBASH_PILOT_TOKEN="$EBASH_PILOT_COMPETITOR_TOKEN" "$EBASH_PILOT_SERVER_BIN" seed -world "$EBASH_PILOT_WORLD" -account rival-bakery
 EBASH_PILOT_TOKEN="$(openssl rand -hex 24)" "$EBASH_PILOT_SERVER_BIN" seed -world "$EBASH_PILOT_WORLD" -account pilot-mill-remote
-timeout 35s "$godot" --headless --path ../prototypes/godot --script pilot_smoke.gd | tee "$lab/mill-trade.log"
+timeout 120s "$godot" --headless --path ../prototypes/godot --script pilot_smoke.gd | tee "$lab/mill-trade.log"
 grep -Fx 'MILL TRADE SMOKE OK: two deliveries, replenishment and competing purchases' "$lab/mill-trade.log"

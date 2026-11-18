@@ -276,7 +276,7 @@ func TestPostgresLoad(t *testing.T) {
 					var err error
 					switch kind {
 					case "tick":
-						err = s.tickWithProduction(ctx, world, int64(i+1), nil, runLoadCells)
+						err = s.tickWithProduction(ctx, world, int64(i+1), nil, runLoadCells, false)
 					default:
 						method, path, body, want := "GET", "/company", "", 200
 						if kind == "write" {

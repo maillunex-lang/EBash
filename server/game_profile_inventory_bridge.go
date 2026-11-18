@@ -6,10 +6,7 @@ import "fmt"
 // private inventory lots. It never mutates the original inventory on failure.
 // The caller persists inventory, stock and cash in the same company transaction.
 func applyGameInventoryRuns(set gameProfileSet, runs []gameRun, inventory gameInventory, tick int64) (gameInventory, error) {
-	next := gameInventory{Lots: append([]gameInventoryLot(nil), inventory.Lots...), Reserved: make(map[string]int64, len(inventory.Reserved))}
-	for k, v := range inventory.Reserved {
-		next.Reserved[k] = v
-	}
+	next := copyGameInventory(inventory)
 	for _, run := range runs {
 		if run.Batches == 0 {
 			continue
@@ -76,4 +73,12 @@ func checkGameInventoryStock(inv gameInventory, stock map[string]int64) error {
 		}
 	}
 	return nil
+}
+
+func copyGameInventory(inventory gameInventory) gameInventory {
+	next := gameInventory{Lots: append([]gameInventoryLot(nil), inventory.Lots...), Reserved: make(map[string]int64, len(inventory.Reserved))}
+	for k, v := range inventory.Reserved {
+		next.Reserved[k] = v
+	}
+	return next
 }

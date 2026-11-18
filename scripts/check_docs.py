@@ -7,8 +7,9 @@ from urllib.parse import unquote, urlsplit
 
 ROOT = Path(os.environ.get('EBASH_DOC_ROOT', Path(__file__).resolve().parents[1])).resolve()
 errors = []
-files = sorted(ROOT.rglob('*.md'))
-files = [p for p in files if not any(part.startswith('.') or part in ('venv', 'node_modules', '__pycache__') for part in p.relative_to(ROOT).parts[:-1])] # ignore generated dependencies
+from source_files import source_files
+
+files = sorted(p for p in source_files(ROOT) if p.suffix == '.md')
 texts = {p: p.read_text(encoding='utf-8') for p in files}
 
 def anchors(text):

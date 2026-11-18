@@ -64,7 +64,10 @@ var refresh_button: Button
 var tick_button: Button
 var demo_hint: Label
 var profile_hint: Label
+var screen_title: Label
+var bakery_goal: Label
 var demo := false
+var profile_demo := false
 var buy_button: Button
 var mill_buy_button: Button
 var mill_offer_label: Label
@@ -72,14 +75,15 @@ var line_button: Button
 var sell_button: Button
 
 
+var map_supplier := ""
+
 func _ready() -> void:
+	if get_tree().has_meta("ebash_map_supplier"):
+		map_supplier = str(get_tree().get_meta("ebash_map_supplier"))
+		get_tree().remove_meta("ebash_map_supplier")
 	add_child(api)
 	make_interface()
-	configured = api.configure(
-		OS.get_environment("EBASH_PILOT_API"),
-		OS.get_environment("EBASH_PILOT_WORLD"),
-		OS.get_environment("EBASH_PILOT_TOKEN")
-	)
+	configured = api.configure_from_session()
 	if not configured:
 		message.text = "Укажите HTTPS-адрес, мир и личный тестовый токен."
 	connection_box.visible = not configured
@@ -135,7 +139,9 @@ func make_interface() -> void:
 	column.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	column.add_theme_constant_override("separation", 14)
 	scroll.add_child(column)
-	add_label(column, "Производственные цепочки · тестовый режим", 30)
+	if get_tree().has_meta("ebash_city_route"):
+		add_button(column, "Вернуться в Уфу", return_to_city)
+	screen_title = add_label(column, "Производственные цепочки · тестовый режим", 32)
 	connection_box = VBoxContainer.new()
 	column.add_child(connection_box)
 	add_label(connection_box, "Подключение к тестовому серверу", 22)
@@ -159,8 +165,12 @@ func make_interface() -> void:
 	chain_picker.add_item("Пшеница → упакованный хлеб")
 	chain_picker.item_selected.connect(func(_index: int) -> void: update_controls())
 	column.add_child(chain_picker)
+	bakery_goal = add_label(column, "", 19)
+	bakery_goal.add_theme_color_override("font_color", Color("ffd086"))
 	inventory = add_label(column, "Состояние сервера ещё не получено", 22)
+	inventory.add_theme_stylebox_override("normal", bakery_card(Color("1b2a37"), Color("304759")))
 	demo_hint = add_label(column, "", 20)
+	demo_hint.add_theme_stylebox_override("normal", bakery_card(Color("22313b"), Color("466467")))
 	tick_button = add_button(column, "Следующий тик", advance_demo_tick)
 	refresh_button = add_button(column, "Обновить состояние", refresh)
 	buy_button = add_button(column, "Закупить контрольную партию с упаковкой · 504 ₽", order_inputs)
@@ -175,6 +185,11 @@ func make_interface() -> void:
 	sell_button = add_button(column, "Продать партию · 1 080 ₽", sell_bread)
 	command_log = add_label(column, "", 18)
 	message = add_label(column, "", 18)
+
+
+func return_to_city() -> void:
+	if not busy:
+		get_tree().change_scene_to_file("res://Main.tscn")
 
 
 func connect_to_server() -> void:
@@ -207,6 +222,17 @@ func add_label(parent: Control, value: String, font_size: int) -> Label:
 	return item
 
 
+func bakery_card(fill: Color, stroke: Color) -> StyleBoxFlat:
+	var card := StyleBoxFlat.new()
+	card.bg_color = fill
+	card.border_color = stroke
+	card.set_border_width_all(1)
+	card.set_corner_radius_all(10)
+	for side in [SIDE_TOP, SIDE_BOTTOM, SIDE_LEFT, SIDE_RIGHT]:
+		card.set_content_margin(side, 12)
+	return card
+
+
 func add_button(parent: Control, title: String, action: Callable) -> Button:
 	var item := Button.new()
 	item.text = title
@@ -232,7 +258,10 @@ func update_controls() -> void:
 	tick_button.visible = demo
 	tick_button.disabled = blocked
 	demo_hint.visible = demo
-	line_button.visible = not seller
+	bakery_goal.visible = profile_demo
+	profile_hint.visible = not profile_demo
+	screen_title.text = "Пекарня" if profile_demo else "Производственные цепочки · тестовый режим"
+	line_button.visible = not seller and not profile_demo
 	sell_button.visible = not seller
 	mill_grain_button.visible = seller
 	mill_list_button.visible = seller
@@ -262,12 +291,13 @@ func update_controls() -> void:
 		or purchasing
 		or order_state.get("status") == "accepted"
 		or snapshot.has("next_mill_order")
+		or (profile_demo and batch_active())
 	)
 	remote_buy_button.disabled = mill_blocked or has_command(remote_order_state)
 	if remote_buy_button.visible:
 		var total := (
 			str(remote_offer["price_kopecks"]).to_int()
-			+ str(remote_offer["ingredients_kopecks"]).to_int()
+			+ str(remote_offer["profile_ingredients_kopecks" if profile_demo else "ingredients_kopecks"]).to_int()
 		)
 		remote_buy_button.text = (
 			"Дальняя мельница · 7,4 кг за %s ₽ · доставка через %s тика · всего %s ₽"
@@ -277,21 +307,28 @@ func update_controls() -> void:
 				format_money(str(total))
 			]
 		)
+	if profile_demo and remote_buy_button.visible:
+		var total := int(remote_offer["price_kopecks"]) + int(remote_offer["profile_ingredients_kopecks"])
+		remote_buy_button.text = "Дальняя мельница · %s ₽\nДоставка через %s тика" % [
+			format_money(str(total)), remote_offer["delivery_ticks"]]
+		remote_buy_button.custom_minimum_size.y = 74
+	else:
+		remote_buy_button.custom_minimum_size.y = 56
 	mill_buy_button.visible = mill_offer_label.visible
 	mill_buy_button.disabled = (
 		mill_blocked or has_command(mill_order_state) or not mill_offer.get("available", false)
 	)
-	mill_buy_button.text = "Купить муку про запас" if batch_active() else "Купить муку у мельницы"
-	if remote_buy_button.visible and batch_active():
+	mill_buy_button.text = "Купить муку про запас" if batch_active() and not profile_demo else "Купить муку у мельницы"
+	if remote_buy_button.visible and batch_active() and not profile_demo:
 		remote_buy_button.text = "Про запас · " + remote_buy_button.text
 	if mill_offer_label.visible:
 		if mill_offer.get("available", false):
 			var flour_cost := str(mill_offer["price_kopecks"]).to_int()
-			var supplies_cost := str(mill_offer["ingredients_kopecks"]).to_int()
+			var supplies_cost := str(mill_offer["profile_ingredients_kopecks" if profile_demo else "ingredients_kopecks"]).to_int()
 			mill_offer_label.text = (
 				("Ближняя мельница: %s г муки за %s ₽. "
 				+ "Доставка в тик подтверждения. "
-				+ "Ингредиенты и упаковка — %s ₽. Всего %s ₽.")
+				+ ("%s — %%s ₽. Всего %%s ₽." % ("Ингредиенты" if profile_demo else "Ингредиенты и упаковка")))
 				% [
 					mill_offer["quantity_g"],
 					format_money(str(flour_cost)),
@@ -301,6 +338,14 @@ func update_controls() -> void:
 			)
 		else:
 			mill_offer_label.text = "Мельница пока не отгружает муку."
+	if map_supplier == "near":
+		remote_buy_button.hide()
+	elif map_supplier == "remote":
+		mill_buy_button.hide()
+		mill_offer_label.hide()
+		if not remote_buy_button.visible and not seller and chain.is_empty():
+			mill_offer_label.text = "Дальняя мельница пока не отгружает муку."
+			mill_offer_label.show()
 	buy_button.text = (
 		"Закупить контрольную партию с упаковкой · 504 ₽"
 		if chain.is_empty()
@@ -327,6 +372,18 @@ func update_controls() -> void:
 	sell_button.disabled = (
 		blocked or str(snapshot.get("bread_lot_id", "")).is_empty() or has_command(sale_state)
 	)
+
+	if profile_demo:
+		sell_button.disabled = blocked or int(profile_stock().get("bread_loaf", 0)) < 24 or has_command(sale_state)
+
+
+func profile_stock() -> Dictionary:
+	return snapshot.get("game_production", {}).get("stock", {})
+
+
+func profile_sale_id() -> String:
+	var produced: Dictionary = snapshot.get("game_production", {}).get("produced_at", {})
+	return "" if not produced.has("bread_loaf") else "godot-profile-sale-" + str(int(produced["bread_loaf"]))
 
 
 func has_pending_supply() -> bool:
@@ -374,6 +431,8 @@ func order_supply(offer: Dictionary) -> void:
 
 
 func batch_active() -> bool:
+	if profile_demo:
+		return snapshot.get("game_production", {}).has("flour_delivery") or int(profile_stock().get("wheat_flour", 0)) >= 900 or int(profile_stock().get("bread_loaf", 0)) > 0
 	var started := str(snapshot.get("grain_ready_tick", "0")) != "0" or snapshot.has("chain_batch")
 	return (
 		started
@@ -415,6 +474,8 @@ func refresh() -> void:
 	var result := await api.fetch("/company")
 	if result["status"] == 200:
 		snapshot = result["data"]
+		var world_state := await api.fetch("/status")
+		profile_demo = world_state["data"].get("profile_demo", false)
 		var batch: Dictionary = snapshot.get("chain_batch", {})
 		for index: int in range(chains.size()):
 			if chains[index]["id"] == batch.get("id", ""):
@@ -429,6 +490,8 @@ func refresh() -> void:
 			last_sale_id = sale_id("bread-" + str(production_tick))
 		else:
 			last_sale_id = ""
+		if profile_demo:
+			last_sale_id = profile_sale_id()
 		sale_state = {} if last_sale_id.is_empty() else await command_state(last_sale_id)
 		var offer := await api.fetch("/mill-offer")
 		mill_offer = offer["data"] if offer["status"] == 200 else {}
@@ -449,7 +512,6 @@ func refresh() -> void:
 		supply_states.clear()
 		for supply: Dictionary in supplies:
 			supply_states[supply["offer_id"]] = await command_state(supply_order_id(supply))
-		var world_state := await api.fetch("/status")
 		demo = world_state["data"].get("demo", false)
 		recovering = world_state["data"].get("mode") == "recovering"
 		fresh = (
@@ -462,6 +524,8 @@ func refresh() -> void:
 			and mill_grain_state.get("status") != "unknown"
 			and mill_list_state.get("status") != "unknown"
 		)
+		if fresh and get_tree().has_meta("ebash_city_route"):
+			api.remember_session()
 		show_snapshot()
 		if not fresh:
 			message.text = "Не удалось получить статусы сервера. Обновите состояние."
@@ -480,6 +544,9 @@ func refresh() -> void:
 
 
 func show_snapshot() -> void:
+	if profile_demo:
+		show_profile_snapshot()
+		return
 	if demo:
 		var batches := int(snapshot.get("completed_batches", "0"))
 		if batches >= 2:
@@ -610,6 +677,30 @@ func show_snapshot() -> void:
 	)
 
 
+func show_profile_snapshot() -> void:
+	var stock := profile_stock()
+	var production: Dictionary = snapshot.get("game_production", {})
+	var shipment: Dictionary = production.get("flour_delivery", {})
+	var batches := int(snapshot.get("completed_batches", "0"))
+	bakery_goal.text = "Цель: продать две партии хлеба · %s из 2" % mini(batches, 2)
+	inventory.text = "Кошелёк  %s ₽   ·   Тик %s\nСклад  ·  Мука %s г  ·  Хлеб %s шт.\nВыручка  %s ₽" % [
+		money("cash_kopecks"), snapshot.get("last_committed_tick", "0"), int(stock.get("wheat_flour", 0)),
+		int(stock.get("bread_loaf", 0)), money("revenue_kopecks")]
+	if batches >= 2:
+		demo_hint.text = "Две партии проданы. На счёте %s ₽." % money("cash_kopecks")
+	elif not shipment.is_empty():
+		var due := int(shipment["delivery_tick"])
+		demo_hint.text = "Мука в пути. Прибытие на тике %s, выпечка с тика %s." % [due, due + 1]
+	elif int(stock.get("bread_loaf", 0)) >= 24:
+		demo_hint.text = "Хлеб готов. Подайте заявку на продажу и проведите следующий тик."
+	elif int(stock.get("wheat_flour", 0)) >= 900:
+		demo_hint.text = "Мука на складе. Проведите следующий тик для выпечки."
+	else:
+		demo_hint.text = "Выберите мельницу. Ближняя поставляет сразу, дальняя экономит 60 ₽."
+	command_log.text = "Закупка: %s · Продажа: %s" % [
+		state_text(remote_order_state if not remote_order_state.is_empty() else mill_order_state), state_text(sale_state)]
+
+
 func money(field: String) -> String:
 	return format_money(str(snapshot.get(field, "")))
 
@@ -664,7 +755,7 @@ func order_remote_flour() -> void:
 		return
 	await send_command(
 		remote_order_id(),
-		"buy_mill_flour",
+		"game_buy_flour" if profile_demo else "buy_mill_flour",
 		{
 			"offer_id": remote_offer["offer_id"],
 			"quantity": remote_offer["quantity_g"],
@@ -692,7 +783,7 @@ func order_mill_flour() -> void:
 		return
 	await send_command(
 		mill_order_id(),
-		"buy_mill_flour",
+		"game_buy_flour" if profile_demo else "buy_mill_flour",
 		{
 			"offer_id": mill_offer["offer_id"],
 			"quantity": mill_offer["quantity_g"],
@@ -714,6 +805,12 @@ func sale_id(lot: String) -> String:
 
 
 func sell_bread() -> void:
+	if profile_demo:
+		if sell_button.disabled:
+			return
+		await send_command(profile_sale_id(), "game_sell_bread",
+			{"lot_id": "game-bread-v1", "quantity": "24", "price_kopecks": "4500"})
+		return
 	var lot := str(snapshot.get("bread_lot_id", ""))
 	if lot.is_empty():
 		return

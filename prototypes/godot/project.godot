@@ -2,6 +2,8 @@ config_version=5
 [application]
 config/name="EBash • Godot prototype"
 run/main_scene="res://Launcher.tscn"
+[autoload]
+Preferences="*res://Preferences.gd"
 [display]
 window/size/viewport_width=1280
 window/size/viewport_height=720

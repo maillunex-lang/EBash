@@ -70,7 +70,9 @@ func (s store) withAccount(next authenticatedHandler) http.HandlerFunc {
 	}
 }
 
-func (s store) handler() http.Handler {
+func (s store) handler() http.Handler { return s.handlerWithDemoProfiles(nil) }
+
+func (s store) handlerWithDemoProfiles(profiles *gameProfileSet) http.Handler {
 	mux := http.NewServeMux()
 	demoWorld := os.Getenv("EBASH_DEMO_WORLD")
 	demoEnabled := func(world, account string) bool {
@@ -95,7 +97,12 @@ func (s store) handler() http.Handler {
 			result(w, 0, nil, errRecovering)
 			return
 		}
-		if err = s.tick(r.Context(), world, tick, nil); errors.Is(err, errTickOrder) {
+		if profiles != nil {
+			err = s.tickWithApprovedGameProfiles(r.Context(), world, tick, *profiles)
+		} else {
+			err = s.tick(r.Context(), world, tick, nil)
+		}
+		if errors.Is(err, errTickOrder) {
 			fail(w, 409, "TICK_OUT_OF_ORDER")
 			return
 		}
@@ -106,23 +113,25 @@ func (s store) handler() http.Handler {
 		data, err := s.status(r.Context(), world)
 		result(w, 200, struct {
 			worldState
-			Demo bool `json:"demo"`
-		}{data, demoEnabled(world, account)}, err)
+			Demo        bool `json:"demo"`
+			ProfileDemo bool `json:"profile_demo"`
+		}{data, demoEnabled(world, account), profiles != nil && demoEnabled(world, account)}, err)
 	}))
 	mux.HandleFunc("GET /v1/worlds/{world}/pilot-chains", s.withAccount(func(w http.ResponseWriter, r *http.Request, world, account string) {
 		result(w, 200, map[string]any{"chains": pilotChains}, nil)
 	}))
 	mux.HandleFunc("GET /v1/worlds/{world}/mill-offer", s.withAccount(func(w http.ResponseWriter, r *http.Request, world, account string) {
-		sellerID, price, delay := millAccount, int64(millPrice), 0
+		sellerID := millAccount
 		if r.URL.Query().Get("supplier") == "remote" {
-			sellerID, price, delay = remoteMill, remoteMillPrice, remoteDelay
+			sellerID = remoteMill
 		}
+		price, delay := millPriceAndDelay(sellerID)
 		seller, err := s.company(r.Context(), world, sellerID)
 		if errors.Is(err, errScope) {
 			err = nil
 		}
 		result(w, 200, millOffer{
-			ID: seller.flourOfferID(), Seller: isMill(account), Delay: delay,
+			ID: seller.flourOfferID(), Seller: isMill(account), Delay: int(delay), ProfileSupplies: ingredientsCost,
 			Available: !isMill(account) && !seller.MillUnlisted && seller.MillFlour >= flourProduced,
 			Quantity:  flourProduced, Price: price, Supplies: bakerySuppliesCost,
 		}, err)
@@ -226,7 +235,14 @@ func run(ctx context.Context, args []string) error {
 	case "migrate":
 		return s.migrate(ctx)
 	case "seed":
-		return s.seed(ctx, *world, *account, os.Getenv("EBASH_PILOT_TOKEN"))
+		var production *gameProductionState
+		if os.Getenv("EBASH_DEMO_PROFILES") != "" && *world == os.Getenv("EBASH_DEMO_WORLD") && *account == "pilot" {
+			production = bakeryDemoProduction()
+			if os.Getenv("EBASH_DEMO_CONSTRUCTION") == "1" {
+				production.Construction = newBakeryConstruction()
+			}
+		}
+		return s.seedWithProfiles(ctx, *world, *account, os.Getenv("EBASH_PILOT_TOKEN"), production)
 	case "tick":
 		return s.tick(ctx, *world, *target, nil)
 	case "recover":
@@ -238,7 +254,18 @@ func run(ctx context.Context, args []string) error {
 		if !strings.HasPrefix(*listen, "127.0.0.1:") {
 			return errors.New("P2 server must listen on IPv4 loopback")
 		}
-		srv := &http.Server{Addr: *listen, Handler: s.handler(), ReadHeaderTimeout: 5 * time.Second,
+		var profiles *gameProfileSet
+		if path := os.Getenv("EBASH_DEMO_PROFILES"); path != "" {
+			if os.Getenv("EBASH_DEMO_WORLD") == "" {
+				return errors.New("EBASH_DEMO_PROFILES requires EBASH_DEMO_WORLD")
+			}
+			set, err := readGameProfiles(path)
+			if err != nil {
+				return err
+			}
+			profiles = &set
+		}
+		srv := &http.Server{Addr: *listen, Handler: s.handlerWithDemoProfiles(profiles), ReadHeaderTimeout: 5 * time.Second,
 			ReadTimeout: 10 * time.Second, WriteTimeout: 10 * time.Second, IdleTimeout: 30 * time.Second}
 		go func() {
 			<-ctx.Done()

@@ -2,6 +2,8 @@
 """Check approved bread profiles against draft grain recipes without activation."""
 import json
 from pathlib import Path
+
+from generated_report import check_generated_report
 root = Path(__file__).resolve().parents[1] / 'docs/catalogs'
 drafts = {r['id']: r for r in json.loads((root/'recipes.seed.json').read_text())['recipes'] if r['family']=='grain'}
 profiles = json.loads((root/'game-production-profiles.v1.json').read_text())['profiles']
@@ -27,5 +29,5 @@ for p in profiles:
     if issues: blockers+=1
     report.append('- '+p['recipe_id']+' v'+str(p['recipe_version'])+': '+ ('БЛОКЕР: '+', '.join(issues) if issues else 'согласованы проверяемые поля'))
 report+=['','Несогласованных профилей: '+str(blockers)+'.','Совместные выходы требуют явного материального баланса. Черновики не активированы.','']
-(root/'grain-activation-gate.md').write_text('\n'.join(report),encoding='utf-8')
+check_generated_report(root/'grain-activation-gate.md', '\n'.join(report))
 print(f'PASS: {len(profiles)} profiles, {len(drafts)} grain drafts; blockers={blockers}')

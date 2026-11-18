@@ -10,12 +10,31 @@ func _initialize() -> void:
 
 
 func run() -> void:
+	# HTTP callbacks advance on frames. Keep this headless test independent of device preferences.
+	Engine.max_fps = 0
 	var panel := PilotScene.instantiate() as PilotPanel
 	root.add_child(panel)
 	while panel.busy:
 		await process_frame
 	assert(panel.fresh and panel.snapshot["cash_kopecks"] == "200000")
 	assert(panel.sell_button.disabled)
+	if panel.profile_demo:
+		panel.queue_free()
+		await process_frame
+		assert(change_scene_to_file("res://Launcher.tscn") == OK)
+		await scene_changed
+		current_scene.play_button.pressed.emit()
+		await scene_changed
+		current_scene.city_buttons["ufa"].pressed.emit()
+		await scene_changed
+		select_city_supplier(current_scene, "near")
+		current_scene.bakery_button.pressed.emit()
+		await scene_changed
+		panel = current_scene as PilotPanel
+		while panel.busy:
+			await process_frame
+		await run_profile_demo(panel)
+		return
 	if panel.demo:
 		await run_bakery_demo(panel)
 		return
@@ -96,6 +115,64 @@ func run() -> void:
 		)
 		assert(not reopened.buy_button.disabled)
 	print("PILOT SMOKE OK: buy, configure, four ticks, sale, repeat tick and reopen")
+	quit()
+
+
+func select_city_supplier(city: Node, kind: String) -> void:
+	for i in range(city.district.lots.size()):
+		var lot: Dictionary = city.district.lots[i]
+		if lot.kind == kind:
+			var center: Vector2 = lot.plot.get_center()
+			var screen: Vector2 = city.camera.unproject_position(Vector3(center.x,lot.height,center.y))
+			city.pick_lot(screen)
+			assert(city.active_lot == i and city.bakery_button.visible)
+			return
+	assert(false, "Мельница отсутствует на карте")
+
+
+func run_profile_demo(panel: PilotPanel) -> void:
+	assert(panel.demo and panel.tick_button.visible and not panel.line_button.visible)
+	assert(panel.screen_title.text == "Пекарня" and panel.bakery_goal.text.contains("0 из 2"))
+	assert(panel.mill_buy_button.visible and not panel.mill_buy_button.disabled and not panel.remote_buy_button.visible)
+	assert(panel.mill_offer_label.text.contains("600,00") and panel.remote_buy_button.text.contains("540,00"))
+	await panel.order_mill_flour()
+	await panel.advance_demo_tick()
+	assert(int(panel.profile_stock()["wheat_flour"]) == 7400 and panel.sell_button.disabled)
+	await panel.advance_demo_tick()
+	assert(int(panel.profile_stock()["bread_loaf"]) == 24 and not panel.sell_button.disabled)
+	await panel.sell_bread()
+	await panel.advance_demo_tick()
+	assert(panel.snapshot["completed_batches"] == "1" and panel.snapshot["cash_kopecks"] == "234000")
+	panel.return_to_city()
+	await scene_changed
+	var city := current_scene
+	while not city.bakery_status.text.contains("Продано партий: 1"):
+		await process_frame
+	select_city_supplier(city, "remote")
+	city.bakery_button.pressed.emit()
+	await scene_changed
+	panel = current_scene as PilotPanel
+	while panel.busy:
+		await process_frame
+	assert(panel.snapshot["cash_kopecks"] == "234000")
+
+	assert(panel.remote_buy_button.visible and not panel.remote_buy_button.disabled and not panel.mill_buy_button.visible)
+	await panel.order_remote_flour()
+	await panel.advance_demo_tick()
+	assert(panel.demo_hint.text.contains("Прибытие на тике 6"))
+	assert(int(panel.profile_stock()["wheat_flour"]) == 200 and panel.sell_button.disabled)
+	await panel.advance_demo_tick()
+	assert(int(panel.profile_stock()["wheat_flour"]) == 200)
+	await panel.advance_demo_tick()
+	assert(int(panel.profile_stock()["wheat_flour"]) == 7600 and panel.sell_button.disabled)
+	await panel.advance_demo_tick()
+	assert(int(panel.profile_stock()["bread_loaf"]) == 24 and not panel.sell_button.disabled)
+	await panel.sell_bread()
+	await panel.advance_demo_tick()
+	assert(panel.snapshot["completed_batches"] == "2" and panel.snapshot["cash_kopecks"] == "274000")
+	assert(int(panel.profile_stock()["wheat_flour"]) == 400 and panel.demo_hint.text.contains("Две партии проданы"))
+	assert(panel.bakery_goal.text.contains("2 из 2"))
+	print("E104 DEMO SMOKE OK: two suppliers, delivered stock and sales")
 	quit()
 
 
@@ -372,11 +449,9 @@ func run_mill_trade(panel: PilotPanel, mill_token: String) -> void:
 	assert(panel.sale_state["status"] == "applied" and panel.snapshot["packed_bread_count"] == "0")
 	assert(panel.snapshot["cash_kopecks"] == "231600")
 	assert(panel.snapshot["completed_batches"] == "1")
-	var original_token := OS.get_environment("EBASH_PILOT_TOKEN")
-	OS.set_environment("EBASH_PILOT_TOKEN", mill_token)
+	mill.remember_session()
 	var seller_panel := PilotScene.instantiate() as PilotPanel
 	root.add_child(seller_panel)
-	OS.set_environment("EBASH_PILOT_TOKEN", original_token)
 	while seller_panel.busy:
 		await process_frame
 	assert(seller_panel.mill_grain_button.visible and not seller_panel.mill_grain_button.disabled)

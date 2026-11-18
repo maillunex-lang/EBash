@@ -11,10 +11,10 @@
 | DES-003, цены и спрос | [DES-003](tasks/DES-003.md), [market.md](../docs/gdd/market.md) | `python3 scripts/check_des003_balance.py` |
 | Энциклопедия лендинга | [index.html](../web/landing/index.html), [index.html](../web/wiki/index.html), [wiki.js](../web/wiki/wiki.js), [build_wiki_catalog.py](../scripts/build_wiki_catalog.py) | `python3 scripts/check_wiki.py`; Nginx `/games/bash/wiki/` |
 | Республика и компания | [Region.gd](../prototypes/godot/Region.gd), [города](../prototypes/godot/CityCatalog.gd) | `region_smoke.gd` |
-| Город, камера, поиск | [Main.gd](../prototypes/godot/Main.gd), [генератор](../prototypes/godot/District.gd) | `region_smoke.gd` и `smoke.gd` |
+| Город, камера, поиск | [Main.gd](../prototypes/godot/Main.gd), [генератор](../prototypes/godot/District.gd) | `smoke.gd` и `region_smoke.gd` (только игровой маршрут, D-192) |
 | Настройки | [меню](../prototypes/godot/Launcher.gd), [сохранение](../prototypes/godot/Preferences.gd) | `preferences_smoke.gd` в двух процессах, см. ниже |
 | Стройка | [сервер](../server/construction.go), [карта](../prototypes/godot/Main.gd) | `construction-smoke` |
-| Сеть и предприятие | [клиент API](../prototypes/godot/PilotClient.gd), [экран](../prototypes/godot/PilotPanel.gd) | `profile-demo-smoke` |
+| Сеть и предприятие | [клиент API](../prototypes/godot/PilotClient.gd), [экран](../prototypes/godot/PilotPanel.gd) | `profile-demo-smoke` (тестовый игровой мир, не UI-стенд; D-192) |
 | Сборка или телефон | [сборка APK](../.agents/skills/ebash-android-build/SKILL.md), [параметры мира](roadmap/p3-public-path.md) | Проверка подписи, ручной запуск по [E-106](roadmap/implementation-backlog.md#e-106) |
 | Финансы/город/архитектура | Только соответствующий [DES-005.md](../docs/tasks/DES-005.md), [DES-006](tasks/DES-006.md) или [DES-008](tasks/DES-008.md) | Профильные проверки и `python3 scripts/check_all.py` |
 

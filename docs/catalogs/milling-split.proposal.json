@@ -1,0 +1,12 @@
+{
+  "status": "proposed_not_executable",
+  "recipe_id": "R-WHEAT-FLOUR",
+  "recipe_version": 2,
+  "basis": "game scenario scaled from historical recovered-product fractions, not a measured yield",
+  "input_wheat_grain_g": 10000,
+  "flour_g": 7400,
+  "bran_g": 1333,
+  "other_unstocked_fractions_and_losses_g": 1267,
+  "historical_fraction_source": "https://www.cerealsgrains.org/publications/cc/backissues/1967/Documents/chem44_39.pdf",
+  "notes": "Do not add to approved production profiles until equipment applicability, recoverable bran quality, losses and market price are verified."
+}

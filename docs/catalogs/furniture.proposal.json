@@ -1,0 +1,232 @@
+{
+  "schema_version": 1,
+  "status": "design_proposal_not_executable",
+  "facility": {
+    "id": "FAC-FURNITURE-FACTORY",
+    "kind": "factory",
+    "layout": "3x3 production stages subject to equipment compatibility and capacity",
+    "status": "proposed"
+  },
+  "recipes": [
+    {
+      "id": "R-FURN-PANEL-CUT",
+      "version": 1,
+      "family": "furniture",
+      "status": "draft_not_executable",
+      "inputs": {
+        "particle_board": 20000
+      },
+      "outputs": {
+        "furniture_panel_set": 1
+      },
+      "equipment_class_hypothesis": "panel_saw",
+      "energy_wh_per_batch_hypothesis": 420,
+      "workers_per_line_hypothesis": 2,
+      "minimum_batches_hypothesis": 1,
+      "quality_profile": null,
+      "safety_profile": null,
+      "unit_note": "wood panels/finish are grams; fittings, kits, finished furniture and boxes are counts",
+      "source_status": "game_design_hypothesis_requires_verification"
+    },
+    {
+      "id": "R-FURN-TABLE",
+      "version": 1,
+      "family": "furniture",
+      "status": "draft_not_executable",
+      "inputs": {
+        "furniture_panel_set": 1,
+        "furniture_fittings": 1,
+        "surface_finish": 250
+      },
+      "outputs": {
+        "furniture_table": 1
+      },
+      "equipment_class_hypothesis": "assembly_bench",
+      "energy_wh_per_batch_hypothesis": 260,
+      "workers_per_line_hypothesis": 2,
+      "minimum_batches_hypothesis": 1,
+      "quality_profile": null,
+      "safety_profile": null,
+      "unit_note": "wood panels/finish are grams; fittings, kits, finished furniture and boxes are counts",
+      "source_status": "game_design_hypothesis_requires_verification"
+    },
+    {
+      "id": "R-FURN-WARDROBE",
+      "version": 1,
+      "family": "furniture",
+      "status": "draft_not_executable",
+      "inputs": {
+        "particle_board": 45000,
+        "furniture_fittings": 2,
+        "surface_finish": 500
+      },
+      "outputs": {
+        "furniture_wardrobe": 1
+      },
+      "equipment_class_hypothesis": "panel_saw_assembly",
+      "energy_wh_per_batch_hypothesis": 850,
+      "workers_per_line_hypothesis": 2,
+      "minimum_batches_hypothesis": 1,
+      "quality_profile": null,
+      "safety_profile": null,
+      "unit_note": "wood panels/finish are grams; fittings, kits, finished furniture and boxes are counts",
+      "source_status": "game_design_hypothesis_requires_verification"
+    },
+    {
+      "id": "R-FURN-SHELF",
+      "version": 1,
+      "family": "furniture",
+      "status": "draft_not_executable",
+      "inputs": {
+        "sawn_timber": 12000,
+        "furniture_fittings": 1,
+        "surface_finish": 200
+      },
+      "outputs": {
+        "furniture_shelf": 1
+      },
+      "equipment_class_hypothesis": "woodshop",
+      "energy_wh_per_batch_hypothesis": 330,
+      "workers_per_line_hypothesis": 2,
+      "minimum_batches_hypothesis": 1,
+      "quality_profile": null,
+      "safety_profile": null,
+      "unit_note": "wood panels/finish are grams; fittings, kits, finished furniture and boxes are counts",
+      "source_status": "game_design_hypothesis_requires_verification"
+    },
+    {
+      "id": "R-FURN-BED",
+      "version": 1,
+      "family": "furniture",
+      "status": "draft_not_executable",
+      "inputs": {
+        "sawn_timber": 35000,
+        "furniture_fittings": 2,
+        "surface_finish": 350
+      },
+      "outputs": {
+        "furniture_bed_frame": 1
+      },
+      "equipment_class_hypothesis": "woodshop",
+      "energy_wh_per_batch_hypothesis": 730,
+      "workers_per_line_hypothesis": 2,
+      "minimum_batches_hypothesis": 1,
+      "quality_profile": null,
+      "safety_profile": null,
+      "unit_note": "wood panels/finish are grams; fittings, kits, finished furniture and boxes are counts",
+      "source_status": "game_design_hypothesis_requires_verification"
+    },
+    {
+      "id": "R-FURN-CHAIR",
+      "version": 1,
+      "family": "furniture",
+      "status": "draft_not_executable",
+      "inputs": {
+        "sawn_timber": 8000,
+        "furniture_fittings": 1,
+        "surface_finish": 150
+      },
+      "outputs": {
+        "furniture_chair": 1
+      },
+      "equipment_class_hypothesis": "woodshop",
+      "energy_wh_per_batch_hypothesis": 260,
+      "workers_per_line_hypothesis": 2,
+      "minimum_batches_hypothesis": 1,
+      "quality_profile": null,
+      "safety_profile": null,
+      "unit_note": "wood panels/finish are grams; fittings, kits, finished furniture and boxes are counts",
+      "source_status": "game_design_hypothesis_requires_verification"
+    },
+    {
+      "id": "R-FURN-DESK",
+      "version": 1,
+      "family": "furniture",
+      "status": "draft_not_executable",
+      "inputs": {
+        "plywood": 16000,
+        "furniture_fittings": 1,
+        "surface_finish": 220
+      },
+      "outputs": {
+        "furniture_desk": 1
+      },
+      "equipment_class_hypothesis": "woodshop",
+      "energy_wh_per_batch_hypothesis": 420,
+      "workers_per_line_hypothesis": 2,
+      "minimum_batches_hypothesis": 1,
+      "quality_profile": null,
+      "safety_profile": null,
+      "unit_note": "wood panels/finish are grams; fittings, kits, finished furniture and boxes are counts",
+      "source_status": "game_design_hypothesis_requires_verification"
+    },
+    {
+      "id": "R-FURN-PACK",
+      "version": 1,
+      "family": "furniture",
+      "status": "draft_not_executable",
+      "inputs": {
+        "furniture_table": 1,
+        "carton_box": 1
+      },
+      "outputs": {
+        "packed_furniture_table": 1
+      },
+      "equipment_class_hypothesis": "packing_bench",
+      "energy_wh_per_batch_hypothesis": 45,
+      "workers_per_line_hypothesis": 2,
+      "minimum_batches_hypothesis": 1,
+      "quality_profile": null,
+      "safety_profile": null,
+      "unit_note": "wood panels/finish are grams; fittings, kits, finished furniture and boxes are counts",
+      "source_status": "game_design_hypothesis_requires_verification"
+    }
+  ],
+  "new_resource_candidates": [
+    "furniture_bed_frame",
+    "furniture_chair",
+    "furniture_desk",
+    "furniture_fittings",
+    "furniture_panel_set",
+    "furniture_shelf",
+    "furniture_table",
+    "furniture_wardrobe",
+    "packed_furniture_table",
+    "surface_finish"
+  ],
+  "external_goods_without_supply_recipes": [
+    "furniture_fittings",
+    "surface_finish"
+  ],
+  "retail_facility": {
+    "id": "FAC-FURNITURE-STORE",
+    "kind": "retail_store",
+    "status": "proposed_not_executable",
+    "sells": [
+      "furniture_table",
+      "furniture_wardrobe",
+      "furniture_shelf",
+      "furniture_bed_frame",
+      "furniture_chair",
+      "furniture_desk",
+      "packed_furniture_table"
+    ],
+    "receives": "confirmed deliveries of finished furniture from a factory or wholesale warehouse",
+    "constraints": [
+      "no goods created by store",
+      "sale only after next tick for produced goods",
+      "atomic reservation and sale of stock",
+      "city coverage and household budgets",
+      "goods compatibility, safety and quality",
+      "transport, stock capacity and shop operating costs"
+    ]
+  },
+  "activation_blockers": [
+    "source and verify material quantities and yields",
+    "define fittings/finish suppliers and units",
+    "test 3x3 line placement, equipment, energy, workers",
+    "define waste, quality, safety and durability",
+    "price/cost balance and population demand",
+    "implement production and store inventory integration before enabling"
+  ]
+}

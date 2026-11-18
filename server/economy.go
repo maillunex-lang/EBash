@@ -23,18 +23,19 @@ const (
 )
 
 type company struct {
-	NextMill          *advanceOrder `json:"next_mill_order,omitempty"`
-	SupplyRestockTick int64         `json:"supply_restock_tick,string"`
-	SupplyLotTick     int64         `json:"supply_lot_tick,string"`
-	SupplyCost        int64         `json:"supply_cost_kopecks,string"`
-	SupplyLot         bool          `json:"supply_lot"`
-	InTransitUntil    int64         `json:"mill_delivery_tick,string"`
-	MillPurchaseCost  int64         `json:"mill_purchase_cost_kopecks,string"`
-	MillGrain         int64         `json:"mill_grain_g,string"`
-	MillGrainReady    int64         `json:"mill_grain_ready_tick,string"`
-	MillLot           string        `json:"mill_lot_id,omitempty"`
-	MillUnlisted      bool          `json:"mill_unlisted"`
-	MillCost          int64         `json:"mill_cost_kopecks,string"`
+	GameProduction    *gameProductionState `json:"game_production,omitempty"`
+	NextMill          *advanceOrder        `json:"next_mill_order,omitempty"`
+	SupplyRestockTick int64                `json:"supply_restock_tick,string"`
+	SupplyLotTick     int64                `json:"supply_lot_tick,string"`
+	SupplyCost        int64                `json:"supply_cost_kopecks,string"`
+	SupplyLot         bool                 `json:"supply_lot"`
+	InTransitUntil    int64                `json:"mill_delivery_tick,string"`
+	MillPurchaseCost  int64                `json:"mill_purchase_cost_kopecks,string"`
+	MillGrain         int64                `json:"mill_grain_g,string"`
+	MillGrainReady    int64                `json:"mill_grain_ready_tick,string"`
+	MillLot           string               `json:"mill_lot_id,omitempty"`
+	MillUnlisted      bool                 `json:"mill_unlisted"`
+	MillCost          int64                `json:"mill_cost_kopecks,string"`
 
 	MillFlour         int64        `json:"mill_flour_g,string"`
 	CompletedBatches  int64        `json:"completed_batches,string"`

@@ -7,11 +7,20 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 CHECKS = (
+    'audit_project_inventory.py',
     'check_docs.py',
+    'check_wiki.py',
     'test_check_docs.py',
     'check_handoff.py',
     'check_des004_catalog.py',
     'check_des004_pilot_profiles.py',
+    'check_des004_grain_activation.py',
+    'check_des004_milling_split.py',
+    'check_des004_feed_chain.py',
+    'check_des004_grain_scenarios.py',
+    'check_des004_grain_economy.py',
+    'check_des004_furniture.py',
+    'check_des004_retail_channels.py',
     'check_des003_balance.py',
     'check_des003_examples.py',
 )

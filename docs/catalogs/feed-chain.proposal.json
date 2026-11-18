@@ -1,0 +1,44 @@
+{
+  "status": "proposed_not_executable",
+  "recipe_id": "R-ANIMAL-FEED",
+  "recipe_version": 1,
+  "game_only_hypothesis": {
+    "wheat_bran_g": 400,
+    "barley_grain_g": 600,
+    "animal_feed_g": 1000,
+    "energy_wh": 80,
+    "operators": 1,
+    "min_batches": 1,
+    "equipment": "feed_mixer"
+  },
+  "scenario": {
+    "wheat_grain_input_g": 10000,
+    "flour_output_g": 7400,
+    "bran_output_g": 1333,
+    "unstocked_milling_fractions_g": 1267,
+    "barley_grain_purchased_g": 1200,
+    "feed_output_g": 2000,
+    "bran_remaining_g": 533
+  },
+  "illustrative_prices_not_approved": {
+    "wheat_grain_kopecks_per_kg": 1500,
+    "flour_kopecks_per_kg": 2400,
+    "bran_kopecks_per_kg": 300,
+    "barley_kopecks_per_kg": 1000,
+    "feed_kopecks_per_kg": 1000,
+    "milling_cost_kopecks": 12000,
+    "feed_cost_kopecks_per_batch": 200
+  },
+  "profit_kopecks": {
+    "milling_without_bran": "-9240",
+    "milling_plus_bran_sale": "-88401/10",
+    "milling_plus_feed": "-86801/10"
+  },
+  "required_before_activation": [
+    "validate feed safety and nutritional composition",
+    "validate production equipment and energy",
+    "approve game price policy and ensure co-products not double sold",
+    "define barley field production separately",
+    "test inventory lots, reservations and next-tick sales"
+  ]
+}

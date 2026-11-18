@@ -1,0 +1,1056 @@
+{
+  "schema_version": 1,
+  "status": "design_proposal_not_active",
+  "rules": [
+    "Store cannot create goods",
+    "Consumer demand only for retail-approved SKUs, not every recipe output",
+    "Goods may have multiple approved store types later; primary assignment here is one per good",
+    "B2B uses exchange/direct contracts, not household store demand",
+    "Check stock, quality, safety, packaging, transport, city coverage, budgets and next-tick sales",
+    "Retail classification does not activate any draft recipe"
+  ],
+  "stores": [
+    {
+      "id": "grocery_store",
+      "name_ru": "Продуктовый магазин",
+      "status": "proposed",
+      "goods": [
+        "barley_flour",
+        "bread_pack",
+        "dry_pasta",
+        "milk_powder",
+        "oat_flakes",
+        "potato_starch",
+        "rye_bread",
+        "sunflower_oil_bottle",
+        "tomato_sauce"
+      ]
+    },
+    {
+      "id": "produce_store",
+      "name_ru": "Овощной и фруктовый магазин",
+      "status": "proposed",
+      "goods": [
+        "apple",
+        "carrot_pack",
+        "onion_pack",
+        "potato_pack"
+      ]
+    },
+    {
+      "id": "dairy_store",
+      "name_ru": "Молочный магазин",
+      "status": "proposed",
+      "goods": [
+        "butter",
+        "cheese",
+        "ice_cream",
+        "milk_bottle",
+        "skimmed_milk",
+        "sour_cream",
+        "yogurt"
+      ]
+    },
+    {
+      "id": "beverage_store",
+      "name_ru": "Магазин напитков",
+      "status": "proposed",
+      "goods": [
+        "apple_juice_bottle",
+        "cocoa_drink_bottle"
+      ]
+    },
+    {
+      "id": "homeware_store",
+      "name_ru": "Магазин товаров для дома",
+      "status": "proposed",
+      "goods": [
+        "glassware",
+        "paper_bag",
+        "plastic_container"
+      ]
+    },
+    {
+      "id": "hardware_store",
+      "name_ru": "Хозяйственный магазин",
+      "status": "proposed",
+      "goods": [
+        "lubricant_pack",
+        "wood_pellets"
+      ]
+    },
+    {
+      "id": "building_materials_store",
+      "name_ru": "Магазин строительных материалов",
+      "status": "proposed",
+      "goods": [
+        "brick",
+        "ceramic_tile",
+        "concrete_block",
+        "glass_window",
+        "mortar_mix",
+        "particle_board",
+        "paving_slab",
+        "plastic_pipe",
+        "plywood",
+        "roof_tile"
+      ]
+    },
+    {
+      "id": "furniture_store",
+      "name_ru": "Мебельный магазин",
+      "status": "proposed",
+      "goods": [
+        "furniture_bed_frame",
+        "furniture_chair",
+        "furniture_desk",
+        "furniture_shelf",
+        "furniture_table",
+        "furniture_wardrobe",
+        "packed_furniture_table"
+      ]
+    },
+    {
+      "id": "agricultural_supply_store",
+      "name_ru": "Магазин товаров для сельского хозяйства",
+      "status": "proposed",
+      "goods": [
+        "animal_feed"
+      ]
+    }
+  ],
+  "goods": [
+    {
+      "good_id": "animal_feed",
+      "status": "proposed_not_active",
+      "primary_channel": "retail",
+      "retail_store_types": [
+        "agricultural_supply_store"
+      ],
+      "note": "Finished consumer good, conditional on packaging/safety"
+    },
+    {
+      "good_id": "apple",
+      "status": "proposed_not_active",
+      "primary_channel": "retail",
+      "retail_store_types": [
+        "produce_store"
+      ],
+      "note": "Finished consumer good, conditional on packaging/safety"
+    },
+    {
+      "good_id": "apple_juice",
+      "status": "proposed_not_active",
+      "primary_channel": "b2b_wholesale_contract_or_exchange",
+      "retail_store_types": [],
+      "note": "Industrial/intermediate or unclassified for consumer retail; may be sold B2B, not automatically in shops"
+    },
+    {
+      "good_id": "apple_juice_bottle",
+      "status": "proposed_not_active",
+      "primary_channel": "retail",
+      "retail_store_types": [
+        "beverage_store"
+      ],
+      "note": "Finished consumer good, conditional on packaging/safety"
+    },
+    {
+      "good_id": "barley_flour",
+      "status": "proposed_not_active",
+      "primary_channel": "retail",
+      "retail_store_types": [
+        "grocery_store"
+      ],
+      "note": "Finished consumer good, conditional on packaging/safety"
+    },
+    {
+      "good_id": "barley_grain",
+      "status": "proposed_not_active",
+      "primary_channel": "b2b_wholesale_contract_or_exchange",
+      "retail_store_types": [],
+      "note": "Industrial/intermediate or unclassified for consumer retail; may be sold B2B, not automatically in shops"
+    },
+    {
+      "good_id": "bitumen",
+      "status": "proposed_not_active",
+      "primary_channel": "b2b_wholesale_contract_or_exchange",
+      "retail_store_types": [],
+      "note": "Industrial/intermediate or unclassified for consumer retail; may be sold B2B, not automatically in shops"
+    },
+    {
+      "good_id": "bottle_cap",
+      "status": "proposed_not_active",
+      "primary_channel": "b2b_wholesale_contract_or_exchange",
+      "retail_store_types": [],
+      "note": "Industrial/intermediate or unclassified for consumer retail; may be sold B2B, not automatically in shops"
+    },
+    {
+      "good_id": "bread_dough",
+      "status": "proposed_not_active",
+      "primary_channel": "b2b_wholesale_contract_or_exchange",
+      "retail_store_types": [],
+      "note": "Industrial/intermediate or unclassified for consumer retail; may be sold B2B, not automatically in shops"
+    },
+    {
+      "good_id": "bread_loaf",
+      "status": "proposed_not_active",
+      "primary_channel": "b2b_wholesale_contract_or_exchange",
+      "retail_store_types": [],
+      "note": "Industrial/intermediate or unclassified for consumer retail; may be sold B2B, not automatically in shops"
+    },
+    {
+      "good_id": "bread_pack",
+      "status": "proposed_not_active",
+      "primary_channel": "retail",
+      "retail_store_types": [
+        "grocery_store"
+      ],
+      "note": "Finished consumer good, conditional on packaging/safety"
+    },
+    {
+      "good_id": "brick",
+      "status": "proposed_not_active",
+      "primary_channel": "retail",
+      "retail_store_types": [
+        "building_materials_store"
+      ],
+      "note": "Finished consumer good, conditional on packaging/safety"
+    },
+    {
+      "good_id": "butter",
+      "status": "proposed_not_active",
+      "primary_channel": "retail",
+      "retail_store_types": [
+        "dairy_store"
+      ],
+      "note": "Finished consumer good, conditional on packaging/safety"
+    },
+    {
+      "good_id": "buttermilk",
+      "status": "proposed_not_active",
+      "primary_channel": "b2b_wholesale_contract_or_exchange",
+      "retail_store_types": [],
+      "note": "Industrial/intermediate or unclassified for consumer retail; may be sold B2B, not automatically in shops"
+    },
+    {
+      "good_id": "cardboard",
+      "status": "proposed_not_active",
+      "primary_channel": "b2b_wholesale_contract_or_exchange",
+      "retail_store_types": [],
+      "note": "Industrial/intermediate or unclassified for consumer retail; may be sold B2B, not automatically in shops"
+    },
+    {
+      "good_id": "carrot",
+      "status": "proposed_not_active",
+      "primary_channel": "b2b_wholesale_contract_or_exchange",
+      "retail_store_types": [],
+      "note": "Industrial/intermediate or unclassified for consumer retail; may be sold B2B, not automatically in shops"
+    },
+    {
+      "good_id": "carrot_pack",
+      "status": "proposed_not_active",
+      "primary_channel": "retail",
+      "retail_store_types": [
+        "produce_store"
+      ],
+      "note": "Finished consumer good, conditional on packaging/safety"
+    },
+    {
+      "good_id": "carton_box",
+      "status": "proposed_not_active",
+      "primary_channel": "b2b_wholesale_contract_or_exchange",
+      "retail_store_types": [],
+      "note": "Industrial/intermediate or unclassified for consumer retail; may be sold B2B, not automatically in shops"
+    },
+    {
+      "good_id": "cement",
+      "status": "proposed_not_active",
+      "primary_channel": "b2b_wholesale_contract_or_exchange",
+      "retail_store_types": [],
+      "note": "Industrial/intermediate or unclassified for consumer retail; may be sold B2B, not automatically in shops"
+    },
+    {
+      "good_id": "cement_clinker",
+      "status": "proposed_not_active",
+      "primary_channel": "b2b_wholesale_contract_or_exchange",
+      "retail_store_types": [],
+      "note": "Industrial/intermediate or unclassified for consumer retail; may be sold B2B, not automatically in shops"
+    },
+    {
+      "good_id": "ceramic_tile",
+      "status": "proposed_not_active",
+      "primary_channel": "retail",
+      "retail_store_types": [
+        "building_materials_store"
+      ],
+      "note": "Finished consumer good, conditional on packaging/safety"
+    },
+    {
+      "good_id": "cheese",
+      "status": "proposed_not_active",
+      "primary_channel": "retail",
+      "retail_store_types": [
+        "dairy_store"
+      ],
+      "note": "Finished consumer good, conditional on packaging/safety"
+    },
+    {
+      "good_id": "cheese_curd",
+      "status": "proposed_not_active",
+      "primary_channel": "b2b_wholesale_contract_or_exchange",
+      "retail_store_types": [],
+      "note": "Industrial/intermediate or unclassified for consumer retail; may be sold B2B, not automatically in shops"
+    },
+    {
+      "good_id": "clay",
+      "status": "proposed_not_active",
+      "primary_channel": "b2b_wholesale_contract_or_exchange",
+      "retail_store_types": [],
+      "note": "Industrial/intermediate or unclassified for consumer retail; may be sold B2B, not automatically in shops"
+    },
+    {
+      "good_id": "cocoa_drink",
+      "status": "proposed_not_active",
+      "primary_channel": "b2b_wholesale_contract_or_exchange",
+      "retail_store_types": [],
+      "note": "Industrial/intermediate or unclassified for consumer retail; may be sold B2B, not automatically in shops"
+    },
+    {
+      "good_id": "cocoa_drink_bottle",
+      "status": "proposed_not_active",
+      "primary_channel": "retail",
+      "retail_store_types": [
+        "beverage_store"
+      ],
+      "note": "Finished consumer good, conditional on packaging/safety"
+    },
+    {
+      "good_id": "concrete",
+      "status": "proposed_not_active",
+      "primary_channel": "b2b_wholesale_contract_or_exchange",
+      "retail_store_types": [],
+      "note": "Industrial/intermediate or unclassified for consumer retail; may be sold B2B, not automatically in shops"
+    },
+    {
+      "good_id": "concrete_block",
+      "status": "proposed_not_active",
+      "primary_channel": "retail",
+      "retail_store_types": [
+        "building_materials_store"
+      ],
+      "note": "Finished consumer good, conditional on packaging/safety"
+    },
+    {
+      "good_id": "concrete_panel",
+      "status": "proposed_not_active",
+      "primary_channel": "b2b_wholesale_contract_or_exchange",
+      "retail_store_types": [],
+      "note": "Industrial/intermediate or unclassified for consumer retail; may be sold B2B, not automatically in shops"
+    },
+    {
+      "good_id": "corrugated_board",
+      "status": "proposed_not_active",
+      "primary_channel": "b2b_wholesale_contract_or_exchange",
+      "retail_store_types": [],
+      "note": "Industrial/intermediate or unclassified for consumer retail; may be sold B2B, not automatically in shops"
+    },
+    {
+      "good_id": "cream",
+      "status": "proposed_not_active",
+      "primary_channel": "b2b_wholesale_contract_or_exchange",
+      "retail_store_types": [],
+      "note": "Industrial/intermediate or unclassified for consumer retail; may be sold B2B, not automatically in shops"
+    },
+    {
+      "good_id": "crude_oil",
+      "status": "proposed_not_active",
+      "primary_channel": "b2b_wholesale_contract_or_exchange",
+      "retail_store_types": [],
+      "note": "Industrial/intermediate or unclassified for consumer retail; may be sold B2B, not automatically in shops"
+    },
+    {
+      "good_id": "diesel_fraction",
+      "status": "proposed_not_active",
+      "primary_channel": "b2b_wholesale_contract_or_exchange",
+      "retail_store_types": [],
+      "note": "Industrial/intermediate or unclassified for consumer retail; may be sold B2B, not automatically in shops"
+    },
+    {
+      "good_id": "dry_mortar",
+      "status": "proposed_not_active",
+      "primary_channel": "b2b_wholesale_contract_or_exchange",
+      "retail_store_types": [],
+      "note": "Industrial/intermediate or unclassified for consumer retail; may be sold B2B, not automatically in shops"
+    },
+    {
+      "good_id": "dry_pasta",
+      "status": "proposed_not_active",
+      "primary_channel": "retail",
+      "retail_store_types": [
+        "grocery_store"
+      ],
+      "note": "Finished consumer good, conditional on packaging/safety"
+    },
+    {
+      "good_id": "furniture_bed_frame",
+      "status": "proposed_not_active",
+      "primary_channel": "retail",
+      "retail_store_types": [
+        "furniture_store"
+      ],
+      "note": "Finished consumer good, conditional on packaging/safety"
+    },
+    {
+      "good_id": "furniture_chair",
+      "status": "proposed_not_active",
+      "primary_channel": "retail",
+      "retail_store_types": [
+        "furniture_store"
+      ],
+      "note": "Finished consumer good, conditional on packaging/safety"
+    },
+    {
+      "good_id": "furniture_desk",
+      "status": "proposed_not_active",
+      "primary_channel": "retail",
+      "retail_store_types": [
+        "furniture_store"
+      ],
+      "note": "Finished consumer good, conditional on packaging/safety"
+    },
+    {
+      "good_id": "furniture_panel_set",
+      "status": "proposed_not_active",
+      "primary_channel": "b2b_wholesale_contract_or_exchange",
+      "retail_store_types": [],
+      "note": "Industrial/intermediate or unclassified for consumer retail; may be sold B2B, not automatically in shops"
+    },
+    {
+      "good_id": "furniture_shelf",
+      "status": "proposed_not_active",
+      "primary_channel": "retail",
+      "retail_store_types": [
+        "furniture_store"
+      ],
+      "note": "Finished consumer good, conditional on packaging/safety"
+    },
+    {
+      "good_id": "furniture_table",
+      "status": "proposed_not_active",
+      "primary_channel": "retail",
+      "retail_store_types": [
+        "furniture_store"
+      ],
+      "note": "Finished consumer good, conditional on packaging/safety"
+    },
+    {
+      "good_id": "furniture_wardrobe",
+      "status": "proposed_not_active",
+      "primary_channel": "retail",
+      "retail_store_types": [
+        "furniture_store"
+      ],
+      "note": "Finished consumer good, conditional on packaging/safety"
+    },
+    {
+      "good_id": "gasoline_fraction",
+      "status": "proposed_not_active",
+      "primary_channel": "b2b_wholesale_contract_or_exchange",
+      "retail_store_types": [],
+      "note": "Industrial/intermediate or unclassified for consumer retail; may be sold B2B, not automatically in shops"
+    },
+    {
+      "good_id": "glass_bottle",
+      "status": "proposed_not_active",
+      "primary_channel": "b2b_wholesale_contract_or_exchange",
+      "retail_store_types": [],
+      "note": "Industrial/intermediate or unclassified for consumer retail; may be sold B2B, not automatically in shops"
+    },
+    {
+      "good_id": "glass_cullet",
+      "status": "proposed_not_active",
+      "primary_channel": "b2b_wholesale_contract_or_exchange",
+      "retail_store_types": [],
+      "note": "Industrial/intermediate or unclassified for consumer retail; may be sold B2B, not automatically in shops"
+    },
+    {
+      "good_id": "glass_fiber",
+      "status": "proposed_not_active",
+      "primary_channel": "b2b_wholesale_contract_or_exchange",
+      "retail_store_types": [],
+      "note": "Industrial/intermediate or unclassified for consumer retail; may be sold B2B, not automatically in shops"
+    },
+    {
+      "good_id": "glass_jar",
+      "status": "proposed_not_active",
+      "primary_channel": "b2b_wholesale_contract_or_exchange",
+      "retail_store_types": [],
+      "note": "Industrial/intermediate or unclassified for consumer retail; may be sold B2B, not automatically in shops"
+    },
+    {
+      "good_id": "glass_melt",
+      "status": "proposed_not_active",
+      "primary_channel": "b2b_wholesale_contract_or_exchange",
+      "retail_store_types": [],
+      "note": "Industrial/intermediate or unclassified for consumer retail; may be sold B2B, not automatically in shops"
+    },
+    {
+      "good_id": "glass_packaging",
+      "status": "proposed_not_active",
+      "primary_channel": "b2b_wholesale_contract_or_exchange",
+      "retail_store_types": [],
+      "note": "Industrial/intermediate or unclassified for consumer retail; may be sold B2B, not automatically in shops"
+    },
+    {
+      "good_id": "glass_sheet",
+      "status": "proposed_not_active",
+      "primary_channel": "b2b_wholesale_contract_or_exchange",
+      "retail_store_types": [],
+      "note": "Industrial/intermediate or unclassified for consumer retail; may be sold B2B, not automatically in shops"
+    },
+    {
+      "good_id": "glass_window",
+      "status": "proposed_not_active",
+      "primary_channel": "retail",
+      "retail_store_types": [
+        "building_materials_store"
+      ],
+      "note": "Finished consumer good, conditional on packaging/safety"
+    },
+    {
+      "good_id": "glassware",
+      "status": "proposed_not_active",
+      "primary_channel": "retail",
+      "retail_store_types": [
+        "homeware_store"
+      ],
+      "note": "Finished consumer good, conditional on packaging/safety"
+    },
+    {
+      "good_id": "gravel",
+      "status": "proposed_not_active",
+      "primary_channel": "b2b_wholesale_contract_or_exchange",
+      "retail_store_types": [],
+      "note": "Industrial/intermediate or unclassified for consumer retail; may be sold B2B, not automatically in shops"
+    },
+    {
+      "good_id": "ice_cream",
+      "status": "proposed_not_active",
+      "primary_channel": "retail",
+      "retail_store_types": [
+        "dairy_store"
+      ],
+      "note": "Finished consumer good, conditional on packaging/safety"
+    },
+    {
+      "good_id": "ice_cream_mix",
+      "status": "proposed_not_active",
+      "primary_channel": "b2b_wholesale_contract_or_exchange",
+      "retail_store_types": [],
+      "note": "Industrial/intermediate or unclassified for consumer retail; may be sold B2B, not automatically in shops"
+    },
+    {
+      "good_id": "limestone",
+      "status": "proposed_not_active",
+      "primary_channel": "b2b_wholesale_contract_or_exchange",
+      "retail_store_types": [],
+      "note": "Industrial/intermediate or unclassified for consumer retail; may be sold B2B, not automatically in shops"
+    },
+    {
+      "good_id": "logs",
+      "status": "proposed_not_active",
+      "primary_channel": "b2b_wholesale_contract_or_exchange",
+      "retail_store_types": [],
+      "note": "Industrial/intermediate or unclassified for consumer retail; may be sold B2B, not automatically in shops"
+    },
+    {
+      "good_id": "lubricant_base",
+      "status": "proposed_not_active",
+      "primary_channel": "b2b_wholesale_contract_or_exchange",
+      "retail_store_types": [],
+      "note": "Industrial/intermediate or unclassified for consumer retail; may be sold B2B, not automatically in shops"
+    },
+    {
+      "good_id": "lubricant_pack",
+      "status": "proposed_not_active",
+      "primary_channel": "retail",
+      "retail_store_types": [
+        "hardware_store"
+      ],
+      "note": "Finished consumer good, conditional on packaging/safety"
+    },
+    {
+      "good_id": "milk_bottle",
+      "status": "proposed_not_active",
+      "primary_channel": "retail",
+      "retail_store_types": [
+        "dairy_store"
+      ],
+      "note": "Finished consumer good, conditional on packaging/safety"
+    },
+    {
+      "good_id": "milk_powder",
+      "status": "proposed_not_active",
+      "primary_channel": "retail",
+      "retail_store_types": [
+        "grocery_store"
+      ],
+      "note": "Finished consumer good, conditional on packaging/safety"
+    },
+    {
+      "good_id": "mortar_mix",
+      "status": "proposed_not_active",
+      "primary_channel": "retail",
+      "retail_store_types": [
+        "building_materials_store"
+      ],
+      "note": "Finished consumer good, conditional on packaging/safety"
+    },
+    {
+      "good_id": "oat_flakes",
+      "status": "proposed_not_active",
+      "primary_channel": "retail",
+      "retail_store_types": [
+        "grocery_store"
+      ],
+      "note": "Finished consumer good, conditional on packaging/safety"
+    },
+    {
+      "good_id": "oat_grain",
+      "status": "proposed_not_active",
+      "primary_channel": "b2b_wholesale_contract_or_exchange",
+      "retail_store_types": [],
+      "note": "Industrial/intermediate or unclassified for consumer retail; may be sold B2B, not automatically in shops"
+    },
+    {
+      "good_id": "onion",
+      "status": "proposed_not_active",
+      "primary_channel": "b2b_wholesale_contract_or_exchange",
+      "retail_store_types": [],
+      "note": "Industrial/intermediate or unclassified for consumer retail; may be sold B2B, not automatically in shops"
+    },
+    {
+      "good_id": "onion_pack",
+      "status": "proposed_not_active",
+      "primary_channel": "retail",
+      "retail_store_types": [
+        "produce_store"
+      ],
+      "note": "Finished consumer good, conditional on packaging/safety"
+    },
+    {
+      "good_id": "packed_furniture_table",
+      "status": "proposed_not_active",
+      "primary_channel": "retail",
+      "retail_store_types": [
+        "furniture_store"
+      ],
+      "note": "Finished consumer good, conditional on packaging/safety"
+    },
+    {
+      "good_id": "paper",
+      "status": "proposed_not_active",
+      "primary_channel": "b2b_wholesale_contract_or_exchange",
+      "retail_store_types": [],
+      "note": "Industrial/intermediate or unclassified for consumer retail; may be sold B2B, not automatically in shops"
+    },
+    {
+      "good_id": "paper_bag",
+      "status": "proposed_not_active",
+      "primary_channel": "retail",
+      "retail_store_types": [
+        "homeware_store"
+      ],
+      "note": "Finished consumer good, conditional on packaging/safety"
+    },
+    {
+      "good_id": "paper_pack",
+      "status": "proposed_not_active",
+      "primary_channel": "b2b_wholesale_contract_or_exchange",
+      "retail_store_types": [],
+      "note": "Industrial/intermediate or unclassified for consumer retail; may be sold B2B, not automatically in shops"
+    },
+    {
+      "good_id": "paper_roll",
+      "status": "proposed_not_active",
+      "primary_channel": "b2b_wholesale_contract_or_exchange",
+      "retail_store_types": [],
+      "note": "Industrial/intermediate or unclassified for consumer retail; may be sold B2B, not automatically in shops"
+    },
+    {
+      "good_id": "particle_board",
+      "status": "proposed_not_active",
+      "primary_channel": "retail",
+      "retail_store_types": [
+        "building_materials_store"
+      ],
+      "note": "Finished consumer good, conditional on packaging/safety"
+    },
+    {
+      "good_id": "pasta_dough",
+      "status": "proposed_not_active",
+      "primary_channel": "b2b_wholesale_contract_or_exchange",
+      "retail_store_types": [],
+      "note": "Industrial/intermediate or unclassified for consumer retail; may be sold B2B, not automatically in shops"
+    },
+    {
+      "good_id": "pasteurized_milk",
+      "status": "proposed_not_active",
+      "primary_channel": "b2b_wholesale_contract_or_exchange",
+      "retail_store_types": [],
+      "note": "Industrial/intermediate or unclassified for consumer retail; may be sold B2B, not automatically in shops"
+    },
+    {
+      "good_id": "paving_slab",
+      "status": "proposed_not_active",
+      "primary_channel": "retail",
+      "retail_store_types": [
+        "building_materials_store"
+      ],
+      "note": "Finished consumer good, conditional on packaging/safety"
+    },
+    {
+      "good_id": "plastic_bottle",
+      "status": "proposed_not_active",
+      "primary_channel": "b2b_wholesale_contract_or_exchange",
+      "retail_store_types": [],
+      "note": "Industrial/intermediate or unclassified for consumer retail; may be sold B2B, not automatically in shops"
+    },
+    {
+      "good_id": "plastic_container",
+      "status": "proposed_not_active",
+      "primary_channel": "retail",
+      "retail_store_types": [
+        "homeware_store"
+      ],
+      "note": "Finished consumer good, conditional on packaging/safety"
+    },
+    {
+      "good_id": "plastic_film",
+      "status": "proposed_not_active",
+      "primary_channel": "b2b_wholesale_contract_or_exchange",
+      "retail_store_types": [],
+      "note": "Industrial/intermediate or unclassified for consumer retail; may be sold B2B, not automatically in shops"
+    },
+    {
+      "good_id": "plastic_packaging",
+      "status": "proposed_not_active",
+      "primary_channel": "b2b_wholesale_contract_or_exchange",
+      "retail_store_types": [],
+      "note": "Industrial/intermediate or unclassified for consumer retail; may be sold B2B, not automatically in shops"
+    },
+    {
+      "good_id": "plastic_pipe",
+      "status": "proposed_not_active",
+      "primary_channel": "retail",
+      "retail_store_types": [
+        "building_materials_store"
+      ],
+      "note": "Finished consumer good, conditional on packaging/safety"
+    },
+    {
+      "good_id": "plastic_resin",
+      "status": "proposed_not_active",
+      "primary_channel": "b2b_wholesale_contract_or_exchange",
+      "retail_store_types": [],
+      "note": "Industrial/intermediate or unclassified for consumer retail; may be sold B2B, not automatically in shops"
+    },
+    {
+      "good_id": "plywood",
+      "status": "proposed_not_active",
+      "primary_channel": "retail",
+      "retail_store_types": [
+        "building_materials_store"
+      ],
+      "note": "Finished consumer good, conditional on packaging/safety"
+    },
+    {
+      "good_id": "potato",
+      "status": "proposed_not_active",
+      "primary_channel": "b2b_wholesale_contract_or_exchange",
+      "retail_store_types": [],
+      "note": "Industrial/intermediate or unclassified for consumer retail; may be sold B2B, not automatically in shops"
+    },
+    {
+      "good_id": "potato_pack",
+      "status": "proposed_not_active",
+      "primary_channel": "retail",
+      "retail_store_types": [
+        "produce_store"
+      ],
+      "note": "Finished consumer good, conditional on packaging/safety"
+    },
+    {
+      "good_id": "potato_starch",
+      "status": "proposed_not_active",
+      "primary_channel": "retail",
+      "retail_store_types": [
+        "grocery_store"
+      ],
+      "note": "Finished consumer good, conditional on packaging/safety"
+    },
+    {
+      "good_id": "quartz_sand",
+      "status": "proposed_not_active",
+      "primary_channel": "b2b_wholesale_contract_or_exchange",
+      "retail_store_types": [],
+      "note": "Industrial/intermediate or unclassified for consumer retail; may be sold B2B, not automatically in shops"
+    },
+    {
+      "good_id": "raw_milk",
+      "status": "proposed_not_active",
+      "primary_channel": "b2b_wholesale_contract_or_exchange",
+      "retail_store_types": [],
+      "note": "Industrial/intermediate or unclassified for consumer retail; may be sold B2B, not automatically in shops"
+    },
+    {
+      "good_id": "rebar",
+      "status": "proposed_not_active",
+      "primary_channel": "b2b_wholesale_contract_or_exchange",
+      "retail_store_types": [],
+      "note": "Industrial/intermediate or unclassified for consumer retail; may be sold B2B, not automatically in shops"
+    },
+    {
+      "good_id": "recycled_glass_melt",
+      "status": "proposed_not_active",
+      "primary_channel": "b2b_wholesale_contract_or_exchange",
+      "retail_store_types": [],
+      "note": "Industrial/intermediate or unclassified for consumer retail; may be sold B2B, not automatically in shops"
+    },
+    {
+      "good_id": "refined_fuel",
+      "status": "proposed_not_active",
+      "primary_channel": "b2b_wholesale_contract_or_exchange",
+      "retail_store_types": [],
+      "note": "Industrial/intermediate or unclassified for consumer retail; may be sold B2B, not automatically in shops"
+    },
+    {
+      "good_id": "reinforced_concrete",
+      "status": "proposed_not_active",
+      "primary_channel": "b2b_wholesale_contract_or_exchange",
+      "retail_store_types": [],
+      "note": "Industrial/intermediate or unclassified for consumer retail; may be sold B2B, not automatically in shops"
+    },
+    {
+      "good_id": "roof_tile",
+      "status": "proposed_not_active",
+      "primary_channel": "retail",
+      "retail_store_types": [
+        "building_materials_store"
+      ],
+      "note": "Finished consumer good, conditional on packaging/safety"
+    },
+    {
+      "good_id": "rye_bread",
+      "status": "proposed_not_active",
+      "primary_channel": "retail",
+      "retail_store_types": [
+        "grocery_store"
+      ],
+      "note": "Finished consumer good, conditional on packaging/safety"
+    },
+    {
+      "good_id": "rye_dough",
+      "status": "proposed_not_active",
+      "primary_channel": "b2b_wholesale_contract_or_exchange",
+      "retail_store_types": [],
+      "note": "Industrial/intermediate or unclassified for consumer retail; may be sold B2B, not automatically in shops"
+    },
+    {
+      "good_id": "rye_flour",
+      "status": "proposed_not_active",
+      "primary_channel": "b2b_wholesale_contract_or_exchange",
+      "retail_store_types": [],
+      "note": "Industrial/intermediate or unclassified for consumer retail; may be sold B2B, not automatically in shops"
+    },
+    {
+      "good_id": "rye_grain",
+      "status": "proposed_not_active",
+      "primary_channel": "b2b_wholesale_contract_or_exchange",
+      "retail_store_types": [],
+      "note": "Industrial/intermediate or unclassified for consumer retail; may be sold B2B, not automatically in shops"
+    },
+    {
+      "good_id": "sawn_timber",
+      "status": "proposed_not_active",
+      "primary_channel": "b2b_wholesale_contract_or_exchange",
+      "retail_store_types": [],
+      "note": "Industrial/intermediate or unclassified for consumer retail; may be sold B2B, not automatically in shops"
+    },
+    {
+      "good_id": "skimmed_milk",
+      "status": "proposed_not_active",
+      "primary_channel": "retail",
+      "retail_store_types": [
+        "dairy_store"
+      ],
+      "note": "Finished consumer good, conditional on packaging/safety"
+    },
+    {
+      "good_id": "soda_ash",
+      "status": "proposed_not_active",
+      "primary_channel": "b2b_wholesale_contract_or_exchange",
+      "retail_store_types": [],
+      "note": "Industrial/intermediate or unclassified for consumer retail; may be sold B2B, not automatically in shops"
+    },
+    {
+      "good_id": "sour_cream",
+      "status": "proposed_not_active",
+      "primary_channel": "retail",
+      "retail_store_types": [
+        "dairy_store"
+      ],
+      "note": "Finished consumer good, conditional on packaging/safety"
+    },
+    {
+      "good_id": "sunflower_oil",
+      "status": "proposed_not_active",
+      "primary_channel": "b2b_wholesale_contract_or_exchange",
+      "retail_store_types": [],
+      "note": "Industrial/intermediate or unclassified for consumer retail; may be sold B2B, not automatically in shops"
+    },
+    {
+      "good_id": "sunflower_oil_bottle",
+      "status": "proposed_not_active",
+      "primary_channel": "retail",
+      "retail_store_types": [
+        "grocery_store"
+      ],
+      "note": "Finished consumer good, conditional on packaging/safety"
+    },
+    {
+      "good_id": "sunflower_seed",
+      "status": "proposed_not_active",
+      "primary_channel": "b2b_wholesale_contract_or_exchange",
+      "retail_store_types": [],
+      "note": "Industrial/intermediate or unclassified for consumer retail; may be sold B2B, not automatically in shops"
+    },
+    {
+      "good_id": "tomato",
+      "status": "proposed_not_active",
+      "primary_channel": "b2b_wholesale_contract_or_exchange",
+      "retail_store_types": [],
+      "note": "Industrial/intermediate or unclassified for consumer retail; may be sold B2B, not automatically in shops"
+    },
+    {
+      "good_id": "tomato_paste",
+      "status": "proposed_not_active",
+      "primary_channel": "b2b_wholesale_contract_or_exchange",
+      "retail_store_types": [],
+      "note": "Industrial/intermediate or unclassified for consumer retail; may be sold B2B, not automatically in shops"
+    },
+    {
+      "good_id": "tomato_sauce",
+      "status": "proposed_not_active",
+      "primary_channel": "retail",
+      "retail_store_types": [
+        "grocery_store"
+      ],
+      "note": "Finished consumer good, conditional on packaging/safety"
+    },
+    {
+      "good_id": "washed_carrot",
+      "status": "proposed_not_active",
+      "primary_channel": "b2b_wholesale_contract_or_exchange",
+      "retail_store_types": [],
+      "note": "Industrial/intermediate or unclassified for consumer retail; may be sold B2B, not automatically in shops"
+    },
+    {
+      "good_id": "washed_potato",
+      "status": "proposed_not_active",
+      "primary_channel": "b2b_wholesale_contract_or_exchange",
+      "retail_store_types": [],
+      "note": "Industrial/intermediate or unclassified for consumer retail; may be sold B2B, not automatically in shops"
+    },
+    {
+      "good_id": "wheat_bran",
+      "status": "proposed_not_active",
+      "primary_channel": "b2b_wholesale_contract_or_exchange",
+      "retail_store_types": [],
+      "note": "Industrial/intermediate or unclassified for consumer retail; may be sold B2B, not automatically in shops"
+    },
+    {
+      "good_id": "wheat_flour",
+      "status": "proposed_not_active",
+      "primary_channel": "b2b_wholesale_contract_or_exchange",
+      "retail_store_types": [],
+      "note": "Industrial/intermediate or unclassified for consumer retail; may be sold B2B, not automatically in shops"
+    },
+    {
+      "good_id": "wheat_grain",
+      "status": "proposed_not_active",
+      "primary_channel": "b2b_wholesale_contract_or_exchange",
+      "retail_store_types": [],
+      "note": "Industrial/intermediate or unclassified for consumer retail; may be sold B2B, not automatically in shops"
+    },
+    {
+      "good_id": "whey",
+      "status": "proposed_not_active",
+      "primary_channel": "b2b_wholesale_contract_or_exchange",
+      "retail_store_types": [],
+      "note": "Industrial/intermediate or unclassified for consumer retail; may be sold B2B, not automatically in shops"
+    },
+    {
+      "good_id": "wood_chips",
+      "status": "proposed_not_active",
+      "primary_channel": "b2b_wholesale_contract_or_exchange",
+      "retail_store_types": [],
+      "note": "Industrial/intermediate or unclassified for consumer retail; may be sold B2B, not automatically in shops"
+    },
+    {
+      "good_id": "wood_pellets",
+      "status": "proposed_not_active",
+      "primary_channel": "retail",
+      "retail_store_types": [
+        "hardware_store"
+      ],
+      "note": "Finished consumer good, conditional on packaging/safety"
+    },
+    {
+      "good_id": "wood_pulp",
+      "status": "proposed_not_active",
+      "primary_channel": "b2b_wholesale_contract_or_exchange",
+      "retail_store_types": [],
+      "note": "Industrial/intermediate or unclassified for consumer retail; may be sold B2B, not automatically in shops"
+    },
+    {
+      "good_id": "yogurt",
+      "status": "proposed_not_active",
+      "primary_channel": "retail",
+      "retail_store_types": [
+        "dairy_store"
+      ],
+      "note": "Finished consumer good, conditional on packaging/safety"
+    },
+    {
+      "good_id": "yogurt_base",
+      "status": "proposed_not_active",
+      "primary_channel": "b2b_wholesale_contract_or_exchange",
+      "retail_store_types": [],
+      "note": "Industrial/intermediate or unclassified for consumer retail; may be sold B2B, not automatically in shops"
+    }
+  ],
+  "terminal_goods_without_consumer_store": [
+    "bitumen",
+    "buttermilk",
+    "carton_box",
+    "concrete_panel",
+    "diesel_fraction",
+    "gasoline_fraction",
+    "glass_fiber",
+    "glass_packaging",
+    "glass_sheet",
+    "plastic_packaging",
+    "recycled_glass_melt",
+    "refined_fuel",
+    "reinforced_concrete",
+    "whey"
+  ],
+  "requires_review": [
+    "Food safety and packaging for unwrapped or unpacked products",
+    "Building materials shop versus project-based B2B procurement",
+    "Animal feed packaging, intended buyer and safety",
+    "Household demand for fuel/industrial goods should not be assumed",
+    "Multi-store cross-listing and city availability require explicit rules"
+  ]
+}

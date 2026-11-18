@@ -1,0 +1,353 @@
+{
+  "status": "proposed_not_executable",
+  "scope": "16 grain scenarios, not approved executable recipes",
+  "units": "grams for mass goods; counts for loaves/packs; site requirement is a location/capacity right",
+  "assumptions": "All quantities except explicitly sourced bread/milling pilot values are provisional game balance hypotheses; no safety or equipment compatibility certification.",
+  "profiles": [
+    {
+      "recipe_id": "R-WHEAT-GRAIN",
+      "recipe_version": 1,
+      "status": "proposed_not_executable",
+      "batch_inputs": {},
+      "site_requirement": {
+        "wheat_field": 1
+      },
+      "utility_requirements": [],
+      "batch_outputs": {
+        "wheat_grain": 10000
+      },
+      "equipment_class_hypothesis": "field",
+      "energy_wh_per_batch_hypothesis": 250,
+      "workers_per_line_hypothesis": 2,
+      "minimum_batches_hypothesis": 1,
+      "quality_rule": "unverified; must be explicitly specified before activation",
+      "mass_residue_g_if_comparable": null,
+      "source_status": "game_design_hypothesis_not_industrial_measurement"
+    },
+    {
+      "recipe_id": "R-WHEAT-FLOUR",
+      "recipe_version": 2,
+      "status": "proposed_not_executable",
+      "batch_inputs": {
+        "wheat_grain": 10000
+      },
+      "site_requirement": {},
+      "utility_requirements": [],
+      "batch_outputs": {
+        "wheat_flour": 7400,
+        "wheat_bran": 1333
+      },
+      "equipment_class_hypothesis": "mill",
+      "energy_wh_per_batch_hypothesis": 500,
+      "workers_per_line_hypothesis": 1,
+      "minimum_batches_hypothesis": 1,
+      "quality_rule": "unverified; must be explicitly specified before activation",
+      "mass_residue_g_if_comparable": 1267,
+      "source_status": "game_design_hypothesis_not_industrial_measurement"
+    },
+    {
+      "recipe_id": "R-BREAD-DOUGH",
+      "recipe_version": 2,
+      "status": "proposed_not_executable",
+      "batch_inputs": {
+        "wheat_flour": 900,
+        "water": 680,
+        "yeast": 14,
+        "salt": 18
+      },
+      "site_requirement": {},
+      "utility_requirements": [],
+      "batch_outputs": {
+        "bread_dough": 1612
+      },
+      "equipment_class_hypothesis": "mixer",
+      "energy_wh_per_batch_hypothesis": 32,
+      "workers_per_line_hypothesis": 1,
+      "minimum_batches_hypothesis": 1,
+      "quality_rule": "unverified; must be explicitly specified before activation",
+      "mass_residue_g_if_comparable": 0,
+      "source_status": "game_design_hypothesis_not_industrial_measurement"
+    },
+    {
+      "recipe_id": "R-BREAD-LOAF",
+      "recipe_version": 1,
+      "status": "proposed_not_executable",
+      "batch_inputs": {
+        "bread_dough": 1612
+      },
+      "site_requirement": {},
+      "utility_requirements": [
+        "energy"
+      ],
+      "batch_outputs": {
+        "bread_loaf": 3
+      },
+      "equipment_class_hypothesis": "oven",
+      "energy_wh_per_batch_hypothesis": 420,
+      "workers_per_line_hypothesis": 1,
+      "minimum_batches_hypothesis": 1,
+      "quality_rule": "unverified; must be explicitly specified before activation",
+      "mass_residue_g_if_comparable": null,
+      "source_status": "game_design_hypothesis_not_industrial_measurement"
+    },
+    {
+      "recipe_id": "R-BREAD-PACK",
+      "recipe_version": 1,
+      "status": "proposed_not_executable",
+      "batch_inputs": {
+        "bread_loaf": 3,
+        "paper_pack": 3
+      },
+      "site_requirement": {},
+      "utility_requirements": [],
+      "batch_outputs": {
+        "bread_pack": 3
+      },
+      "equipment_class_hypothesis": "packing",
+      "energy_wh_per_batch_hypothesis": 20,
+      "workers_per_line_hypothesis": 1,
+      "minimum_batches_hypothesis": 1,
+      "quality_rule": "unverified; must be explicitly specified before activation",
+      "mass_residue_g_if_comparable": null,
+      "source_status": "game_design_hypothesis_not_industrial_measurement"
+    },
+    {
+      "recipe_id": "R-BARLEY-GRAIN",
+      "recipe_version": 1,
+      "status": "proposed_not_executable",
+      "batch_inputs": {},
+      "site_requirement": {
+        "barley_field": 1
+      },
+      "utility_requirements": [],
+      "batch_outputs": {
+        "barley_grain": 10000
+      },
+      "equipment_class_hypothesis": "field",
+      "energy_wh_per_batch_hypothesis": 250,
+      "workers_per_line_hypothesis": 2,
+      "minimum_batches_hypothesis": 1,
+      "quality_rule": "unverified; must be explicitly specified before activation",
+      "mass_residue_g_if_comparable": null,
+      "source_status": "game_design_hypothesis_not_industrial_measurement"
+    },
+    {
+      "recipe_id": "R-BARLEY-FLOUR",
+      "recipe_version": 1,
+      "status": "proposed_not_executable",
+      "batch_inputs": {
+        "barley_grain": 10000
+      },
+      "site_requirement": {},
+      "utility_requirements": [],
+      "batch_outputs": {
+        "barley_flour": 7600
+      },
+      "equipment_class_hypothesis": "mill",
+      "energy_wh_per_batch_hypothesis": 500,
+      "workers_per_line_hypothesis": 1,
+      "minimum_batches_hypothesis": 1,
+      "quality_rule": "unverified; must be explicitly specified before activation",
+      "mass_residue_g_if_comparable": 2400,
+      "source_status": "game_design_hypothesis_not_industrial_measurement"
+    },
+    {
+      "recipe_id": "R-RYE-GRAIN",
+      "recipe_version": 1,
+      "status": "proposed_not_executable",
+      "batch_inputs": {},
+      "site_requirement": {
+        "rye_field": 1
+      },
+      "utility_requirements": [],
+      "batch_outputs": {
+        "rye_grain": 10000
+      },
+      "equipment_class_hypothesis": "field",
+      "energy_wh_per_batch_hypothesis": 250,
+      "workers_per_line_hypothesis": 2,
+      "minimum_batches_hypothesis": 1,
+      "quality_rule": "unverified; must be explicitly specified before activation",
+      "mass_residue_g_if_comparable": null,
+      "source_status": "game_design_hypothesis_not_industrial_measurement"
+    },
+    {
+      "recipe_id": "R-RYE-FLOUR",
+      "recipe_version": 1,
+      "status": "proposed_not_executable",
+      "batch_inputs": {
+        "rye_grain": 10000
+      },
+      "site_requirement": {},
+      "utility_requirements": [],
+      "batch_outputs": {
+        "rye_flour": 7500
+      },
+      "equipment_class_hypothesis": "mill",
+      "energy_wh_per_batch_hypothesis": 500,
+      "workers_per_line_hypothesis": 1,
+      "minimum_batches_hypothesis": 1,
+      "quality_rule": "unverified; must be explicitly specified before activation",
+      "mass_residue_g_if_comparable": 2500,
+      "source_status": "game_design_hypothesis_not_industrial_measurement"
+    },
+    {
+      "recipe_id": "R-RYE-DOUGH",
+      "recipe_version": 1,
+      "status": "proposed_not_executable",
+      "batch_inputs": {
+        "rye_flour": 900,
+        "water": 720,
+        "yeast": 14
+      },
+      "site_requirement": {},
+      "utility_requirements": [],
+      "batch_outputs": {
+        "rye_dough": 1634
+      },
+      "equipment_class_hypothesis": "mixer",
+      "energy_wh_per_batch_hypothesis": 35,
+      "workers_per_line_hypothesis": 1,
+      "minimum_batches_hypothesis": 1,
+      "quality_rule": "unverified; must be explicitly specified before activation",
+      "mass_residue_g_if_comparable": 0,
+      "source_status": "game_design_hypothesis_not_industrial_measurement"
+    },
+    {
+      "recipe_id": "R-RYE-BREAD",
+      "recipe_version": 1,
+      "status": "proposed_not_executable",
+      "batch_inputs": {
+        "rye_dough": 1634
+      },
+      "site_requirement": {},
+      "utility_requirements": [
+        "energy"
+      ],
+      "batch_outputs": {
+        "rye_bread": 3
+      },
+      "equipment_class_hypothesis": "oven",
+      "energy_wh_per_batch_hypothesis": 450,
+      "workers_per_line_hypothesis": 1,
+      "minimum_batches_hypothesis": 1,
+      "quality_rule": "unverified; must be explicitly specified before activation",
+      "mass_residue_g_if_comparable": 1634,
+      "source_status": "game_design_hypothesis_not_industrial_measurement"
+    },
+    {
+      "recipe_id": "R-OAT-GRAIN",
+      "recipe_version": 1,
+      "status": "proposed_not_executable",
+      "batch_inputs": {},
+      "site_requirement": {
+        "oat_field": 1
+      },
+      "utility_requirements": [],
+      "batch_outputs": {
+        "oat_grain": 10000
+      },
+      "equipment_class_hypothesis": "field",
+      "energy_wh_per_batch_hypothesis": 250,
+      "workers_per_line_hypothesis": 2,
+      "minimum_batches_hypothesis": 1,
+      "quality_rule": "unverified; must be explicitly specified before activation",
+      "mass_residue_g_if_comparable": null,
+      "source_status": "game_design_hypothesis_not_industrial_measurement"
+    },
+    {
+      "recipe_id": "R-OAT-FLAKES",
+      "recipe_version": 1,
+      "status": "proposed_not_executable",
+      "batch_inputs": {
+        "oat_grain": 10000
+      },
+      "site_requirement": {},
+      "utility_requirements": [
+        "energy"
+      ],
+      "batch_outputs": {
+        "oat_flakes": 7600
+      },
+      "equipment_class_hypothesis": "roller",
+      "energy_wh_per_batch_hypothesis": 550,
+      "workers_per_line_hypothesis": 1,
+      "minimum_batches_hypothesis": 1,
+      "quality_rule": "unverified; must be explicitly specified before activation",
+      "mass_residue_g_if_comparable": 2400,
+      "source_status": "game_design_hypothesis_not_industrial_measurement"
+    },
+    {
+      "recipe_id": "R-ANIMAL-FEED",
+      "recipe_version": 1,
+      "status": "proposed_not_executable",
+      "batch_inputs": {
+        "wheat_bran": 400,
+        "barley_grain": 600
+      },
+      "site_requirement": {},
+      "utility_requirements": [],
+      "batch_outputs": {
+        "animal_feed": 1000
+      },
+      "equipment_class_hypothesis": "feed_mixer",
+      "energy_wh_per_batch_hypothesis": 80,
+      "workers_per_line_hypothesis": 1,
+      "minimum_batches_hypothesis": 1,
+      "quality_rule": "unverified; must be explicitly specified before activation",
+      "mass_residue_g_if_comparable": 0,
+      "source_status": "game_design_hypothesis_not_industrial_measurement"
+    },
+    {
+      "recipe_id": "R-PASTA-DOUGH",
+      "recipe_version": 1,
+      "status": "proposed_not_executable",
+      "batch_inputs": {
+        "wheat_flour": 1000,
+        "water": 450
+      },
+      "site_requirement": {},
+      "utility_requirements": [],
+      "batch_outputs": {
+        "pasta_dough": 1450
+      },
+      "equipment_class_hypothesis": "pasta_mixer",
+      "energy_wh_per_batch_hypothesis": 70,
+      "workers_per_line_hypothesis": 1,
+      "minimum_batches_hypothesis": 1,
+      "quality_rule": "unverified; must be explicitly specified before activation",
+      "mass_residue_g_if_comparable": 0,
+      "source_status": "game_design_hypothesis_not_industrial_measurement"
+    },
+    {
+      "recipe_id": "R-DRY-PASTA",
+      "recipe_version": 1,
+      "status": "proposed_not_executable",
+      "batch_inputs": {
+        "pasta_dough": 1450
+      },
+      "site_requirement": {},
+      "utility_requirements": [
+        "energy"
+      ],
+      "batch_outputs": {
+        "dry_pasta": 1120
+      },
+      "equipment_class_hypothesis": "dryer",
+      "energy_wh_per_batch_hypothesis": 800,
+      "workers_per_line_hypothesis": 1,
+      "minimum_batches_hypothesis": 1,
+      "quality_rule": "unverified; must be explicitly specified before activation",
+      "mass_residue_g_if_comparable": 330,
+      "source_status": "game_design_hypothesis_not_industrial_measurement"
+    }
+  ],
+  "activation_blockers": [
+    "quality and food/feed safety",
+    "site/crop yield rules",
+    "equipment compatibility and 3x3 layout",
+    "loss/residue classification",
+    "economic pricing and margin sensitivity",
+    "warehouse lots, reservations, sale delay, delivery integration"
+  ]
+}

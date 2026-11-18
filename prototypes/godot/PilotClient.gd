@@ -5,11 +5,14 @@ var world: String
 var token: String
 
 func configure(url: String, world_id: String, access_token: String) -> bool:
- var url_pattern := RegEx.create_from_string("^http://127\\.0\\.0\\.1:[1-9][0-9]{0,4}$")
+ var url_pattern := RegEx.create_from_string("^https://[A-Za-z0-9.-]+(?::[1-9][0-9]{0,4})?(?:/[A-Za-z0-9_-]+)*$|^http://127\\.0\\.0\\.1:[1-9][0-9]{0,4}$")
  var world_pattern := RegEx.create_from_string("^[A-Za-z0-9_-]{1,128}$")
  if url_pattern.search(url) == null or world_pattern.search(world_id) == null:
   return false
- var port := int(url.get_slice(":", 2))
+ var authority := url.trim_prefix("https://").get_slice("/", 0)
+ var port := int(authority.get_slice(":", 1)) if authority.contains(":") else 443
+ if url.begins_with("http://"):
+  port = int(url.get_slice(":", 2))
  if port > 65535 or access_token.length() < 24 or access_token.length() > 512:
   return false
  if access_token.contains("\r") or access_token.contains("\n"):
@@ -32,7 +35,10 @@ func send(method: HTTPClient.Method, path: String, body: String = "") -> Diction
  request.max_redirects = 0
  request.body_size_limit = 65536
  add_child(request)
- var headers := PackedStringArray(["Authorization: Bearer " + token, "Content-Type: application/json"])
+ var headers := PackedStringArray([
+  "Authorization: Bearer " + token,
+  "Content-Type: application/json",
+ ])
  var start := request.request(base_url + "/v1/worlds/" + world + path, headers, method, body)
  if start != OK:
   request.queue_free()

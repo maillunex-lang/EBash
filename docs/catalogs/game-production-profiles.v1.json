@@ -1,0 +1,112 @@
+{
+  "schema_version": 1,
+  "profile_set": "bashbabki-game-balance-v1",
+  "status": "approved_game_balance_v1",
+  "basis": "Explicit game balance assumptions, not measured industrial standards",
+  "unit_conventions": {
+    "mass": "g",
+    "energy": "Wh per batch",
+    "money": "kopecks",
+    "workers": "simultaneous operators per active production line, not multiplied by batch count",
+    "quality": "1..100"
+  },
+  "production_rules": {
+    "minimum_batch_policy": "whole recipe batches only",
+    "output_sale_delay_ticks": 1,
+    "delivered_inputs_available_delay_ticks": 1,
+    "shared_capacity": "deduct energy, personnel and equipment capacity atomically once per line and tick",
+    "quality_weights_percent": {
+      "raw_material": 30,
+      "technology": 25,
+      "equipment": 20,
+      "personnel": 15,
+      "conditions": 10
+    },
+    "quality_rounding": "nearest integer, .5 upward",
+    "missing_required_parameter": "block execution",
+    "unapproved_catalog_recipe": "block execution",
+    "capacity_accounting": "equipment capacity measured in recipe batches per tick; one active line consumes its workers once; energy and operation cost scale with batches"
+  },
+  "profiles": [
+    {
+      "id": "GAME-WHEAT-FLOUR-V1",
+      "recipe_id": "R-WHEAT-FLOUR",
+      "recipe_version": 2,
+      "minimum_batches": 1,
+      "batch_inputs": {
+        "wheat_grain": 10000
+      },
+      "batch_outputs": {
+        "wheat_flour": 7400
+      },
+      "unstocked_residue_g": 2600,
+      "equipment_type": "roller_mill_sifter",
+      "equipment_capacity_batches_per_tick": 2,
+      "energy_wh_per_batch": 500,
+      "quality_floor": 45,
+      "quality_reference": 70,
+      "game_operation_cost_kopecks": 12000,
+      "notes": "Bran fraction not stockable until split is defined",
+      "workers_per_active_line": 1
+    },
+    {
+      "id": "GAME-BREAD-DOUGH-V1",
+      "recipe_id": "R-BREAD-DOUGH",
+      "recipe_version": 2,
+      "minimum_batches": 1,
+      "batch_inputs": {
+        "wheat_flour": 900,
+        "water": 680,
+        "salt": 18,
+        "yeast": 14
+      },
+      "batch_outputs": {
+        "bread_dough": 1612
+      },
+      "equipment_type": "spiral_mixer",
+      "equipment_capacity_batches_per_tick": 11,
+      "energy_wh_per_batch": 32,
+      "quality_floor": 45,
+      "quality_reference": 70,
+      "game_operation_cost_kopecks": 700,
+      "notes": "One batch equals one reference recipe portion; capacity of 11 portions is an illustrative mixer bound",
+      "workers_per_active_line": 1
+    },
+    {
+      "id": "GAME-BREAD-LOAF-V1",
+      "recipe_id": "R-BREAD-LOAF",
+      "recipe_version": 1,
+      "minimum_batches": 1,
+      "batch_inputs": {
+        "bread_dough": 1612
+      },
+      "batch_outputs": {
+        "bread_loaf": 3
+      },
+      "unstocked_bake_loss_g": 187,
+      "assumed_loaf_mass_g": 475,
+      "equipment_type": "proofer_oven",
+      "equipment_capacity_batches_per_tick": 10,
+      "energy_wh_per_batch": 438,
+      "quality_floor": 45,
+      "quality_reference": 70,
+      "game_operation_cost_kopecks": 1050,
+      "notes": "Loss and loaf mass are game assumptions; 8 batches produce 24 loaves; 438 Wh x 8 = 3504 Wh",
+      "workers_per_active_line": 1
+    }
+  ],
+  "economy_reference": {
+    "starting_cash_kopecks": 200000,
+    "grain_purchase_kopecks_per_10000g": 30000,
+    "other_ingredients_purchase_kopecks_for_8_portions": 18000,
+    "flour_delivery_kopecks": 12000,
+    "total_mixing_and_baking_kopecks_for_8_portions": 14000,
+    "loaf_sale_price_kopecks": 4500,
+    "reference_output_loaves": 24,
+    "reference_cash_after_sale_kopecks": 234000,
+    "reference_profit_kopecks": 35135,
+    "reference_leftover_flour_g": 200,
+    "price_policy": "illustrative baseline, not fixed market price"
+  },
+  "approval_scope": "game-only parameters for isolated test profile execution; no automatic DES-004 draft catalog activation or production migration"
+}
